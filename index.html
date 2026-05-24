@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>WD Journey Stamp Collection</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;font-family:'Segoe UI',Tahoma,sans-serif}
@@ -66,72 +65,36 @@ body{background:#f0f4ff;min-height:100vh}
 .br-name{font-size:14px;font-weight:800}
 .br-c .br-name{color:#1c4eb4}.br-r .br-name{color:#059669}.br-e .br-name{color:#d97706}.br-i .br-name{color:#7c3aed}
 .br-sub{font-size:10px;color:#9ca3af;margin-top:1px}
-.br-btn{padding:9px 16px;border-radius:20px;border:none;font-size:11px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:5px;transition:all .2s;flex-shrink:0;white-space:nowrap}
-.br-btn:active{transform:scale(.95)}
-.br-c .br-btn{background:linear-gradient(135deg,#1c4eb4,#2563eb);color:#fff;box-shadow:0 3px 10px rgba(28,78,180,0.4)}
-.br-r .br-btn{background:linear-gradient(135deg,#059669,#10b981);color:#fff;box-shadow:0 3px 10px rgba(5,150,105,0.4)}
-.br-e .br-btn{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff;box-shadow:0 3px 10px rgba(217,119,6,0.4)}
-.br-i .br-btn{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;box-shadow:0 3px 10px rgba(124,58,237,0.4)}
-.br-btn.stamped{background:#f0fdf4;color:#059669;cursor:default;box-shadow:none;border:1.5px solid #bbf7d0}
+.br-status{font-size:11px;font-weight:700;padding:7px 14px;border-radius:20px;flex-shrink:0;white-space:nowrap}
+.br-status.pending{background:#f0f4ff;color:#93c5fd;border:1.5px dashed #bfdbfe}
+.br-status.done-st{background:#f0fdf4;color:#059669;border:1.5px solid #bbf7d0}
 .done-badge{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:8px;font-weight:800;border-radius:20px;padding:2px 7px}
 .complete-banner{margin:12px 14px 0;background:linear-gradient(135deg,#1c4eb4,#2563eb,#7c3aed);border-radius:16px;padding:16px;text-align:center;display:none;animation:banIn .5s ease;box-shadow:0 6px 24px rgba(28,78,180,0.35)}
 @keyframes banIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 .complete-banner.show{display:block}
 .cb-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px}
 .cb-sub{font-size:12px;color:#bfdbfe}
-.qr-screen{display:none;position:fixed;inset:0;z-index:200;background:#000;flex-direction:column}
-.qr-screen.show{display:flex}
-.qr-topbar{background:#0f1f3d;padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
-.qr-back{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.qr-topbar-info{flex:1;min-width:0}
-.qr-topbar-title{font-size:15px;font-weight:700;color:#f7fafc}
-.qr-topbar-sub{font-size:11px;color:#90cdf4;margin-top:2px}
-.qr-badge{padding:4px 14px;border-radius:20px;font-size:12px;font-weight:800;flex-shrink:0}
-.qr-cam{flex:1;position:relative;overflow:hidden;min-height:0;background:#111}
-#qrVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-#qrCanvas{display:none}
-.start-overlay{position:absolute;inset:0;background:rgba(5,10,25,0.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:10}
-.start-overlay.hidden{display:none}
-.start-cam-btn{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#7c3aed);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;animation:ripple 2s infinite}
-@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(96,165,250,0.5)}70%{box-shadow:0 0 0 30px rgba(96,165,250,0)}100%{box-shadow:0 0 0 0 rgba(96,165,250,0)}}
-.start-cam-btn:active{transform:scale(.93)}
-.start-cam-label{color:#fff;font-size:18px;font-weight:900}
-.start-cam-sub{color:#93c5fd;font-size:13px;text-align:center;padding:0 20px;line-height:1.5}
-.start-booth-name{color:#60a5fa;font-weight:900}
-.qr-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:2}
-.qr-dim-top{width:100%;flex:1;background:rgba(0,0,0,0.5)}
-.qr-dim-bot{width:100%;flex:1;background:rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:14px}
-.qr-dim-row{display:flex;width:100%;align-items:stretch}
-.qr-dim-side{flex:1;background:rgba(0,0,0,0.5)}
-.qr-frame{width:240px;height:240px;position:relative;flex-shrink:0}
-.qc{position:absolute;width:36px;height:36px;border-color:#60a5fa;border-style:solid}
-.qc.tl{top:0;left:0;border-width:4px 0 0 4px;border-radius:6px 0 0 0}
-.qc.tr{top:0;right:0;border-width:4px 4px 0 0;border-radius:0 6px 0 0}
-.qc.bl{bottom:0;left:0;border-width:0 0 4px 4px;border-radius:0 0 0 6px}
-.qc.br{bottom:0;right:0;border-width:0 4px 4px 0;border-radius:0 0 6px 0}
-.qr-scan-line{position:absolute;left:4px;right:4px;height:2px;background:linear-gradient(90deg,transparent,#60a5fa,transparent);animation:scanline 2s linear infinite}
-@keyframes scanline{0%{top:4px}100%{top:calc(100% - 4px)}}
-.qr-label{background:rgba(0,0,0,0.78);border-radius:12px;padding:10px 20px;text-align:center}
-.qr-label p{color:#e2e8f0;font-size:13px;line-height:1.5}
-.qr-label strong{color:#60a5fa;font-size:14px}
-.qr-success-flash{position:absolute;inset:0;background:rgba(16,185,129,0.35);display:none;align-items:center;justify-content:center;z-index:8}
-.qr-success-flash.show{display:flex;animation:fo .7s ease forwards}
-.qr-error-flash{position:absolute;inset:0;background:rgba(239,68,68,0.3);display:none;align-items:center;justify-content:center;z-index:8;flex-direction:column;gap:14px}
-.qr-error-flash.show{display:flex;animation:fo 1.4s ease forwards}
-@keyframes fo{0%{opacity:1}100%{opacity:0}}
-.qr-error-bubble{background:rgba(150,10,10,0.95);color:#fff;font-size:14px;font-weight:700;padding:12px 20px;border-radius:14px;text-align:center;max-width:80%;line-height:1.5}
-.qr-bottom{background:#0f1f3d;padding:10px 16px 16px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;display:flex;flex-direction:column;gap:6px}
-.qr-status-row{display:flex;align-items:center;gap:8px}
-.qr-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.qr-dot.waiting{background:#475569}
-.qr-dot.loading{background:#f59e0b;animation:blink 1s infinite}
-.qr-dot.ready{background:#10b981;animation:blink 1.5s infinite}
-.qr-dot.error{background:#ef4444}
-.qr-dot.success{background:#10b981}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.qr-status-txt{font-size:12px;color:#90cdf4;flex:1}
-.qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:14px;word-break:break-all;line-height:1.4}
-.qr-close-btn{padding:11px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
+
+/* STAMP POPUP */
+.stamp-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;align-items:center;justify-content:center;padding:20px}
+.stamp-modal.show{display:flex}
+.stamp-sheet{background:#fff;border-radius:24px;width:100%;max-width:360px;padding:28px 22px 24px;text-align:center;animation:popIn .35s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes popIn{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+.sm-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 18px;border-radius:20px;font-size:14px;font-weight:800;margin-bottom:16px}
+.sm-icon-wrap{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.sm-title{font-size:20px;font-weight:900;color:#1e293b;margin-bottom:6px}
+.sm-sub{font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:18px}
+.sm-name-lbl{font-size:12px;font-weight:700;color:#374151;text-align:left;margin-bottom:6px}
+.sm-name-in{width:100%;padding:12px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:15px;outline:none;font-family:inherit;margin-bottom:8px}
+.sm-name-in:focus{border-color:#2563eb}
+.sm-dept-in{width:100%;padding:10px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:13px;outline:none;font-family:inherit;margin-bottom:16px;color:#374151}
+.sm-dept-in:focus{border-color:#2563eb}
+.sm-confirm-btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:16px;font-weight:800;color:#fff;cursor:pointer;transition:transform .1s}
+.sm-confirm-btn:active{transform:scale(.97)}
+.sm-already{background:#f0fdf4;color:#059669;font-size:14px;font-weight:700;padding:14px;border-radius:12px;margin-bottom:12px;display:none}
+.sm-close{font-size:13px;color:#9ca3af;cursor:pointer;margin-top:10px;display:block}
+
+/* COMPLETE MODAL */
 .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
 .modal-sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;animation:sheetUp .4s ease;text-align:center}
@@ -145,6 +108,8 @@ body{background:#f0f4ff;min-height:100vh}
 .modal-sub{font-size:13px;color:#6b7280;margin-top:5px;line-height:1.6}
 .modal-eco{font-size:12px;color:#059669;margin-top:6px;font-weight:600}
 .modal-btn{margin-top:16px;width:100%;padding:14px;background:linear-gradient(135deg,#1c4eb4,#7c3aed);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer}
+
+/* ADMIN */
 .al-wrap{max-width:400px;margin:0 auto;padding:60px 20px}
 .al-card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:0 8px 40px rgba(28,78,180,0.12);text-align:center;border:1.5px solid #e0eaff}
 .al-logo{width:54px;height:54px;border-radius:50%;object-fit:contain;margin-bottom:10px}
@@ -162,6 +127,7 @@ body{background:#f0f4ff;min-height:100vh}
 .ad-title{font-size:18px;font-weight:900;color:#1c4eb4}
 .ad-sub{font-size:11px;color:#6b7280;margin-top:1px;display:flex;align-items:center;gap:5px}
 .sync-dot{width:7px;height:7px;border-radius:50%;background:#10b981;display:inline-block;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .ad-logout{font-size:12px;color:#ef4444;cursor:pointer;padding:6px 14px;border-radius:20px;border:1.5px solid #fecaca;background:#fff5f5;font-weight:700}
 .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
 .stat-card{background:#fff;border-radius:14px;padding:16px 14px;box-shadow:0 2px 12px rgba(28,78,180,0.08);position:relative;overflow:hidden;border:1.5px solid #e0eaff}
@@ -224,6 +190,7 @@ body{background:#f0f4ff;min-height:100vh}
 </head>
 <body>
 
+<!-- USER PAGE -->
 <div class="page active" id="pageUser">
   <div class="user-wrap">
     <div class="u-header">
@@ -252,55 +219,35 @@ body{background:#f0f4ff;min-height:100vh}
     </div>
     <div class="complete-banner" id="completeBanner"><div class="cb-title">🎉 จิ๊กซอว์สมบูรณ์!</div><div class="cb-sub">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div></div>
     <div class="booth-section">
-      <div class="booth-divider">เลือกบูทเพื่อแสตมป์</div>
+      <div class="booth-divider">สถานะการแสตมป์</div>
       <div class="booth-list" id="boothList"></div>
     </div>
   </div>
 </div>
 
-<div class="qr-screen" id="qrScreen">
-  <div class="qr-topbar">
-    <button class="qr-back" onclick="closeQR()">‹</button>
-    <div class="qr-topbar-info">
-      <div class="qr-topbar-title">สแกน QR Code</div>
-      <div class="qr-topbar-sub" id="qrTopSub">กดปุ่มกล้อง</div>
+<!-- STAMP POPUP — เปิดเมื่อสแกน QR แล้วเปิด URL นี้ -->
+<div class="stamp-modal" id="stampModal">
+  <div class="stamp-sheet">
+    <div class="sm-badge" id="smBadge"></div>
+    <div class="sm-icon-wrap" id="smIconWrap"></div>
+    <div class="sm-title" id="smTitle">แสตมป์บูท</div>
+    <div class="sm-sub" id="smSub">กรอกชื่อเพื่อรับแสตมป์</div>
+    <div id="smAlready" class="sm-already">✅ บูทนี้แสตมป์แล้ว!</div>
+    <div id="smForm">
+      <div class="sm-name-lbl">ชื่อ-นามสกุล *</div>
+      <input class="sm-name-in" id="smNameIn" type="text" placeholder="กรอกชื่อ-นามสกุล" autocomplete="name"/>
+      <input class="sm-dept-in" id="smDeptIn" type="text" placeholder="แผนก (ไม่บังคับ)"/>
+      <button class="sm-confirm-btn" id="smConfirmBtn" onclick="confirmStamp()">รับแสตมป์บูทนี้ ✓</button>
     </div>
-    <span class="qr-badge" id="qrBadge"></span>
-  </div>
-  <div class="qr-cam">
-    <video id="qrVideo" autoplay playsinline muted webkit-playsinline></video>
-    <canvas id="qrCanvas"></canvas>
-    <div class="start-overlay" id="startOverlay">
-      <button class="start-cam-btn" onclick="startCameraFromBtn()">
-        <svg viewBox="0 0 24 24" fill="none" width="56" height="56"><rect x="1" y="6" width="22" height="14" rx="3" stroke="white" stroke-width="1.8"/><circle cx="12" cy="13" r="4" stroke="white" stroke-width="1.8"/><path d="M8 6V5a2 2 0 012-2h4a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-      <div class="start-cam-label">กดเปิดกล้อง</div>
-      <div class="start-cam-sub">สแกน QR บูท <span class="start-booth-name" id="startBoothName"></span></div>
-    </div>
-    <div class="qr-success-flash" id="qrFlash"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="43" fill="#10b981"/><path d="M25 45l15 15 25-25" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
-    <div class="qr-error-flash" id="qrErrorFlash"><svg viewBox="0 0 90 90" width="90" height="90"><circle cx="45" cy="45" r="43" fill="#ef4444"/><path d="M30 30l30 30M60 30L30 60" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg><div class="qr-error-bubble" id="qrErrorText">QR ไม่ตรง</div></div>
-    <div class="qr-overlay">
-      <div class="qr-dim-top"></div>
-      <div class="qr-dim-row"><div class="qr-dim-side"></div><div class="qr-frame"><div class="qc tl"></div><div class="qc tr"></div><div class="qc bl"></div><div class="qc br"></div><div class="qr-scan-line"></div></div><div class="qr-dim-side"></div></div>
-      <div class="qr-dim-bot"><div class="qr-label"><p>นำ QR Code บูท <strong id="qrHintName"></strong> เข้ากรอบ</p></div></div>
-    </div>
-  </div>
-  <div class="qr-bottom">
-    <div class="qr-status-row"><div class="qr-dot waiting" id="qrDot"></div><div class="qr-status-txt" id="qrTxt">กดปุ่มกล้องเพื่อเริ่ม</div></div>
-    <div class="qr-debug" id="qrDebug"></div>
-    <button class="qr-close-btn" onclick="closeQR()">✕ ปิด / ยกเลิก</button>
+    <span class="sm-close" onclick="closeStampModal()">ปิด / กลับหน้าหลัก</span>
   </div>
 </div>
 
+<!-- COMPLETE MODAL -->
 <div class="modal-wrap" id="modalWrap">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
-    <div class="modal-jig">
-      <div class="mj pos-tl"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div>
-      <div class="mj pos-tr"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div>
-      <div class="mj pos-bl"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div>
-      <div class="mj pos-br"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div>
-    </div>
+    <div class="modal-jig"><div class="mj pos-tl"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div><div class="mj pos-tr"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div><div class="mj pos-bl"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div><div class="mj pos-br"><img src="https://i.imgur.com/NZIscuH.png" alt=""/></div></div>
     <div class="modal-title">🏆 จิ๊กซอว์สมบูรณ์!</div>
     <div class="modal-sub">คุณได้รับแสตมป์ครบทั้ง 4 บูทแล้ว<br>ข้อมูลถูกบันทึกลง Google Sheets เรียบร้อย</div>
     <div class="modal-eco">🌿 ลดการใช้กระดาษ รักษ์โลกมากขึ้น</div>
@@ -308,6 +255,7 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- ADMIN LOGIN -->
 <div class="page" id="pageAdminLogin">
   <div class="al-wrap">
     <div class="al-card">
@@ -322,6 +270,7 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- ADMIN DASHBOARD -->
 <div class="page" id="pageAdmin">
   <div class="ad-wrap">
     <div class="ad-topbar">
@@ -363,72 +312,117 @@ body{background:#f0f4ff;min-height:100vh}
 <script>
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 
-/* ══════════════════════════════════════════════════════════════════
-   🔑 matchQR — รองรับ URL ทุก repo ของ sakorn564
-   รองรับ QR ที่สร้างจาก URL เหล่านี้:
-   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=customer
-   https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=customer
-   หรือ text รหัส WD-JOURNEY-BOOTH-CUSTOMER
-   ══════════════════════════════════════════════════════════════════ */
-function matchQR(raw) {
-  if (!raw) return null;
-  var s = raw.trim();
-
-  /* วิธี 1: URL parse — รองรับทุก sakorn564 URL */
-  try {
-    var u = new URL(s);
-    var b = u.searchParams.get('booth');
-    if (b) {
-      b = b.toLowerCase().trim();
-      if (b==='customer'||b==='result'||b==='excellent'||b==='innovation') return b;
-    }
-  } catch(e){}
-
-  /* วิธี 2: regex ?booth= */
-  var m = s.match(/[?&]booth=([a-zA-Z]+)/i);
-  if (m) {
-    var b2 = m[1].toLowerCase();
-    if (b2==='customer'||b2==='result'||b2==='excellent'||b2==='innovation') return b2;
-  }
-
-  /* วิธี 3: keyword ใน string */
-  var up = s.toUpperCase();
-  if (up.indexOf('CUSTOMER')   !== -1) return 'customer';
-  if (up.indexOf('RESULT')     !== -1) return 'result';
-  if (up.indexOf('EXCELLENT')  !== -1) return 'excellent';
-  if (up.indexOf('INNOVATION') !== -1) return 'innovation';
-
-  return null;
-}
-
 var BOOTHS=[
   {id:'customer',  label:'Customer',   sub:'บูทเกี่ยวกับลูกค้า',  cls:'br-c', jpId:'jp-customer',  color:'#1c4eb4', badgeBg:'#eff6ff',
+   icon:'<svg viewBox="0 0 24 24" fill="none" width="30" height="30"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'},
   {id:'result',    label:'Result',     sub:'บูทเกี่ยวกับผลลัพธ์', cls:'br-r', jpId:'jp-result',    color:'#059669', badgeBg:'#f0fdf4',
+   icon:'<svg viewBox="0 0 24 24" fill="none" width="30" height="30"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>'},
   {id:'excellent', label:'Excellent',  sub:'บูทความเป็นเลิศ',     cls:'br-e', jpId:'jp-excellent', color:'#d97706', badgeBg:'#fffbeb',
+   icon:'<svg viewBox="0 0 24 24" fill="none" width="30" height="30"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>'},
   {id:'innovation',label:'Innovation', sub:'บูทนวัตกรรม',          cls:'br-i', jpId:'jp-innovation',color:'#7c3aed', badgeBg:'#f5f3ff',
+   icon:'<svg viewBox="0 0 24 24" fill="none" width="30" height="30"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
 ];
 
 var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด'],['อนุชา ดีเลิศ','ฝ่ายผลิต'],['กานดา สุขใจ','ฝ่าย QA'],['พงษ์ศักดิ์ ชาญวิทย์','ฝ่ายวิศวกรรม'],['รัตนา พรมมา','ฝ่ายจัดซื้อ']];
 var stamped={customer:false,result:false,excellent:false,innovation:false};
 var participantDB=[],curPage=1,PER=8,pendingAction=null;
-var currentBooth=null,videoStream=null,scanInterval=null,scanLocked=false;
+var pendingBoothId=null;
 
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 
+/* ══════════════════════════════════════════════════════════════
+   🔑 KEY FUNCTION: อ่าน ?booth= จาก URL ทุก format
+   รองรับ:
+   - https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=customer
+   - https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=customer
+   ══════════════════════════════════════════════════════════════ */
+function getBoothFromURL() {
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var b = params.get('booth');
+    if (b) {
+      b = b.toLowerCase().trim();
+      if (b==='customer'||b==='result'||b==='excellent'||b==='innovation') return b;
+    }
+  } catch(e) {}
+  return null;
+}
+
+/* open stamp popup */
+function openStampPopup(boothId) {
+  var b = BOOTHS.find(function(x){return x.id===boothId;});
+  if (!b) return;
+  pendingBoothId = boothId;
+
+  /* badge */
+  var badge = document.getElementById('smBadge');
+  badge.innerHTML = b.icon + ' ' + b.label;
+  badge.style.background = b.badgeBg;
+  badge.style.color = b.color;
+
+  /* icon circle */
+  var iw = document.getElementById('smIconWrap');
+  iw.innerHTML = b.icon;
+  iw.style.background = b.badgeBg;
+
+  /* texts */
+  document.getElementById('smTitle').textContent = 'แสตมป์บูท ' + b.label;
+  document.getElementById('smSub').textContent = 'คุณอยู่ที่บูท ' + b.label + ' — กรอกชื่อเพื่อรับแสตมป์';
+
+  /* button color */
+  var btn = document.getElementById('smConfirmBtn');
+  btn.style.background = 'linear-gradient(135deg,' + b.color + ',' + b.color + 'bb)';
+
+  /* pre-fill existing name */
+  var n = document.getElementById('empName').value.trim();
+  var d = document.getElementById('empDept').value.trim();
+  if (n) document.getElementById('smNameIn').value = n;
+  if (d) document.getElementById('smDeptIn').value = d;
+
+  /* already stamped? */
+  if (stamped[boothId]) {
+    document.getElementById('smAlready').style.display = 'block';
+    document.getElementById('smForm').style.display = 'none';
+  } else {
+    document.getElementById('smAlready').style.display = 'none';
+    document.getElementById('smForm').style.display = 'block';
+  }
+
+  document.getElementById('stampModal').classList.add('show');
+  /* clear URL param ไม่ให้ reload แล้ว popup เปิดซ้ำ */
+  window.history.replaceState({}, '', window.location.pathname);
+}
+
+function confirmStamp() {
+  var name = document.getElementById('smNameIn').value.trim();
+  if (!name) {showToast('⚠️ กรุณากรอกชื่อ','error'); document.getElementById('smNameIn').focus(); return;}
+  var dept = document.getElementById('smDeptIn').value.trim() || 'ไม่ระบุแผนก';
+  document.getElementById('empName').value = name;
+  document.getElementById('empDept').value = dept;
+  var cap = pendingBoothId;
+  closeStampModal();
+  doStamp(cap);
+}
+
+function closeStampModal() {
+  document.getElementById('stampModal').classList.remove('show');
+  pendingBoothId = null;
+}
+
+/* build booth list */
 function buildBooths(){
   document.getElementById('boothList').innerHTML=BOOTHS.map(function(b){
     var done=stamped[b.id];
-    var btn=done
-      ?'<button class="br-btn stamped" disabled><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><path d="M5 12l5 5L19 7" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>แสตมป์แล้ว</button>'
-      :'<button class="br-btn" onclick="openQR(\''+b.id+'\')"><svg viewBox="0 0 24 24" fill="none" width="14" height="14"><rect x="1" y="5" width="22" height="14" rx="2.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="1.8"/><path d="M8 5V4a2 2 0 012-2h4a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>แสตมป์!</button>';
-    return '<div class="booth-row '+b.cls+(done?' done':'')+'">'+( done?'<div class="done-badge">✓</div>':'')+
+    return '<div class="booth-row '+b.cls+(done?' done':'')+'">'+
+      (done?'<div class="done-badge">✓</div>':'')+
       '<div class="br-icon">'+b.svg+'</div>'+
       '<div class="br-info"><div class="br-name">'+b.label+'</div><div class="br-sub">'+b.sub+'</div></div>'+
-      btn+'</div>';
+      '<div class="br-status '+(done?'done-st':'pending')+'">'+(done?'✓ แล้ว':'รอสแกน QR')+'</div>'+
+      '</div>';
   }).join('');
 }
 
@@ -439,167 +433,40 @@ function updateJigsaw(){
   document.getElementById('progFill').style.width=(n/4*100)+'%';
 }
 
-function openQR(id){
-  if(stamped[id])return;
-  if(!document.getElementById('empName').value.trim()){showToast('⚠️ กรุณากรอกชื่อก่อนแสตมป์','error');return;}
-  currentBooth=id; scanLocked=false;
-  var b=BOOTHS.find(function(x){return x.id===id;});
-  var badge=document.getElementById('qrBadge');
-  badge.textContent=b.label; badge.style.background=b.badgeBg; badge.style.color=b.color;
-  document.getElementById('qrHintName').textContent=b.label;
-  document.getElementById('qrTopSub').textContent='บูท '+b.label;
-  document.getElementById('startBoothName').textContent=b.label;
-  document.getElementById('startOverlay').classList.remove('hidden');
-  document.getElementById('qrFlash').classList.remove('show');
-  document.getElementById('qrErrorFlash').classList.remove('show');
-  document.getElementById('qrDebug').textContent='';
-  setStatus('waiting','กดปุ่มกล้องเพื่อเริ่ม');
-  document.getElementById('qrScreen').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-function startCameraFromBtn(){
-  document.getElementById('startOverlay').classList.add('hidden');
-  setStatus('loading','กำลังเปิดกล้อง...');
-  navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}})
-    .then(function(s){onStream(s);})
-    .catch(function(){
-      navigator.mediaDevices.getUserMedia({video:true})
-        .then(function(s){onStream(s);})
-        .catch(function(e){
-          setStatus('error',e.name==='NotAllowedError'?'ถูกปฏิเสธสิทธิ์กล้อง':'เปิดกล้องไม่ได้');
-          if(e.name==='NotAllowedError') showToast('❌ กรุณาอนุญาตกล้องใน Settings','error');
-        });
-    });
-}
-
-function onStream(stream){
-  videoStream=stream;
-  var v=document.getElementById('qrVideo');
-  v.srcObject=stream; v.play().catch(function(){});
-  var elapsed=0;
-  var t=setInterval(function(){
-    elapsed+=100;
-    if(v.readyState>=2&&v.videoWidth>0){
-      clearInterval(t);
-      var b=BOOTHS.find(function(x){return x.id===currentBooth;});
-      setStatus('ready','กำลังสแกน — บูท '+(b?b.label:''));
-      startScanLoop();
-    }
-    if(elapsed>15000){clearInterval(t);setStatus('error','กล้องไม่ตอบสนอง');}
-  },100);
-}
-
-function tryDecode(imgData,W,H){
-  var d=imgData.data, N=W*H;
-  var lum=new Uint8Array(N);
-  for(var i=0;i<N;i++) lum[i]=Math.round(0.299*d[i*4]+0.587*d[i*4+1]+0.114*d[i*4+2]);
-  function mk(thresh,inv,boost){
-    var out=new Uint8ClampedArray(N*4);
-    for(var i=0;i<N;i++){
-      var v=lum[i];
-      if(boost) v=Math.min(255,Math.max(0,((v-128)*1.8)+128));
-      if(thresh>0) v=(v<thresh)?0:255;
-      if(inv) v=255-v;
-      out[i*4]=out[i*4+1]=out[i*4+2]=v; out[i*4+3]=255;
-    }
-    return new ImageData(out,W,H);
-  }
-  var sets=[
-    [mk(0,false,false),'attemptBoth'],
-    [mk(0,false,true),'attemptBoth'],
-    [mk(128,false,false),'dontInvert'],
-    [mk(128,false,true),'dontInvert'],
-    [mk(128,true,false),'dontInvert'],
-    [mk(100,false,false),'dontInvert'],
-    [mk(100,false,true),'dontInvert'],
-    [mk(160,false,false),'dontInvert'],
-    [mk(80,false,false),'dontInvert'],
-    [mk(60,false,false),'dontInvert'],
-    [mk(200,false,false),'dontInvert'],
-    [imgData,'attemptBoth']
-  ];
-  for(var i=0;i<sets.length;i++){
-    try{var r=jsQR(sets[i][0].data,W,H,{inversionAttempts:sets[i][1]});if(r&&r.data)return r.data;}catch(e){}
-  }
-  return null;
-}
-
-function startScanLoop(){
-  stopScanLoop();
-  var video=document.getElementById('qrVideo');
-  var canvas=document.getElementById('qrCanvas');
-  var ctx=canvas.getContext('2d',{willReadFrequently:true});
-  scanInterval=setInterval(function(){
-    if(scanLocked||!video||video.readyState<2||video.videoWidth===0) return;
-    var W=video.videoWidth, H=video.videoHeight;
-    canvas.width=W; canvas.height=H;
-    ctx.drawImage(video,0,0,W,H);
-    var res=null;
-    var crops=[[0.1,0.1,0.8,0.8],[0.15,0.15,0.7,0.7],[0.2,0.2,0.6,0.6],[0.05,0.05,0.9,0.9],[0,0,1,1]];
-    for(var c=0;c<crops.length&&!res;c++){
-      var cx=Math.floor(W*crops[c][0]),cy=Math.floor(H*crops[c][1]);
-      var cw=Math.floor(W*crops[c][2]),ch=Math.floor(H*crops[c][3]);
-      if(cw>20&&ch>20){try{res=tryDecode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}}
-    }
-    if(res){
-      document.getElementById('qrDebug').textContent='อ่านได้: '+res.substring(0,60);
-      handleResult(res);
-    }
-  },100);
-}
-function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterval=null;}}
-
-function handleResult(data){
-  if(scanLocked) return;
-  var scannedBooth=matchQR(data);
-  document.getElementById('qrDebug').textContent='QR='+data.substring(0,50)+' → '+(scannedBooth||'?');
-  if(scannedBooth===currentBooth){
-    scanLocked=true; stopScanLoop();
-    setStatus('success','สแกนสำเร็จ! ✅');
-    document.getElementById('qrFlash').classList.add('show');
-    var cap=currentBooth;
-    setTimeout(function(){document.getElementById('qrFlash').classList.remove('show');},700);
-    setTimeout(function(){closeQR();setTimeout(function(){doStamp(cap);},150);},900);
-  } else if(scannedBooth!==null){
-    scanLocked=true; stopScanLoop();
-    var bObj=BOOTHS.find(function(x){return x.id===currentBooth;});
-    var found=BOOTHS.find(function(x){return x.id===scannedBooth;});
-    var msg='นี่คือ QR บูท "'+found.label+'" ไม่ใช่บูท "'+bObj.label+'"';
-    document.getElementById('qrErrorText').textContent=msg;
-    document.getElementById('qrErrorFlash').classList.add('show');
-    setStatus('error','QR ไม่ตรง — ลองใหม่');
-    setTimeout(function(){document.getElementById('qrErrorFlash').classList.remove('show');scanLocked=false;setStatus('ready','กำลังสแกน');startScanLoop();},2500);
-  }
-}
-
-function closeQR(){
-  stopScanLoop();
-  if(videoStream){videoStream.getTracks().forEach(function(t){t.stop();});videoStream=null;}
-  var v=document.getElementById('qrVideo');v.pause();v.srcObject=null;
-  document.getElementById('qrScreen').classList.remove('show');
-  document.body.style.overflow=''; currentBooth=null;
-}
-function setStatus(t,m){document.getElementById('qrDot').className='qr-dot '+t;document.getElementById('qrTxt').textContent=m;}
-
 function doStamp(id){
   if(stamped[id]){showToast('✅ บูทนี้แสตมป์แล้ว');return;}
   stamped[id]=true; buildBooths(); updateJigsaw();
   var b=BOOTHS.find(function(x){return x.id===id;});
   showToast('🎉 แสตมป์บูท '+b.label+' สำเร็จ!','success');
+  savePartial(id);
   if(Object.values(stamped).filter(Boolean).length===4){
     document.getElementById('completeBanner').classList.add('show');
-    setTimeout(function(){document.getElementById('modalWrap').classList.add('show');launchConfetti();saveToSheet();},700);
+    setTimeout(function(){document.getElementById('modalWrap').classList.add('show');launchConfetti();saveComplete();},700);
   }
 }
-function saveToSheet(){
+
+function savePartial(boothId){
+  var name=document.getElementById('empName').value.trim()||'ไม่ระบุชื่อ';
+  var dept=document.getElementById('empDept').value.trim()||'ไม่ระบุแผนก';
+  var payload={employeeId:'EMP-'+Date.now(),name:name,department:dept,customer:stamped.customer,result:stamped.result,excellent:stamped.excellent,innovation:stamped.innovation,stampedBooth:boothId};
+  fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){});
+}
+
+function saveComplete(){
   var name=document.getElementById('empName').value.trim()||'ไม่ระบุชื่อ';
   var dept=document.getElementById('empDept').value.trim()||'ไม่ระบุแผนก';
   var now=new Date();
   participantDB.push({id:Date.now(),name:name,dept:dept,customer:true,result:true,excellent:true,innovation:true,complete:true,total:4,time:now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})});
-  fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeId:'EMP-'+Date.now(),name:name,department:dept,customer:stamped.customer,result:stamped.result,excellent:stamped.excellent,innovation:stamped.innovation})}).then(function(){showToast('บันทึกลง Google Sheets ✅');}).catch(function(){});
+  fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeId:'EMP-'+Date.now(),name:name,department:dept,customer:true,result:true,excellent:true,innovation:true})}).then(function(){showToast('บันทึกลง Google Sheets ✅');}).catch(function(){});
 }
-function resetUser(){stamped={customer:false,result:false,excellent:false,innovation:false};document.getElementById('empName').value='';document.getElementById('empDept').value='';buildBooths();updateJigsaw();document.getElementById('completeBanner').classList.remove('show');document.getElementById('modalWrap').classList.remove('show');}
+
+function resetUser(){
+  stamped={customer:false,result:false,excellent:false,innovation:false};
+  document.getElementById('empName').value=''; document.getElementById('empDept').value='';
+  buildBooths(); updateJigsaw();
+  document.getElementById('completeBanner').classList.remove('show');
+  document.getElementById('modalWrap').classList.remove('show');
+}
 function launchConfetti(){var c=['#1c4eb4','#2563eb','#059669','#d97706','#7c3aed','#60a5fa','#34d399','#fbbf24'];for(var i=0;i<60;i++){(function(d){setTimeout(function(){var el=document.createElement('div');el.className='conf';el.style.cssText='left:'+Math.random()*100+'vw;top:-10px;background:'+c[Math.floor(Math.random()*c.length)]+';width:'+(6+Math.random()*8)+'px;height:'+(6+Math.random()*8)+'px;animation-duration:'+(2+Math.random()*2)+'s';document.body.appendChild(el);setTimeout(function(){el.remove();},4000);},d);})(i*50);}}
 var _tt=null;
 function showToast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(type?' '+type:'')+' show';if(_tt)clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},3000);}
@@ -620,7 +487,17 @@ function renderTbl(){var filtered=getFiltered(),total=filtered.length,pages=Math
 function addDemo(){var hours=['08:30','09:15','10:00','10:45','11:20','13:00','13:45','14:30'];for(var i=0;i<5;i++){var nm=DEMO_NAMES[Math.floor(Math.random()*DEMO_NAMES.length)];var isC=Math.random()>.35;var s=isC?{customer:true,result:true,excellent:true,innovation:true}:{customer:Math.random()>.3,result:Math.random()>.4,excellent:Math.random()>.5,innovation:Math.random()>.5};var tot=['customer','result','excellent','innovation'].filter(function(k){return s[k];}).length;participantDB.push({id:Date.now()+i,name:nm[0],dept:nm[1],customer:s.customer,result:s.result,excellent:s.excellent,innovation:s.innovation,total:tot,complete:s.customer&&s.result&&s.excellent&&s.innovation,time:hours[Math.floor(Math.random()*hours.length)]});}updateStats();renderBars();curPage=1;renderTbl();showToast('เพิ่มข้อมูลทดสอบ 5 รายการ ✅','success');}
 function exportCSV(){var filtered=getFiltered();if(filtered.length===0){showToast('ไม่มีข้อมูลให้ Export','error');return;}var h=['#','ชื่อ-นามสกุล','แผนก','Customer','Result','Excellent','Innovation','สถานะ','เวลา'];var rows=filtered.map(function(r,i){return[i+1,r.name,r.dept||'',r.customer?'✓':'✗',r.result?'✓':'✗',r.excellent?'✓':'✗',r.innovation?'✓':'✗',r.complete?'ครบ 4 บูท':(r.total||0)+'/4',r.time||''];});var csv=[h].concat(rows).map(function(row){return row.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='wd-estamp.csv';a.click();URL.revokeObjectURL(url);showToast('Export CSV สำเร็จ ✅','success');}
 document.getElementById('modalWrap').addEventListener('click',function(e){if(e.target===this)resetUser();});
-buildBooths(); updateJigsaw();
+
+/* ═══════════════════════════════════════
+   INIT — ตรวจ URL ?booth= ตอนโหลดหน้า
+   ═══════════════════════════════════════ */
+buildBooths();
+updateJigsaw();
+var urlBooth = getBoothFromURL();
+if (urlBooth) {
+  /* รอ DOM พร้อมก่อนเปิด popup */
+  setTimeout(function(){ openStampPopup(urlBooth); }, 300);
+}
 </script>
 </body>
 </html>
