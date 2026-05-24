@@ -17,7 +17,7 @@ body{background:#f0f4ff;min-height:100vh}
 .u-logo{width:38px;height:38px;border-radius:50%;object-fit:contain;box-shadow:0 4px 14px rgba(0,0,0,0.3)}
 .u-title{font-size:26px;font-weight:900;color:#fff}
 .u-title span{color:#93c5fd}
-.u-subtitle{font-size:12px;color:#93c5fd;margin-top:4px;font-weight:600;position:relative}
+.u-subtitle{font-size:12px;color:#93c5fd;margin-top:4px;font-weight:600}
 .admin-btn{position:absolute;top:16px;right:14px;font-size:11px;color:#93c5fd;cursor:pointer;padding:4px 10px;border-radius:20px;border:1px solid rgba(147,197,253,0.4);background:rgba(255,255,255,0.08);font-weight:600;z-index:2}
 .name-box{margin:14px 14px 0;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 2px 14px rgba(28,78,180,0.09);border:1.5px solid #e0eaff}
 .name-box-title{font-size:11px;font-weight:800;color:#1c4eb4;margin-bottom:8px;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.5px}
@@ -27,6 +27,8 @@ body{background:#f0f4ff;min-height:100vh}
 .d-input{width:120px;padding:10px 12px;border-radius:10px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:13px;outline:none;font-family:inherit}
 .d-input:focus{border-color:#2563eb;background:#fff}
 .name-hint{font-size:10px;color:#93c5fd;margin-top:5px}
+.saved-tag{font-size:10px;color:#059669;font-weight:700;margin-top:4px;display:none}
+.saved-tag.show{display:block}
 .jigsaw-box{margin:12px 14px 0;background:#fff;border-radius:16px;padding:14px;box-shadow:0 2px 14px rgba(28,78,180,0.09);border:1.5px solid #e0eaff}
 .jig-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;aspect-ratio:1/1;border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:0 4px 20px rgba(28,78,180,0.15)}
 .jpiece{position:relative;overflow:hidden;transition:all .5s ease}
@@ -74,11 +76,14 @@ body{background:#f0f4ff;min-height:100vh}
 .br-i .br-btn{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;box-shadow:0 3px 10px rgba(124,58,237,0.4)}
 .br-btn.stamped{background:#f0fdf4;color:#059669;cursor:default;box-shadow:none;border:1.5px solid #bbf7d0}
 .done-badge{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:8px;font-weight:800;border-radius:20px;padding:2px 7px}
-.complete-banner{margin:12px 14px 0;background:linear-gradient(135deg,#1c4eb4,#2563eb,#7c3aed);border-radius:16px;padding:16px;text-align:center;display:none;animation:banIn .5s ease}
+.complete-banner{margin:12px 14px 0;background:linear-gradient(135deg,#1c4eb4,#2563eb,#7c3aed);border-radius:16px;padding:16px;text-align:center;display:none;animation:banIn .5s ease;box-shadow:0 6px 24px rgba(28,78,180,0.35)}
 @keyframes banIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 .complete-banner.show{display:block}
 .cb-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px}
 .cb-sub{font-size:12px;color:#bfdbfe}
+.reset-link{font-size:11px;color:#93c5fd;text-decoration:underline;cursor:pointer;margin-top:6px;display:inline-block}
+
+/* QR SCREEN */
 .qr-screen{display:none;position:fixed;inset:0;z-index:200;background:#000;flex-direction:column}
 .qr-screen.show{display:flex}
 .qr-topbar{background:#0f1f3d;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
@@ -133,6 +138,27 @@ body{background:#f0f4ff;min-height:100vh}
 .qr-status-txt{font-size:11px;color:#90cdf4;flex:1}
 .qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:13px;word-break:break-all}
 .qr-close-btn{padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
+
+/* STAMP POPUP */
+.stamp-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;align-items:center;justify-content:center;padding:20px}
+.stamp-modal.show{display:flex}
+.stamp-sheet{background:#fff;border-radius:24px;width:100%;max-width:360px;padding:28px 22px 24px;text-align:center;animation:popIn .35s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes popIn{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+.sm-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 18px;border-radius:20px;font-size:14px;font-weight:800;margin-bottom:14px}
+.sm-icon-wrap{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.sm-title{font-size:20px;font-weight:900;color:#1e293b;margin-bottom:5px}
+.sm-sub{font-size:13px;color:#6b7280;line-height:1.6;margin-bottom:16px}
+.sm-name-lbl{font-size:12px;font-weight:700;color:#374151;text-align:left;margin-bottom:5px}
+.sm-name-in{width:100%;padding:12px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:15px;outline:none;font-family:inherit;margin-bottom:8px}
+.sm-name-in:focus{border-color:#2563eb}
+.sm-dept-in{width:100%;padding:10px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:13px;outline:none;font-family:inherit;margin-bottom:14px;color:#374151}
+.sm-dept-in:focus{border-color:#2563eb}
+.sm-confirm-btn{width:100%;padding:14px;border:none;border-radius:12px;font-size:16px;font-weight:800;color:#fff;cursor:pointer;transition:transform .1s}
+.sm-confirm-btn:active{transform:scale(.97)}
+.sm-already{background:#f0fdf4;color:#059669;font-size:14px;font-weight:700;padding:14px;border-radius:12px;margin-bottom:12px}
+.sm-close{font-size:13px;color:#9ca3af;cursor:pointer;margin-top:10px;display:block}
+
+/* COMPLETE MODAL */
 .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
 .modal-sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;animation:sheetUp .4s ease;text-align:center}
@@ -146,6 +172,8 @@ body{background:#f0f4ff;min-height:100vh}
 .modal-sub{font-size:13px;color:#6b7280;margin-top:5px;line-height:1.6}
 .modal-eco{font-size:12px;color:#059669;margin-top:6px;font-weight:600}
 .modal-btn{margin-top:16px;width:100%;padding:14px;background:linear-gradient(135deg,#1c4eb4,#7c3aed);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer}
+
+/* ADMIN */
 .al-wrap{max-width:400px;margin:0 auto;padding:60px 20px}
 .al-card{background:#fff;border-radius:20px;padding:32px 24px;box-shadow:0 8px 40px rgba(28,78,180,0.12);text-align:center;border:1.5px solid #e0eaff}
 .al-logo{width:54px;height:54px;border-radius:50%;object-fit:contain;margin-bottom:10px}
@@ -225,6 +253,7 @@ body{background:#f0f4ff;min-height:100vh}
 </head>
 <body>
 
+<!-- USER PAGE -->
 <div class="page active" id="pageUser">
   <div class="user-wrap">
     <div class="u-header">
@@ -237,10 +266,11 @@ body{background:#f0f4ff;min-height:100vh}
     <div class="name-box">
       <div class="name-box-title"><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>ข้อมูลของคุณ</div>
       <div class="name-row">
-        <input class="n-input" id="empName" type="text" placeholder="ชื่อ-นามสกุล *"/>
-        <input class="d-input" id="empDept" type="text" placeholder="แผนก"/>
+        <input class="n-input" id="empName" type="text" placeholder="ชื่อ-นามสกุล *" oninput="saveNameLocal()"/>
+        <input class="d-input" id="empDept" type="text" placeholder="แผนก" oninput="saveNameLocal()"/>
       </div>
-      <div class="name-hint">* กรุณากรอกชื่อก่อนกดแสตมป์</div>
+      <div class="name-hint">* กรอกชื่อครั้งเดียว จำให้ทุกบูท</div>
+      <div class="saved-tag" id="savedTag">✓ จำชื่อแล้ว — ใช้ได้ทุกบูท</div>
     </div>
     <div class="jigsaw-box">
       <div class="jig-grid">
@@ -251,14 +281,19 @@ body{background:#f0f4ff;min-height:100vh}
       </div>
       <div class="prog-row"><span class="prog-label" id="progLabel">แสตมป์แล้ว 0 / 4 บูท</span><div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
     </div>
-    <div class="complete-banner" id="completeBanner"><div class="cb-title">🎉 จิ๊กซอว์สมบูรณ์!</div><div class="cb-sub">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div></div>
+    <div class="complete-banner" id="completeBanner">
+      <div class="cb-title">🎉 จิ๊กซอว์สมบูรณ์!</div>
+      <div class="cb-sub">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div>
+      <span class="reset-link" onclick="resetUser()">เริ่มใหม่ (คนถัดไป)</span>
+    </div>
     <div class="booth-section">
-      <div class="booth-divider">เลือกบูทเพื่อแสตมป์</div>
+      <div class="booth-divider">กดแสตมป์แล้วสแกน QR ที่บูท</div>
       <div class="booth-list" id="boothList"></div>
     </div>
   </div>
 </div>
 
+<!-- QR SCREEN -->
 <div class="qr-screen" id="qrScreen">
   <div class="qr-topbar">
     <button class="qr-back" onclick="closeQR()">‹</button>
@@ -294,6 +329,7 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- COMPLETE MODAL -->
 <div class="modal-wrap" id="modalWrap">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
@@ -301,10 +337,11 @@ body{background:#f0f4ff;min-height:100vh}
     <div class="modal-title">🏆 จิ๊กซอว์สมบูรณ์!</div>
     <div class="modal-sub">คุณได้รับแสตมป์ครบทั้ง 4 บูทแล้ว<br>ข้อมูลถูกบันทึกลง Google Sheets เรียบร้อย</div>
     <div class="modal-eco">🌿 ลดการใช้กระดาษ รักษ์โลกมากขึ้น</div>
-    <button class="modal-btn" onclick="resetUser()">เริ่มใหม่อีกครั้ง</button>
+    <button class="modal-btn" onclick="resetUser()">เริ่มใหม่ (คนถัดไป)</button>
   </div>
 </div>
 
+<!-- ADMIN LOGIN -->
 <div class="page" id="pageAdminLogin">
   <div class="al-wrap">
     <div class="al-card">
@@ -319,6 +356,7 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- ADMIN DASHBOARD -->
 <div class="page" id="pageAdmin">
   <div class="ad-wrap">
     <div class="ad-topbar">
@@ -359,7 +397,16 @@ body{background:#f0f4ff;min-height:100vh}
 
 <script>
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
+var LS_KEY='wd_estamp_v1';
 
+/* ══ localStorage helpers ══ */
+function lsLoad(){
+  try{var d=JSON.parse(localStorage.getItem(LS_KEY)||'{}');return d;}catch(e){return {};}
+}
+function lsSave(d){try{localStorage.setItem(LS_KEY,JSON.stringify(d));}catch(e){}}
+function lsClear(){try{localStorage.removeItem(LS_KEY);}catch(e){}}
+
+/* ══ matchQR ══ */
 function matchQR(raw){
   if(!raw)return null;
   var s=raw.trim().toUpperCase();
@@ -383,28 +430,45 @@ function matchQR(raw){
 }
 
 var BOOTHS=[
-  {id:'customer',label:'Customer',sub:'บูทเกี่ยวกับลูกค้า',cls:'br-c',jpId:'jp-customer',color:'#1c4eb4',badgeBg:'#eff6ff',
+  {id:'customer', label:'Customer',  sub:'BOOTH 1 — Customer',  cls:'br-c',jpId:'jp-customer', color:'#1c4eb4',badgeBg:'#eff6ff',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'},
-  {id:'result',label:'Result',sub:'บูทเกี่ยวกับผลลัพธ์',cls:'br-r',jpId:'jp-result',color:'#059669',badgeBg:'#f0fdf4',
+  {id:'result',   label:'Result',    sub:'BOOTH 2 — Result',    cls:'br-r',jpId:'jp-result',   color:'#059669',badgeBg:'#f0fdf4',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>'},
-  {id:'excellent',label:'Excellent',sub:'บูทความเป็นเลิศ',cls:'br-e',jpId:'jp-excellent',color:'#d97706',badgeBg:'#fffbeb',
+  {id:'excellent',label:'Excellent', sub:'BOOTH 3 — Excellent',  cls:'br-e',jpId:'jp-excellent',color:'#d97706',badgeBg:'#fffbeb',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>'},
-  {id:'innovation',label:'Innovation',sub:'บูทนวัตกรรม',cls:'br-i',jpId:'jp-innovation',color:'#7c3aed',badgeBg:'#f5f3ff',
+  {id:'innovation',label:'Innovation',sub:'BOOTH 4 — Innovation',cls:'br-i',jpId:'jp-innovation',color:'#7c3aed',badgeBg:'#f5f3ff',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
 ];
 
-var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด'],['อนุชา ดีเลิศ','ฝ่ายผลิต'],['กานดา สุขใจ','ฝ่าย QA'],['พงษ์ศักดิ์ ชาญวิทย์','ฝ่ายวิศวกรรม'],['รัตนา พรมมา','ฝ่ายจัดซื้อ']];
+var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด'],['อนุชา ดีเลิศ','ฝ่ายผลิต'],['กานดา สุขใจ','ฝ่าย QA']];
 var stamped={customer:false,result:false,excellent:false,innovation:false};
 var participantDB=[],curPage=1,PER=8,pendingAction=null;
 var currentBooth=null,videoStream=null,scanInterval=null,scanLocked=false,usingFrontCam=false;
 var barcodeDetector=null;
-
-/* ── ลอง BarcodeDetector API ก่อน (Android Chrome รองรับ) ── */
-if(window.BarcodeDetector){
-  try{barcodeDetector=new window.BarcodeDetector({formats:['qr_code']});}catch(e){barcodeDetector=null;}
-}
+if(window.BarcodeDetector){try{barcodeDetector=new window.BarcodeDetector({formats:['qr_code']});}catch(e){}}
 
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
+
+/* ══ localStorage: โหลดและบันทึก ══ */
+function loadFromLocal(){
+  var d=lsLoad();
+  if(d.name){document.getElementById('empName').value=d.name;document.getElementById('savedTag').classList.add('show');}
+  if(d.dept)document.getElementById('empDept').value=d.dept;
+  if(d.stamped){stamped=d.stamped;}
+}
+function saveNameLocal(){
+  var name=document.getElementById('empName').value.trim();
+  var dept=document.getElementById('empDept').value.trim();
+  var d=lsLoad();
+  d.name=name; d.dept=dept;
+  lsSave(d);
+  document.getElementById('savedTag').classList.toggle('show',name.length>0);
+}
+function saveStampLocal(){
+  var d=lsLoad();
+  d.stamped=stamped;
+  lsSave(d);
+}
 
 function buildBooths(){
   document.getElementById('boothList').innerHTML=BOOTHS.map(function(b){
@@ -424,11 +488,14 @@ function updateJigsaw(){
   var n=Object.values(stamped).filter(Boolean).length;
   document.getElementById('progLabel').textContent='แสตมป์แล้ว '+n+' / 4 บูท';
   document.getElementById('progFill').style.width=(n/4*100)+'%';
+  if(n===4)document.getElementById('completeBanner').classList.add('show');
+  else document.getElementById('completeBanner').classList.remove('show');
 }
 
 function openQR(id){
   if(stamped[id])return;
-  if(!document.getElementById('empName').value.trim()){showToast('⚠️ กรุณากรอกชื่อก่อนแสตมป์','error');return;}
+  var name=document.getElementById('empName').value.trim();
+  if(!name){showToast('⚠️ กรุณากรอกชื่อก่อนแสตมป์','error');return;}
   currentBooth=id; scanLocked=false; usingFrontCam=false;
   var b=BOOTHS.find(function(x){return x.id===id;});
   var badge=document.getElementById('qrBadge');
@@ -463,7 +530,7 @@ function startCameraWith(useFront){
         .then(function(s){usingFrontCam=true;onStream(s);})
         .catch(function(e){
           if(e.name==='NotAllowedError'){setStatus('error','ถูกปฏิเสธสิทธิ์กล้อง');showToast('❌ กรุณาอนุญาตกล้องใน Settings','error');}
-          else setStatus('error','เปิดกล้องไม่ได้: '+e.name);
+          else setStatus('error','เปิดกล้องไม่ได้');
         });
     });
 }
@@ -478,118 +545,70 @@ function onStream(stream){
     if(v.readyState>=2&&v.videoWidth>0){
       clearInterval(t);
       var b=BOOTHS.find(function(x){return x.id===currentBooth;});
-      var camLabel=usingFrontCam?' (กล้องหน้า)':'';
-      setStatus('ready','กำลังสแกน — บูท '+(b?b.label:'')+camLabel);
-      document.getElementById('qrTopSub').textContent='สแกน QR บูท '+(b?b.label:'')+camLabel;
+      var lbl=usingFrontCam?' (กล้องหน้า)':'';
+      setStatus('ready','กำลังสแกน — บูท '+(b?b.label:'')+lbl);
       startScanLoop();
     }
     if(elapsed>15000){clearInterval(t);setStatus('error','กล้องไม่ตอบสนอง');}
   },100);
 }
 
-/* ════ DECODE ENGINE — 16 variants รองรับ LCD screen glare ════ */
+/* ══ DECODE — 15 variants + BarcodeDetector ══ */
 function tryDecodeJsQR(imgData,W,H){
-  var d=imgData.data, N=W*H;
-  var lum=new Uint8Array(N);
-  var r=new Uint8Array(N), g=new Uint8Array(N), b=new Uint8Array(N);
-  for(var i=0;i<N;i++){
-    r[i]=d[i*4]; g[i]=d[i*4+1]; b[i]=d[i*4+2];
-    lum[i]=Math.round(0.299*r[i]+0.587*g[i]+0.114*b[i]);
-  }
-
-  function makeImg(fn){
-    var out=new Uint8ClampedArray(N*4);
-    for(var i=0;i<N;i++){var v=fn(i);out[i*4]=out[i*4+1]=out[i*4+2]=v;out[i*4+3]=255;}
-    return new ImageData(out,W,H);
-  }
-
-  var variants=[
-    /* standard */
-    makeImg(function(i){return lum[i];}),
-    makeImg(function(i){return 255-lum[i];}),
-    /* adaptive threshold ต่างๆ */
-    makeImg(function(i){return lum[i]<128?0:255;}),
-    makeImg(function(i){return lum[i]<100?0:255;}),
-    makeImg(function(i){return lum[i]<150?0:255;}),
-    makeImg(function(i){return lum[i]<80?0:255;}),
-    makeImg(function(i){return lum[i]<170?0:255;}),
-    /* inverted thresholds */
-    makeImg(function(i){return lum[i]<128?255:0;}),
-    makeImg(function(i){return lum[i]<100?255:0;}),
-    /* contrast boost สำหรับ LCD */
-    makeImg(function(i){var v=Math.min(255,Math.max(0,(lum[i]-128)*2+128));return v<128?0:255;}),
-    makeImg(function(i){var v=Math.min(255,Math.max(0,(lum[i]-128)*1.5+128));return v<128?0:255;}),
-    /* channel เดี่ยว (บางครั้ง LCD บิดเฉดสี) */
-    makeImg(function(i){return r[i]<128?0:255;}),
-    makeImg(function(i){return g[i]<128?0:255;}),
-    makeImg(function(i){return b[i]<128?0:255;}),
-    /* raw + inverted raw */
-    imgData
+  var d=imgData.data,N=W*H;
+  var lum=new Uint8Array(N),R=new Uint8Array(N),G=new Uint8Array(N),B=new Uint8Array(N);
+  for(var i=0;i<N;i++){R[i]=d[i*4];G[i]=d[i*4+1];B[i]=d[i*4+2];lum[i]=Math.round(0.299*R[i]+0.587*G[i]+0.114*B[i]);}
+  function mk(fn){var out=new Uint8ClampedArray(N*4);for(var i=0;i<N;i++){var v=fn(i);out[i*4]=out[i*4+1]=out[i*4+2]=v;out[i*4+3]=255;}return new ImageData(out,W,H);}
+  var sets=[
+    [imgData,'attemptBoth'],
+    [mk(function(i){return lum[i];}),'attemptBoth'],
+    [mk(function(i){return 255-lum[i];}),'dontInvert'],
+    [mk(function(i){return lum[i]<128?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<128?255:0;}),'dontInvert'],
+    [mk(function(i){return lum[i]<100?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<150?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<80?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<170?0:255;}),'dontInvert'],
+    [mk(function(i){var v=Math.min(255,Math.max(0,(lum[i]-128)*2+128));return v<128?0:255;}),'dontInvert'],
+    [mk(function(i){var v=Math.min(255,Math.max(0,(lum[i]-128)*1.5+128));return v<128?0:255;}),'dontInvert'],
+    [mk(function(i){return R[i]<128?0:255;}),'dontInvert'],
+    [mk(function(i){return G[i]<128?0:255;}),'dontInvert'],
+    [mk(function(i){return B[i]<128?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<60?0:255;}),'dontInvert']
   ];
-
-  var modes=['attemptBoth','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','dontInvert','attemptBoth'];
-
-  for(var i=0;i<variants.length;i++){
-    try{
-      var res=jsQR(variants[i].data,W,H,{inversionAttempts:modes[i]||'attemptBoth'});
-      if(res&&res.data)return res.data;
-    }catch(e){}
-  }
+  for(var i=0;i<sets.length;i++){try{var r=jsQR(sets[i][0].data,W,H,{inversionAttempts:sets[i][1]});if(r&&r.data)return r.data;}catch(e){}}
   return null;
-}
-
-/* BarcodeDetector (Native Android API — สแกนได้แม้ภาพจาก LCD) */
-function tryBarcodeDetector(video,callback){
-  if(!barcodeDetector||!video||video.readyState<2)return callback(null);
-  barcodeDetector.detect(video)
-    .then(function(codes){callback(codes&&codes.length>0?codes[0].rawValue:null);})
-    .catch(function(){callback(null);});
 }
 
 function startScanLoop(){
   stopScanLoop();
-  var video=document.getElementById('qrVideo');
-  var canvas=document.getElementById('qrCanvas');
+  var video=document.getElementById('qrVideo'),canvas=document.getElementById('qrCanvas');
   var ctx=canvas.getContext('2d',{willReadFrequently:true});
   var fc=0;
-
   scanInterval=setInterval(function(){
     if(scanLocked||!video||video.readyState<2||video.videoWidth===0)return;
     fc++;
     var W=video.videoWidth,H=video.videoHeight;
-    canvas.width=W; canvas.height=H;
+    canvas.width=W;canvas.height=H;
     ctx.drawImage(video,0,0,W,H);
-
-    /* ลอง BarcodeDetector native ก่อน */
-    if(barcodeDetector&&fc%3===0){
-      tryBarcodeDetector(video,function(native){
-        if(native&&!scanLocked){
-          document.getElementById('qrDebug').textContent='Native: '+native.substring(0,50);
-          handleResult(native);
+    /* BarcodeDetector native */
+    if(barcodeDetector&&fc%2===0){
+      barcodeDetector.detect(video).then(function(codes){
+        if(codes&&codes.length>0&&!scanLocked){
+          document.getElementById('qrDebug').textContent='Native: '+codes[0].rawValue.substring(0,40);
+          handleResult(codes[0].rawValue);
         }
-      });
+      }).catch(function(){});
     }
-
-    /* jsQR หลาย crop + หลาย preprocessing */
+    /* jsQR */
     var res=null;
-    var crops=[
-      [0,0,1,1],           /* เต็มภาพ */
-      [0.05,0.05,0.9,0.9], /* 90% */
-      [0.1,0.1,0.8,0.8],   /* 80% */
-      [0.15,0.15,0.7,0.7], /* 70% */
-      [0.2,0.2,0.6,0.6]    /* 60% */
-    ];
+    var crops=[[0,0,1,1],[0.05,0.05,0.9,0.9],[0.1,0.1,0.8,0.8],[0.15,0.15,0.7,0.7],[0.2,0.2,0.6,0.6]];
     for(var c=0;c<crops.length&&!res;c++){
       var cx=Math.floor(W*crops[c][0]),cy=Math.floor(H*crops[c][1]);
       var cw=Math.floor(W*crops[c][2]),ch=Math.floor(H*crops[c][3]);
-      if(cw>10&&ch>10){
-        try{res=tryDecodeJsQR(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}
-      }
+      if(cw>10&&ch>10){try{res=tryDecodeJsQR(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}}
     }
-    if(res){
-      document.getElementById('qrDebug').textContent='jsQR: '+res.substring(0,50);
-      handleResult(res);
-    }
+    if(res){document.getElementById('qrDebug').textContent='jsQR: '+res.substring(0,40);handleResult(res);}
   },80);
 }
 function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterval=null;}}
@@ -597,7 +616,7 @@ function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterva
 function handleResult(data){
   if(scanLocked)return;
   var scanned=matchQR(data);
-  document.getElementById('qrDebug').textContent='QR='+data.substring(0,40)+' → '+(scanned||'?');
+  document.getElementById('qrDebug').textContent='QR='+data.substring(0,35)+' → '+(scanned||'?');
   if(scanned===currentBooth){
     scanLocked=true;stopScanLoop();setStatus('success','✅ สแกนสำเร็จ!');
     document.getElementById('qrFlash').classList.add('show');
@@ -608,8 +627,7 @@ function handleResult(data){
     scanLocked=true;stopScanLoop();
     var bO=BOOTHS.find(function(x){return x.id===currentBooth;});
     var found=BOOTHS.find(function(x){return x.id===scanned;});
-    var msg='นี่คือ QR บูท "'+found.label+'" ไม่ใช่บูท "'+bO.label+'"';
-    document.getElementById('qrErrorText').textContent=msg;
+    document.getElementById('qrErrorText').textContent='นี่คือ QR บูท "'+found.label+'" ไม่ใช่บูท "'+bO.label+'"';
     document.getElementById('qrErrorFlash').classList.add('show');
     setStatus('error','QR ไม่ตรง — ลองใหม่');
     setTimeout(function(){document.getElementById('qrErrorFlash').classList.remove('show');scanLocked=false;setStatus('ready','กำลังสแกน');startScanLoop();},2500);
@@ -624,16 +642,19 @@ function closeQR(){
 }
 function setStatus(t,m){document.getElementById('qrDot').className='qr-dot '+t;document.getElementById('qrTxt').textContent=m;}
 
+/* ══ STAMP — บันทึกลง localStorage ทันที ══ */
 function doStamp(id){
   if(stamped[id]){showToast('✅ บูทนี้แสตมป์แล้ว');return;}
-  stamped[id]=true;buildBooths();updateJigsaw();
+  stamped[id]=true;
+  saveStampLocal(); /* ← บันทึกทันที */
+  buildBooths();updateJigsaw();
   var b=BOOTHS.find(function(x){return x.id===id;});
   showToast('🎉 แสตมป์บูท '+b.label+' สำเร็จ!','success');
   if(Object.values(stamped).filter(Boolean).length===4){
-    document.getElementById('completeBanner').classList.add('show');
     setTimeout(function(){document.getElementById('modalWrap').classList.add('show');launchConfetti();saveToSheet();},700);
   }
 }
+
 function saveToSheet(){
   var name=document.getElementById('empName').value.trim()||'ไม่ระบุชื่อ';
   var dept=document.getElementById('empDept').value.trim()||'ไม่ระบุแผนก';
@@ -641,7 +662,19 @@ function saveToSheet(){
   participantDB.push({id:Date.now(),name:name,dept:dept,customer:true,result:true,excellent:true,innovation:true,complete:true,total:4,time:now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})});
   fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeId:'EMP-'+Date.now(),name:name,department:dept,customer:stamped.customer,result:stamped.result,excellent:stamped.excellent,innovation:stamped.innovation})}).then(function(){showToast('บันทึกลง Google Sheets ✅');}).catch(function(){});
 }
-function resetUser(){stamped={customer:false,result:false,excellent:false,innovation:false};document.getElementById('empName').value='';document.getElementById('empDept').value='';buildBooths();updateJigsaw();document.getElementById('completeBanner').classList.remove('show');document.getElementById('modalWrap').classList.remove('show');}
+
+/* ══ RESET — ล้าง localStorage ด้วย ══ */
+function resetUser(){
+  stamped={customer:false,result:false,excellent:false,innovation:false};
+  lsClear();
+  document.getElementById('empName').value='';
+  document.getElementById('empDept').value='';
+  document.getElementById('savedTag').classList.remove('show');
+  buildBooths();updateJigsaw();
+  document.getElementById('completeBanner').classList.remove('show');
+  document.getElementById('modalWrap').classList.remove('show');
+}
+
 function launchConfetti(){var c=['#1c4eb4','#2563eb','#059669','#d97706','#7c3aed','#60a5fa','#34d399','#fbbf24'];for(var i=0;i<60;i++){(function(d){setTimeout(function(){var el=document.createElement('div');el.className='conf';el.style.cssText='left:'+Math.random()*100+'vw;top:-10px;background:'+c[Math.floor(Math.random()*c.length)]+';width:'+(6+Math.random()*8)+'px;height:'+(6+Math.random()*8)+'px;animation-duration:'+(2+Math.random()*2)+'s';document.body.appendChild(el);setTimeout(function(){el.remove();},4000);},d);})(i*50);}}
 var _tt=null;
 function showToast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast'+(type?' '+type:'')+' show';if(_tt)clearTimeout(_tt);_tt=setTimeout(function(){t.classList.remove('show');},3000);}
@@ -662,7 +695,11 @@ function renderTbl(){var filtered=getFiltered(),total=filtered.length,pages=Math
 function addDemo(){var hours=['08:30','09:15','10:00','10:45','11:20','13:00','13:45','14:30'];for(var i=0;i<5;i++){var nm=DEMO_NAMES[Math.floor(Math.random()*DEMO_NAMES.length)];var isC=Math.random()>.35;var s=isC?{customer:true,result:true,excellent:true,innovation:true}:{customer:Math.random()>.3,result:Math.random()>.4,excellent:Math.random()>.5,innovation:Math.random()>.5};var tot=['customer','result','excellent','innovation'].filter(function(k){return s[k];}).length;participantDB.push({id:Date.now()+i,name:nm[0],dept:nm[1],customer:s.customer,result:s.result,excellent:s.excellent,innovation:s.innovation,total:tot,complete:s.customer&&s.result&&s.excellent&&s.innovation,time:hours[Math.floor(Math.random()*hours.length)]});}updateStats();renderBars();curPage=1;renderTbl();showToast('เพิ่มข้อมูลทดสอบ 5 รายการ ✅','success');}
 function exportCSV(){var filtered=getFiltered();if(filtered.length===0){showToast('ไม่มีข้อมูลให้ Export','error');return;}var h=['#','ชื่อ-นามสกุล','แผนก','Customer','Result','Excellent','Innovation','สถานะ','เวลา'];var rows=filtered.map(function(r,i){return[i+1,r.name,r.dept||'',r.customer?'✓':'✗',r.result?'✓':'✗',r.excellent?'✓':'✗',r.innovation?'✓':'✗',r.complete?'ครบ 4 บูท':(r.total||0)+'/4',r.time||''];});var csv=[h].concat(rows).map(function(row){return row.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='wd-estamp.csv';a.click();URL.revokeObjectURL(url);showToast('Export CSV สำเร็จ ✅','success');}
 document.getElementById('modalWrap').addEventListener('click',function(e){if(e.target===this)resetUser();});
-buildBooths(); updateJigsaw();
+
+/* ── INIT ── */
+loadFromLocal();
+buildBooths();
+updateJigsaw();
 </script>
 </body>
 </html>
