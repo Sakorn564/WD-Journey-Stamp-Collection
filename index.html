@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title> WD Journey Stamp Collection </title>
+<title>WD Journey Stamp Collection</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -363,36 +363,35 @@ body{background:#f0f4ff;min-height:100vh}
 <script>
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 
-/* ══════════════════════════════════════════════════════════════
-   🔑 matchQR — รองรับ URL จริงของ sakorn564 ครบทุก format
-   QR ที่ใช้งาน:
+/* ══════════════════════════════════════════════════════════════════
+   🔑 matchQR — รองรับ URL ทุก repo ของ sakorn564
+   รองรับ QR ที่สร้างจาก URL เหล่านี้:
    https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=customer
-   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=result
-   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=excellent
-   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=innovation
-   ══════════════════════════════════════════════════════════════ */
+   https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=customer
+   หรือ text รหัส WD-JOURNEY-BOOTH-CUSTOMER
+   ══════════════════════════════════════════════════════════════════ */
 function matchQR(raw) {
   if (!raw) return null;
   var s = raw.trim();
 
-  /* ── วิธีที่ 1: URL parse ── */
+  /* วิธี 1: URL parse — รองรับทุก sakorn564 URL */
   try {
     var u = new URL(s);
     var b = u.searchParams.get('booth');
     if (b) {
       b = b.toLowerCase().trim();
-      if (b === 'customer' || b === 'result' || b === 'excellent' || b === 'innovation') return b;
+      if (b==='customer'||b==='result'||b==='excellent'||b==='innovation') return b;
     }
-  } catch(e) {}
+  } catch(e){}
 
-  /* ── วิธีที่ 2: regex จาก string ── */
+  /* วิธี 2: regex ?booth= */
   var m = s.match(/[?&]booth=([a-zA-Z]+)/i);
   if (m) {
     var b2 = m[1].toLowerCase();
-    if (b2 === 'customer' || b2 === 'result' || b2 === 'excellent' || b2 === 'innovation') return b2;
+    if (b2==='customer'||b2==='result'||b2==='excellent'||b2==='innovation') return b2;
   }
 
-  /* ── วิธีที่ 3: keyword ใน string (fallback) ── */
+  /* วิธี 3: keyword ใน string */
   var up = s.toUpperCase();
   if (up.indexOf('CUSTOMER')   !== -1) return 'customer';
   if (up.indexOf('RESULT')     !== -1) return 'result';
@@ -491,7 +490,6 @@ function onStream(stream){
   },100);
 }
 
-/* ════ DECODE — 12 variants + 5 crop sizes ════ */
 function tryDecode(imgData,W,H){
   var d=imgData.data, N=W*H;
   var lum=new Uint8Array(N);
