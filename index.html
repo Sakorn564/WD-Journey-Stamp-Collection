@@ -82,6 +82,8 @@ body{background:#f0f4ff;min-height:100vh}
 .cb-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px}
 .cb-sub{font-size:12px;color:#bfdbfe}
 .reset-link{font-size:11px;color:#93c5fd;text-decoration:underline;cursor:pointer;margin-top:6px;display:inline-block}
+
+/* QR SCREEN */
 .qr-screen{display:none;position:fixed;inset:0;z-index:200;background:#000;flex-direction:column}
 .qr-screen.show{display:flex}
 .qr-topbar{background:#0f1f3d;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
@@ -136,6 +138,24 @@ body{background:#f0f4ff;min-height:100vh}
 .qr-status-txt{font-size:11px;color:#90cdf4;flex:1}
 .qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:13px;word-break:break-all}
 .qr-close-btn{padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
+
+/* NAME POPUP — ขอชื่อหลังสแกนสำเร็จ */
+.name-popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:400;align-items:center;justify-content:center;padding:20px}
+.name-popup.show{display:flex}
+.name-popup-sheet{background:#fff;border-radius:22px;width:100%;max-width:340px;padding:26px 20px 22px;text-align:center;animation:popIn .3s cubic-bezier(.175,.885,.32,1.275)}
+@keyframes popIn{0%{transform:scale(.75);opacity:0}100%{transform:scale(1);opacity:1}}
+.np-icon{width:60px;height:60px;border-radius:50%;background:#f0fdf4;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.np-title{font-size:18px;font-weight:900;color:#1e293b;margin-bottom:4px}
+.np-sub{font-size:13px;color:#6b7280;margin-bottom:16px;line-height:1.5}
+.np-input{width:100%;padding:12px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:15px;outline:none;font-family:inherit;margin-bottom:8px}
+.np-input:focus{border-color:#2563eb}
+.np-dept{width:100%;padding:10px 14px;border-radius:10px;border:2px solid #dbeafe;background:#f8fbff;font-size:13px;outline:none;font-family:inherit;margin-bottom:14px}
+.np-dept:focus{border-color:#2563eb}
+.np-btn{width:100%;padding:13px;border:none;border-radius:11px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+.np-btn:active{transform:scale(.97)}
+.np-skip{font-size:12px;color:#9ca3af;cursor:pointer;margin-top:8px;display:block}
+
+/* COMPLETE MODAL */
 .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
 .modal-sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;animation:sheetUp .4s ease;text-align:center}
@@ -238,12 +258,12 @@ body{background:#f0f4ff;min-height:100vh}
       <div class="admin-btn" onclick="showPage('pageAdminLogin')">⚙ Admin</div>
     </div>
     <div class="name-box">
-      <div class="name-box-title"><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>ข้อมูลของคุณ</div>
+      <div class="name-box-title"><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>ข้อมูลของคุณ (กรอกก่อนหรือหลังสแกนได้)</div>
       <div class="name-row">
-        <input class="n-input" id="empName" type="text" placeholder="ชื่อ-นามสกุล *" oninput="saveNameLocal()"/>
+        <input class="n-input" id="empName" type="text" placeholder="ชื่อ-นามสกุล" oninput="saveNameLocal()"/>
         <input class="d-input" id="empDept" type="text" placeholder="แผนก" oninput="saveNameLocal()"/>
       </div>
-      <div class="name-hint">* กรอกชื่อครั้งเดียว จำให้ทุกบูทอัตโนมัติ</div>
+      <div class="name-hint">กรอกชื่อก่อนหรือระบบจะถามหลังสแกน QR ได้เลย</div>
       <div class="saved-tag" id="savedTag">✓ จำชื่อแล้ว — ใช้ได้ทุกบูท</div>
     </div>
     <div class="jigsaw-box">
@@ -261,12 +281,13 @@ body{background:#f0f4ff;min-height:100vh}
       <span class="reset-link" onclick="resetUser()">เริ่มใหม่ (คนถัดไป)</span>
     </div>
     <div class="booth-section">
-      <div class="booth-divider">กดแสตมป์แล้วสแกน QR ที่บูท</div>
+      <div class="booth-divider">กดปุ่มแล้วสแกน QR ที่บูทได้เลย</div>
       <div class="booth-list" id="boothList"></div>
     </div>
   </div>
 </div>
 
+<!-- QR SCREEN -->
 <div class="qr-screen" id="qrScreen">
   <div class="qr-topbar">
     <button class="qr-back" onclick="closeQR()">‹</button>
@@ -302,6 +323,22 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- NAME POPUP หลังสแกนสำเร็จ -->
+<div class="name-popup" id="namePopup">
+  <div class="name-popup-sheet">
+    <div class="np-icon">
+      <svg viewBox="0 0 24 24" fill="none" width="30" height="30"><path d="M5 12l5 5L19 7" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="np-title">สแกนสำเร็จ! 🎉</div>
+    <div class="np-sub" id="npSub">กรอกชื่อเพื่อรับแสตมป์บูทนี้</div>
+    <input class="np-input" id="npName" type="text" placeholder="ชื่อ-นามสกุล *" autocomplete="name"/>
+    <input class="np-dept" id="npDept" type="text" placeholder="แผนก (ไม่บังคับ)"/>
+    <button class="np-btn" onclick="confirmNameAndStamp()">รับแสตมป์เลย ✓</button>
+    <span class="np-skip" onclick="skipName()">ข้าม (ไม่บันทึกชื่อ)</span>
+  </div>
+</div>
+
+<!-- COMPLETE MODAL -->
 <div class="modal-wrap" id="modalWrap">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
@@ -369,14 +406,12 @@ body{background:#f0f4ff;min-height:100vh}
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 var LS_KEY='wd_estamp_v1';
 
-/* ══ localStorage ══ */
 function lsLoad(){try{return JSON.parse(localStorage.getItem(LS_KEY)||'{}');}catch(e){return {};}}
 function lsSave(d){try{localStorage.setItem(LS_KEY,JSON.stringify(d));}catch(e){}}
 function lsClear(){try{localStorage.removeItem(LS_KEY);}catch(e){}}
 
 /* ══════════════════════════════════════════════════════════
-   🔑 matchQR — รองรับ URL จาก sakorn564.github.io ทุก format
-   QR ที่ encode:
+   🔑 matchQR — รองรับ URL จาก sakorn564.github.io
    https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=customer
    https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=result
    https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=excellent
@@ -385,31 +420,26 @@ function lsClear(){try{localStorage.removeItem(LS_KEY);}catch(e){}}
 function matchQR(raw){
   if(!raw)return null;
   var s=raw.trim();
-
-  /* 1. URL parse — วิธีที่แม่นที่สุด */
+  /* 1. URL parse */
   try{
     var u=new URL(s);
     var b=u.searchParams.get('booth');
     if(b){b=b.toLowerCase().trim();if(['customer','result','excellent','innovation'].indexOf(b)!==-1)return b;}
   }catch(e){}
-
-  /* 2. regex ?booth= */
+  /* 2. regex */
   var m=s.match(/[?&]booth=([a-zA-Z]+)/i);
   if(m){var b2=m[1].toLowerCase();if(['customer','result','excellent','innovation'].indexOf(b2)!==-1)return b2;}
-
-  /* 3. text รหัส WD-xxx */
+  /* 3. text code */
   var up=s.toUpperCase();
   if(up==='WD-CUSTOMER'||up==='WD-JOURNEY-BOOTH-CUSTOMER')return 'customer';
   if(up==='WD-RESULT'||up==='WD-JOURNEY-BOOTH-RESULT')return 'result';
   if(up==='WD-EXCELLENT'||up==='WD-JOURNEY-BOOTH-EXCELLENT')return 'excellent';
   if(up==='WD-INNOVATION'||up==='WD-JOURNEY-BOOTH-INNOVATION')return 'innovation';
-
-  /* 4. keyword fallback */
+  /* 4. keyword */
   if(up.indexOf('CUSTOMER')!==-1)return 'customer';
   if(up.indexOf('RESULT')!==-1)return 'result';
   if(up.indexOf('EXCELLENT')!==-1)return 'excellent';
   if(up.indexOf('INNOVATION')!==-1)return 'innovation';
-
   return null;
 }
 
@@ -424,10 +454,11 @@ var BOOTHS=[
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
 ];
 
-var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด'],['อนุชา ดีเลิศ','ฝ่ายผลิต'],['กานดา สุขใจ','ฝ่าย QA']];
+var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด']];
 var stamped={customer:false,result:false,excellent:false,innovation:false};
 var participantDB=[],curPage=1,PER=8,pendingAction=null;
 var currentBooth=null,videoStream=null,scanInterval=null,scanLocked=false,usingFrontCam=false;
+var pendingStampId=null;
 var barcodeDetector=null;
 if(window.BarcodeDetector){try{barcodeDetector=new window.BarcodeDetector({formats:['qr_code']});}catch(e){}}
 
@@ -469,10 +500,9 @@ function updateJigsaw(){
   else document.getElementById('completeBanner').classList.remove('show');
 }
 
+/* ── เปิดกล้องได้เลย ไม่ต้องกรอกชื่อก่อน ── */
 function openQR(id){
   if(stamped[id])return;
-  var name=document.getElementById('empName').value.trim();
-  if(!name){showToast('⚠️ กรุณากรอกชื่อก่อนแสตมป์','error');return;}
   currentBooth=id; scanLocked=false; usingFrontCam=false;
   var b=BOOTHS.find(function(x){return x.id===id;});
   var badge=document.getElementById('qrBadge');
@@ -566,7 +596,6 @@ function startScanLoop(){
     var W=video.videoWidth,H=video.videoHeight;
     canvas.width=W;canvas.height=H;
     ctx.drawImage(video,0,0,W,H);
-    /* BarcodeDetector native (Android Chrome) */
     if(barcodeDetector&&fc%2===0){
       barcodeDetector.detect(video).then(function(codes){
         if(codes&&codes.length>0&&!scanLocked){
@@ -575,7 +604,6 @@ function startScanLoop(){
         }
       }).catch(function(){});
     }
-    /* jsQR multiple crops */
     var res=null;
     var crops=[[0,0,1,1],[0.05,0.05,0.9,0.9],[0.1,0.1,0.8,0.8],[0.15,0.15,0.7,0.7],[0.2,0.2,0.6,0.6]];
     for(var c=0;c<crops.length&&!res;c++){
@@ -591,13 +619,26 @@ function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterva
 function handleResult(data){
   if(scanLocked)return;
   var scanned=matchQR(data);
-  document.getElementById('qrDebug').textContent='QR='+data.substring(0,40)+' → '+(scanned||'?');
+  document.getElementById('qrDebug').textContent='QR='+data.substring(0,38)+' → '+(scanned||'?');
   if(scanned===currentBooth){
     scanLocked=true;stopScanLoop();setStatus('success','✅ สแกนสำเร็จ!');
     document.getElementById('qrFlash').classList.add('show');
     var cap=currentBooth;
     setTimeout(function(){document.getElementById('qrFlash').classList.remove('show');},700);
-    setTimeout(function(){closeQR();setTimeout(function(){doStamp(cap);},150);},900);
+    setTimeout(function(){
+      closeQR();
+      setTimeout(function(){
+        var existingName=document.getElementById('empName').value.trim();
+        if(existingName){
+          /* มีชื่ออยู่แล้ว → แสตมป์ทันที */
+          doStamp(cap);
+        } else {
+          /* ยังไม่มีชื่อ → ถามชื่อก่อน */
+          pendingStampId=cap;
+          showNamePopup(cap);
+        }
+      },150);
+    },900);
   } else if(scanned!==null){
     scanLocked=true;stopScanLoop();
     var bO=BOOTHS.find(function(x){return x.id===currentBooth;});
@@ -606,6 +647,38 @@ function handleResult(data){
     document.getElementById('qrErrorFlash').classList.add('show');
     setStatus('error','QR ไม่ตรง — ลองใหม่');
     setTimeout(function(){document.getElementById('qrErrorFlash').classList.remove('show');scanLocked=false;setStatus('ready','กำลังสแกน');startScanLoop();},2500);
+  }
+}
+
+/* ── NAME POPUP ── */
+function showNamePopup(boothId){
+  var b=BOOTHS.find(function(x){return x.id===boothId;});
+  document.getElementById('npSub').textContent='กรอกชื่อเพื่อรับแสตมป์บูท '+b.label;
+  document.getElementById('npName').value='';
+  document.getElementById('npDept').value='';
+  document.getElementById('namePopup').classList.add('show');
+  setTimeout(function(){document.getElementById('npName').focus();},300);
+}
+
+function confirmNameAndStamp(){
+  var name=document.getElementById('npName').value.trim();
+  if(!name){showToast('⚠️ กรุณากรอกชื่อ','error');document.getElementById('npName').focus();return;}
+  var dept=document.getElementById('npDept').value.trim();
+  /* sync กลับหน้าหลัก */
+  document.getElementById('empName').value=name;
+  document.getElementById('empDept').value=dept||'';
+  saveNameLocal();
+  document.getElementById('namePopup').classList.remove('show');
+  if(pendingStampId){doStamp(pendingStampId);pendingStampId=null;}
+}
+
+function skipName(){
+  document.getElementById('namePopup').classList.remove('show');
+  if(pendingStampId){
+    /* stamp ด้วยชื่อ ไม่ระบุ */
+    document.getElementById('empName').value='ไม่ระบุชื่อ';
+    doStamp(pendingStampId);
+    pendingStampId=null;
   }
 }
 
@@ -619,9 +692,7 @@ function setStatus(t,m){document.getElementById('qrDot').className='qr-dot '+t;d
 
 function doStamp(id){
   if(stamped[id]){showToast('✅ บูทนี้แสตมป์แล้ว');return;}
-  stamped[id]=true;
-  saveStampLocal();
-  buildBooths();updateJigsaw();
+  stamped[id]=true;saveStampLocal();buildBooths();updateJigsaw();
   var b=BOOTHS.find(function(x){return x.id===id;});
   showToast('🎉 แสตมป์บูท '+b.label+' สำเร็จ!','success');
   if(Object.values(stamped).filter(Boolean).length===4){
@@ -668,8 +739,8 @@ function renderTbl(){var filtered=getFiltered(),total=filtered.length,pages=Math
 function addDemo(){var hours=['08:30','09:15','10:00','10:45','11:20','13:00','13:45','14:30'];for(var i=0;i<5;i++){var nm=DEMO_NAMES[Math.floor(Math.random()*DEMO_NAMES.length)];var isC=Math.random()>.35;var s=isC?{customer:true,result:true,excellent:true,innovation:true}:{customer:Math.random()>.3,result:Math.random()>.4,excellent:Math.random()>.5,innovation:Math.random()>.5};var tot=['customer','result','excellent','innovation'].filter(function(k){return s[k];}).length;participantDB.push({id:Date.now()+i,name:nm[0],dept:nm[1],customer:s.customer,result:s.result,excellent:s.excellent,innovation:s.innovation,total:tot,complete:s.customer&&s.result&&s.excellent&&s.innovation,time:hours[Math.floor(Math.random()*hours.length)]});}updateStats();renderBars();curPage=1;renderTbl();showToast('เพิ่มข้อมูลทดสอบ 5 รายการ ✅','success');}
 function exportCSV(){var filtered=getFiltered();if(filtered.length===0){showToast('ไม่มีข้อมูลให้ Export','error');return;}var h=['#','ชื่อ-นามสกุล','แผนก','Customer','Result','Excellent','Innovation','สถานะ','เวลา'];var rows=filtered.map(function(r,i){return[i+1,r.name,r.dept||'',r.customer?'✓':'✗',r.result?'✓':'✗',r.excellent?'✓':'✗',r.innovation?'✓':'✗',r.complete?'ครบ 4 บูท':(r.total||0)+'/4',r.time||''];});var csv=[h].concat(rows).map(function(row){return row.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='wd-estamp.csv';a.click();URL.revokeObjectURL(url);showToast('Export CSV สำเร็จ ✅','success');}
 document.getElementById('modalWrap').addEventListener('click',function(e){if(e.target===this)resetUser();});
+document.getElementById('npName').addEventListener('keydown',function(e){if(e.key==='Enter')confirmNameAndStamp();});
 
-/* INIT */
 loadFromLocal();
 buildBooths();
 updateJigsaw();
