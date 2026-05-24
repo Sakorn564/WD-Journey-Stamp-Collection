@@ -15,7 +15,7 @@ body{background:#f0f4ff;min-height:100vh}
 .u-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(96,165,250,0.25) 0%,transparent 60%)}
 .u-logo-row{display:flex;align-items:center;justify-content:center;gap:10px;position:relative}
 .u-logo{width:38px;height:38px;border-radius:50%;object-fit:contain;box-shadow:0 4px 14px rgba(0,0,0,0.3)}
-.u-title{font-size:26px;font-weight:900;color:#fff;letter-spacing:.5px}
+.u-title{font-size:26px;font-weight:900;color:#fff}
 .u-title span{color:#93c5fd}
 .u-subtitle{font-size:12px;color:#93c5fd;margin-top:4px;font-weight:600;position:relative}
 .admin-btn{position:absolute;top:16px;right:14px;font-size:11px;color:#93c5fd;cursor:pointer;padding:4px 10px;border-radius:20px;border:1px solid rgba(147,197,253,0.4);background:rgba(255,255,255,0.08);font-weight:600;z-index:2}
@@ -56,10 +56,10 @@ body{background:#f0f4ff;min-height:100vh}
 .booth-list{display:flex;flex-direction:column;gap:8px}
 .booth-row{border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:12px;border:2px solid transparent;position:relative;transition:all .25s;background:#fff;box-shadow:0 2px 10px rgba(28,78,180,0.07)}
 .br-c{border-color:#bfdbfe}.br-r{border-color:#bbf7d0}.br-e{border-color:#fde68a}.br-i{border-color:#ddd6fe}
-.br-c.done{border-color:#1c4eb4;box-shadow:0 0 0 3px rgba(28,78,180,.1),0 4px 14px rgba(28,78,180,0.12)}
-.br-r.done{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.1),0 4px 14px rgba(5,150,105,0.12)}
-.br-e.done{border-color:#d97706;box-shadow:0 0 0 3px rgba(217,119,6,.1),0 4px 14px rgba(217,119,6,0.12)}
-.br-i.done{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.1),0 4px 14px rgba(124,58,237,0.12)}
+.br-c.done{border-color:#1c4eb4;box-shadow:0 0 0 3px rgba(28,78,180,.1)}
+.br-r.done{border-color:#059669;box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.br-e.done{border-color:#d97706;box-shadow:0 0 0 3px rgba(217,119,6,.1)}
+.br-i.done{border-color:#7c3aed;box-shadow:0 0 0 3px rgba(124,58,237,.1)}
 .br-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .br-c .br-icon{background:#eff6ff}.br-r .br-icon{background:#f0fdf4}.br-e .br-icon{background:#fffbeb}.br-i .br-icon{background:#f5f3ff}
 .br-info{flex:1;min-width:0}
@@ -74,7 +74,7 @@ body{background:#f0f4ff;min-height:100vh}
 .br-i .br-btn{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;box-shadow:0 3px 10px rgba(124,58,237,0.4)}
 .br-btn.stamped{background:#f0fdf4;color:#059669;cursor:default;box-shadow:none;border:1.5px solid #bbf7d0}
 .done-badge{position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:8px;font-weight:800;border-radius:20px;padding:2px 7px}
-.complete-banner{margin:12px 14px 0;background:linear-gradient(135deg,#1c4eb4,#2563eb,#7c3aed);border-radius:16px;padding:16px;text-align:center;display:none;animation:banIn .5s ease;box-shadow:0 6px 24px rgba(28,78,180,0.35)}
+.complete-banner{margin:12px 14px 0;background:linear-gradient(135deg,#1c4eb4,#2563eb,#7c3aed);border-radius:16px;padding:16px;text-align:center;display:none;animation:banIn .5s ease}
 @keyframes banIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 .complete-banner.show{display:block}
 .cb-title{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px}
@@ -83,57 +83,59 @@ body{background:#f0f4ff;min-height:100vh}
 /* QR SCREEN */
 .qr-screen{display:none;position:fixed;inset:0;z-index:200;background:#000;flex-direction:column}
 .qr-screen.show{display:flex}
-.qr-topbar{background:#0f1f3d;padding:12px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
-.qr-back{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qr-topbar{background:#0f1f3d;padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.08);flex-shrink:0}
+.qr-back{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .qr-topbar-info{flex:1;min-width:0}
-.qr-topbar-title{font-size:15px;font-weight:700;color:#f7fafc}
-.qr-topbar-sub{font-size:11px;color:#90cdf4;margin-top:2px}
-.qr-badge{padding:4px 14px;border-radius:20px;font-size:12px;font-weight:800;flex-shrink:0}
-.qr-cam{flex:1;position:relative;overflow:hidden;min-height:0;background:#111}
+.qr-topbar-title{font-size:14px;font-weight:700;color:#f7fafc}
+.qr-topbar-sub{font-size:11px;color:#90cdf4;margin-top:1px}
+.qr-badge{padding:3px 12px;border-radius:20px;font-size:12px;font-weight:800;flex-shrink:0}
+.qr-flip-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.qr-cam{flex:1;position:relative;overflow:hidden;min-height:0;background:#000}
 #qrVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 #qrCanvas{display:none}
 .start-overlay{position:absolute;inset:0;background:rgba(5,10,25,0.93);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;z-index:10}
 .start-overlay.hidden{display:none}
-.start-cam-btn{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#7c3aed);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;animation:ripple 2s infinite}
+.start-cam-btn{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#7c3aed);border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;animation:ripple 2s infinite}
 @keyframes ripple{0%{box-shadow:0 0 0 0 rgba(96,165,250,0.5)}70%{box-shadow:0 0 0 30px rgba(96,165,250,0)}100%{box-shadow:0 0 0 0 rgba(96,165,250,0)}}
 .start-cam-btn:active{transform:scale(.93)}
-.start-cam-label{color:#fff;font-size:18px;font-weight:900}
-.start-cam-sub{color:#93c5fd;font-size:13px;text-align:center;padding:0 20px;line-height:1.5}
+.start-cam-label{color:#fff;font-size:17px;font-weight:900}
+.start-cam-sub{color:#93c5fd;font-size:12px;text-align:center;padding:0 20px;line-height:1.5}
 .start-booth-name{color:#60a5fa;font-weight:900}
 .qr-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none;z-index:2}
 .qr-dim-top{width:100%;flex:1;background:rgba(0,0,0,0.5)}
-.qr-dim-bot{width:100%;flex:1;background:rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:14px}
+.qr-dim-bot{width:100%;flex:1;background:rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:12px}
 .qr-dim-row{display:flex;width:100%;align-items:stretch}
 .qr-dim-side{flex:1;background:rgba(0,0,0,0.5)}
-.qr-frame{width:240px;height:240px;position:relative;flex-shrink:0}
-.qc{position:absolute;width:36px;height:36px;border-color:#60a5fa;border-style:solid}
+.qr-frame{width:250px;height:250px;position:relative;flex-shrink:0}
+.qc{position:absolute;width:38px;height:38px;border-color:#60a5fa;border-style:solid}
 .qc.tl{top:0;left:0;border-width:4px 0 0 4px;border-radius:6px 0 0 0}
 .qc.tr{top:0;right:0;border-width:4px 4px 0 0;border-radius:0 6px 0 0}
 .qc.bl{bottom:0;left:0;border-width:0 0 4px 4px;border-radius:0 0 0 6px}
 .qc.br{bottom:0;right:0;border-width:0 4px 4px 0;border-radius:0 0 6px 0}
-.qr-scan-line{position:absolute;left:4px;right:4px;height:2px;background:linear-gradient(90deg,transparent,#60a5fa,transparent);animation:scanline 2s linear infinite}
+.qr-scan-line{position:absolute;left:4px;right:4px;height:2px;background:linear-gradient(90deg,transparent,#60a5fa,transparent);animation:scanline 1.5s linear infinite}
 @keyframes scanline{0%{top:4px}100%{top:calc(100% - 4px)}}
-.qr-label{background:rgba(0,0,0,0.78);border-radius:12px;padding:10px 20px;text-align:center}
-.qr-label p{color:#e2e8f0;font-size:13px;line-height:1.5}
-.qr-label strong{color:#60a5fa;font-size:14px}
-.qr-success-flash{position:absolute;inset:0;background:rgba(16,185,129,0.35);display:none;align-items:center;justify-content:center;z-index:8}
+.qr-hint-box{background:rgba(0,0,0,0.75);border-radius:10px;padding:8px 16px;text-align:center}
+.qr-hint-box p{color:#e2e8f0;font-size:12px;line-height:1.5}
+.qr-hint-box strong{color:#60a5fa}
+.qr-success-flash{position:absolute;inset:0;background:rgba(16,185,129,0.4);display:none;align-items:center;justify-content:center;z-index:8}
 .qr-success-flash.show{display:flex;animation:fo .7s ease forwards}
-.qr-error-flash{position:absolute;inset:0;background:rgba(239,68,68,0.3);display:none;align-items:center;justify-content:center;z-index:8;flex-direction:column;gap:14px}
+.qr-error-flash{position:absolute;inset:0;background:rgba(239,68,68,0.3);display:none;align-items:center;justify-content:center;z-index:8;flex-direction:column;gap:12px}
 .qr-error-flash.show{display:flex;animation:fo 1.4s ease forwards}
 @keyframes fo{0%{opacity:1}100%{opacity:0}}
-.qr-error-bubble{background:rgba(150,10,10,0.95);color:#fff;font-size:14px;font-weight:700;padding:12px 20px;border-radius:14px;text-align:center;max-width:80%;line-height:1.5}
-.qr-bottom{background:#0f1f3d;padding:10px 16px 16px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;display:flex;flex-direction:column;gap:6px}
+.qr-error-bubble{background:rgba(140,10,10,0.95);color:#fff;font-size:13px;font-weight:700;padding:10px 18px;border-radius:12px;text-align:center;max-width:82%;line-height:1.5}
+.qr-bottom{background:#0f1f3d;padding:8px 14px 14px;border-top:1px solid rgba(255,255,255,0.08);flex-shrink:0;display:flex;flex-direction:column;gap:6px}
 .qr-status-row{display:flex;align-items:center;gap:8px}
-.qr-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.qr-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .qr-dot.waiting{background:#475569}
 .qr-dot.loading{background:#f59e0b;animation:blink 1s infinite}
 .qr-dot.ready{background:#10b981;animation:blink 1.5s infinite}
 .qr-dot.error{background:#ef4444}
 .qr-dot.success{background:#10b981}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.qr-status-txt{font-size:12px;color:#90cdf4;flex:1}
-.qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:14px;word-break:break-all}
-.qr-close-btn{padding:11px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
+.qr-status-txt{font-size:11px;color:#90cdf4;flex:1}
+.qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:13px;word-break:break-all}
+.qr-close-btn{padding:10px;border-radius:10px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
+
 .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
 .modal-sheet{background:#fff;border-radius:24px 24px 0 0;width:100%;max-width:480px;padding:24px 20px 36px;animation:sheetUp .4s ease;text-align:center}
@@ -260,6 +262,7 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
+<!-- QR SCREEN -->
 <div class="qr-screen" id="qrScreen">
   <div class="qr-topbar">
     <button class="qr-back" onclick="closeQR()">‹</button>
@@ -268,13 +271,14 @@ body{background:#f0f4ff;min-height:100vh}
       <div class="qr-topbar-sub" id="qrTopSub">กดปุ่มกล้อง</div>
     </div>
     <span class="qr-badge" id="qrBadge"></span>
+    <button class="qr-flip-btn" onclick="flipCamera()" title="สลับกล้อง">🔄</button>
   </div>
   <div class="qr-cam">
     <video id="qrVideo" autoplay playsinline muted webkit-playsinline></video>
     <canvas id="qrCanvas"></canvas>
     <div class="start-overlay" id="startOverlay">
       <button class="start-cam-btn" onclick="startCameraFromBtn()">
-        <svg viewBox="0 0 24 24" fill="none" width="56" height="56"><rect x="1" y="6" width="22" height="14" rx="3" stroke="white" stroke-width="1.8"/><circle cx="12" cy="13" r="4" stroke="white" stroke-width="1.8"/><path d="M8 6V5a2 2 0 012-2h4a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" width="52" height="52"><rect x="1" y="6" width="22" height="14" rx="3" stroke="white" stroke-width="1.8"/><circle cx="12" cy="13" r="4" stroke="white" stroke-width="1.8"/><path d="M8 6V5a2 2 0 012-2h4a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
       <div class="start-cam-label">กดเปิดกล้อง</div>
       <div class="start-cam-sub">สแกน QR บูท <span class="start-booth-name" id="startBoothName"></span></div>
@@ -284,7 +288,7 @@ body{background:#f0f4ff;min-height:100vh}
     <div class="qr-overlay">
       <div class="qr-dim-top"></div>
       <div class="qr-dim-row"><div class="qr-dim-side"></div><div class="qr-frame"><div class="qc tl"></div><div class="qc tr"></div><div class="qc bl"></div><div class="qc br"></div><div class="qr-scan-line"></div></div><div class="qr-dim-side"></div></div>
-      <div class="qr-dim-bot"><div class="qr-label"><p>นำ QR Code บูท <strong id="qrHintName"></strong> เข้ากรอบ</p></div></div>
+      <div class="qr-dim-bot"><div class="qr-hint-box"><p>นำ QR Code บูท <strong id="qrHintName"></strong> เข้ากรอบ</p></div></div>
     </div>
   </div>
   <div class="qr-bottom">
@@ -360,44 +364,29 @@ body{background:#f0f4ff;min-height:100vh}
 <script>
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 
-/* ══════════════════════════════════════════════════════════════
-   🔑 matchQR: อ่าน QR ที่ encode URL
-   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=customer
-   ออกมาเป็น 'customer', 'result', 'excellent', 'innovation'
-   ══════════════════════════════════════════════════════════════ */
-function matchQR(raw) {
-  if (!raw) return null;
-  var s = raw.trim();
-
-  /* วิธี 1: URL.searchParams */
-  try {
-    var u = new URL(s);
-    var b = u.searchParams.get('booth');
-    if (b) { b = b.toLowerCase(); if (['customer','result','excellent','innovation'].indexOf(b) !== -1) return b; }
-  } catch(e) {}
-
-  /* วิธี 2: regex ?booth= หรือ &booth= */
-  var m = s.match(/[?&]booth=([a-zA-Z]+)/i);
-  if (m) { var b2 = m[1].toLowerCase(); if (['customer','result','excellent','innovation'].indexOf(b2) !== -1) return b2; }
-
-  /* วิธี 3: keyword ใน string */
-  var up = s.toUpperCase();
-  if (up.indexOf('CUSTOMER')   !== -1) return 'customer';
-  if (up.indexOf('RESULT')     !== -1) return 'result';
-  if (up.indexOf('EXCELLENT')  !== -1) return 'excellent';
-  if (up.indexOf('INNOVATION') !== -1) return 'innovation';
-
+/* ══ matchQR: รองรับ URL ทุก format ══ */
+function matchQR(raw){
+  if(!raw)return null;
+  var s=raw.trim();
+  try{var u=new URL(s);var b=u.searchParams.get('booth');if(b){b=b.toLowerCase();if(['customer','result','excellent','innovation'].indexOf(b)!==-1)return b;}}catch(e){}
+  var m=s.match(/[?&]booth=([a-zA-Z]+)/i);
+  if(m){var b2=m[1].toLowerCase();if(['customer','result','excellent','innovation'].indexOf(b2)!==-1)return b2;}
+  var up=s.toUpperCase();
+  if(up.indexOf('CUSTOMER')!==-1)return 'customer';
+  if(up.indexOf('RESULT')!==-1)return 'result';
+  if(up.indexOf('EXCELLENT')!==-1)return 'excellent';
+  if(up.indexOf('INNOVATION')!==-1)return 'innovation';
   return null;
 }
 
 var BOOTHS=[
-  {id:'customer',  label:'Customer',   sub:'บูทเกี่ยวกับลูกค้า',  cls:'br-c', jpId:'jp-customer',  color:'#1c4eb4', badgeBg:'#eff6ff',
+  {id:'customer',label:'Customer',sub:'บูทเกี่ยวกับลูกค้า',cls:'br-c',jpId:'jp-customer',color:'#1c4eb4',badgeBg:'#eff6ff',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'},
-  {id:'result',    label:'Result',     sub:'บูทเกี่ยวกับผลลัพธ์', cls:'br-r', jpId:'jp-result',    color:'#059669', badgeBg:'#f0fdf4',
+  {id:'result',label:'Result',sub:'บูทเกี่ยวกับผลลัพธ์',cls:'br-r',jpId:'jp-result',color:'#059669',badgeBg:'#f0fdf4',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>'},
-  {id:'excellent', label:'Excellent',  sub:'บูทความเป็นเลิศ',     cls:'br-e', jpId:'jp-excellent', color:'#d97706', badgeBg:'#fffbeb',
+  {id:'excellent',label:'Excellent',sub:'บูทความเป็นเลิศ',cls:'br-e',jpId:'jp-excellent',color:'#d97706',badgeBg:'#fffbeb',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>'},
-  {id:'innovation',label:'Innovation', sub:'บูทนวัตกรรม',          cls:'br-i', jpId:'jp-innovation',color:'#7c3aed', badgeBg:'#f5f3ff',
+  {id:'innovation',label:'Innovation',sub:'บูทนวัตกรรม',cls:'br-i',jpId:'jp-innovation',color:'#7c3aed',badgeBg:'#f5f3ff',
    svg:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
 ];
 
@@ -405,6 +394,7 @@ var DEMO_NAMES=[['สมชาย ใจดี','ฝ่ายผลิต'],['�
 var stamped={customer:false,result:false,excellent:false,innovation:false};
 var participantDB=[],curPage=1,PER=8,pendingAction=null;
 var currentBooth=null,videoStream=null,scanInterval=null,scanLocked=false;
+var usingFrontCam=false;
 
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
 
@@ -431,7 +421,7 @@ function updateJigsaw(){
 function openQR(id){
   if(stamped[id])return;
   if(!document.getElementById('empName').value.trim()){showToast('⚠️ กรุณากรอกชื่อก่อนแสตมป์','error');return;}
-  currentBooth=id; scanLocked=false;
+  currentBooth=id; scanLocked=false; usingFrontCam=false;
   var b=BOOTHS.find(function(x){return x.id===id;});
   var badge=document.getElementById('qrBadge');
   badge.textContent=b.label; badge.style.background=b.badgeBg; badge.style.color=b.color;
@@ -447,19 +437,41 @@ function openQR(id){
   document.body.style.overflow='hidden';
 }
 
+/* ══ CAMERA — เปิดกล้องหลังก่อน ถ้าไม่ได้ fallback ══ */
 function startCameraFromBtn(){
   document.getElementById('startOverlay').classList.add('hidden');
   setStatus('loading','กำลังเปิดกล้อง...');
-  navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}})
+  startCameraWith(false);
+}
+
+function startCameraWith(useFront){
+  usingFrontCam=useFront;
+  stopStream();
+  var constraint=useFront?{video:{facingMode:'user'}}:{video:{facingMode:'environment'}};
+  navigator.mediaDevices.getUserMedia(constraint)
     .then(function(s){onStream(s);})
-    .catch(function(){
-      navigator.mediaDevices.getUserMedia({video:true})
-        .then(function(s){onStream(s);})
-        .catch(function(e){
-          setStatus('error',e.name==='NotAllowedError'?'ถูกปฏิเสธสิทธิ์กล้อง':'เปิดกล้องไม่ได้');
-          if(e.name==='NotAllowedError') showToast('❌ กรุณาอนุญาตกล้องใน Settings','error');
-        });
+    .catch(function(e1){
+      if(!useFront){
+        /* ถ้า environment ไม่ได้ ลอง user */
+        navigator.mediaDevices.getUserMedia({video:true})
+          .then(function(s){usingFrontCam=true;onStream(s);})
+          .catch(function(e2){
+            if(e2.name==='NotAllowedError'){setStatus('error','ถูกปฏิเสธสิทธิ์กล้อง');showToast('❌ กรุณาอนุญาตกล้องใน Settings','error');}
+            else setStatus('error','เปิดกล้องไม่ได้: '+e2.name);
+          });
+      } else {
+        setStatus('error','เปิดกล้องไม่ได้');
+      }
     });
+}
+
+function flipCamera(){
+  if(!videoStream)return;
+  startCameraWith(!usingFrontCam);
+}
+
+function stopStream(){
+  if(videoStream){videoStream.getTracks().forEach(function(t){t.stop();});videoStream=null;}
 }
 
 function onStream(stream){
@@ -472,42 +484,40 @@ function onStream(stream){
     if(v.readyState>=2&&v.videoWidth>0){
       clearInterval(t);
       var b=BOOTHS.find(function(x){return x.id===currentBooth;});
-      setStatus('ready','กำลังสแกน — บูท '+(b?b.label:''));
+      setStatus('ready','กำลังสแกน — บูท '+(b?b.label:'')+(usingFrontCam?' (กล้องหน้า)':''));
+      document.getElementById('qrTopSub').textContent='สแกน QR บูท '+(b?b.label:'')+(usingFrontCam?' 🤳':'');
       startScanLoop();
     }
     if(elapsed>15000){clearInterval(t);setStatus('error','กล้องไม่ตอบสนอง');}
   },100);
 }
 
-/* ════ DECODE — 12 preprocessing variants + 5 crop sizes ════ */
+/* ══ DECODE — เน้น standard QR ขาวดำ ══ */
 function tryDecode(imgData,W,H){
-  var d=imgData.data,N=W*H;
+  var d=imgData.data, N=W*H;
   var lum=new Uint8Array(N);
   for(var i=0;i<N;i++) lum[i]=Math.round(0.299*d[i*4]+0.587*d[i*4+1]+0.114*d[i*4+2]);
-  function mk(thresh,inv,boost){
+
+  function mk(thresh,inv){
     var out=new Uint8ClampedArray(N*4);
     for(var i=0;i<N;i++){
-      var v=lum[i];
-      if(boost) v=Math.min(255,Math.max(0,((v-128)*1.8)+128));
-      if(thresh>0) v=(v<thresh)?0:255;
-      if(inv) v=255-v;
+      var v=(thresh===0)?lum[i]:(lum[i]<thresh?0:255);
+      if(inv)v=255-v;
       out[i*4]=out[i*4+1]=out[i*4+2]=v; out[i*4+3]=255;
     }
     return new ImageData(out,W,H);
   }
+
+  /* priority: raw → standard threshold → inverted */
   var sets=[
-    [mk(0,false,false),'attemptBoth'],
-    [mk(0,false,true),'attemptBoth'],
-    [mk(128,false,false),'dontInvert'],
-    [mk(128,false,true),'dontInvert'],
-    [mk(128,true,false),'dontInvert'],
-    [mk(100,false,false),'dontInvert'],
-    [mk(100,false,true),'dontInvert'],
-    [mk(160,false,false),'dontInvert'],
-    [mk(80,false,false),'dontInvert'],
-    [mk(60,false,false),'dontInvert'],
-    [mk(200,false,false),'dontInvert'],
-    [imgData,'attemptBoth']
+    [imgData,'attemptBoth'],
+    [mk(0,false),'attemptBoth'],
+    [mk(128,false),'dontInvert'],
+    [mk(128,true),'dontInvert'],
+    [mk(100,false),'dontInvert'],
+    [mk(160,false),'dontInvert'],
+    [mk(80,false),'dontInvert'],
+    [mk(0,true),'dontInvert']
   ];
   for(var i=0;i<sets.length;i++){
     try{var r=jsQR(sets[i][0].data,W,H,{inversionAttempts:sets[i][1]});if(r&&r.data)return r.data;}catch(e){}
@@ -520,53 +530,59 @@ function startScanLoop(){
   var video=document.getElementById('qrVideo');
   var canvas=document.getElementById('qrCanvas');
   var ctx=canvas.getContext('2d',{willReadFrequently:true});
+
   scanInterval=setInterval(function(){
-    if(scanLocked||!video||video.readyState<2||video.videoWidth===0) return;
-    var W=video.videoWidth,H=video.videoHeight;
+    if(scanLocked||!video||video.readyState<2||video.videoWidth===0)return;
+    var W=video.videoWidth, H=video.videoHeight;
     canvas.width=W; canvas.height=H;
     ctx.drawImage(video,0,0,W,H);
+
     var res=null;
-    var crops=[[0.1,0.1,0.8,0.8],[0.15,0.15,0.7,0.7],[0.2,0.2,0.6,0.6],[0.05,0.05,0.9,0.9],[0,0,1,1]];
+    /* crop ขนาดต่างๆ เพื่อ maximize chance */
+    var crops=[
+      [0,0,1,1],          /* เต็มภาพ */
+      [0.1,0.1,0.8,0.8],  /* crop 80% */
+      [0.15,0.15,0.7,0.7],/* crop 70% */
+      [0.2,0.2,0.6,0.6]   /* crop 60% */
+    ];
     for(var c=0;c<crops.length&&!res;c++){
       var cx=Math.floor(W*crops[c][0]),cy=Math.floor(H*crops[c][1]);
       var cw=Math.floor(W*crops[c][2]),ch=Math.floor(H*crops[c][3]);
-      if(cw>20&&ch>20){try{res=tryDecode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}}
+      if(cw>10&&ch>10){try{res=tryDecode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}}
     }
     if(res){
-      document.getElementById('qrDebug').textContent='อ่านได้: '+res.substring(0,60);
+      document.getElementById('qrDebug').textContent='อ่านได้: '+res.substring(0,55);
       handleResult(res);
     }
-  },100);
+  },80); /* scan ทุก 80ms เพื่อความเร็ว */
 }
 function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterval=null;}}
 
 function handleResult(data){
-  if(scanLocked) return;
-  var scannedBooth=matchQR(data);
-  document.getElementById('qrDebug').textContent='QR='+data.substring(0,50)+' → '+(scannedBooth||'?');
-  if(scannedBooth===currentBooth){
+  if(scanLocked)return;
+  var scanned=matchQR(data);
+  document.getElementById('qrDebug').textContent='QR='+data.substring(0,45)+' → '+(scanned||'?');
+  if(scanned===currentBooth){
     scanLocked=true; stopScanLoop();
-    setStatus('success','สแกนสำเร็จ! ✅');
+    setStatus('success','✅ สแกนสำเร็จ!');
     document.getElementById('qrFlash').classList.add('show');
     var cap=currentBooth;
     setTimeout(function(){document.getElementById('qrFlash').classList.remove('show');},700);
     setTimeout(function(){closeQR();setTimeout(function(){doStamp(cap);},150);},900);
-  } else if(scannedBooth!==null){
+  } else if(scanned!==null){
     scanLocked=true; stopScanLoop();
-    var bObj=BOOTHS.find(function(x){return x.id===currentBooth;});
-    var found=BOOTHS.find(function(x){return x.id===scannedBooth;});
-    var msg='นี่คือ QR บูท "'+found.label+'" ไม่ใช่บูท "'+bObj.label+'"';
+    var bO=BOOTHS.find(function(x){return x.id===currentBooth;});
+    var found=BOOTHS.find(function(x){return x.id===scanned;});
+    var msg='นี่คือ QR บูท "'+found.label+'" ไม่ใช่บูท "'+bO.label+'"';
     document.getElementById('qrErrorText').textContent=msg;
     document.getElementById('qrErrorFlash').classList.add('show');
     setStatus('error','QR ไม่ตรง — ลองใหม่');
     setTimeout(function(){document.getElementById('qrErrorFlash').classList.remove('show');scanLocked=false;setStatus('ready','กำลังสแกน');startScanLoop();},2500);
   }
-  /* null = ยังอ่านไม่ได้ สแกนต่อ */
 }
 
 function closeQR(){
-  stopScanLoop();
-  if(videoStream){videoStream.getTracks().forEach(function(t){t.stop();});videoStream=null;}
+  stopScanLoop(); stopStream();
   var v=document.getElementById('qrVideo');v.pause();v.srcObject=null;
   document.getElementById('qrScreen').classList.remove('show');
   document.body.style.overflow=''; currentBooth=null;
