@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>WD Journey Stamp Collection</title>
+<title> WD Journey Stamp Collection </title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -130,7 +130,7 @@ body{background:#f0f4ff;min-height:100vh}
 .qr-dot.success{background:#10b981}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .qr-status-txt{font-size:12px;color:#90cdf4;flex:1}
-.qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:14px;word-break:break-all}
+.qr-debug{font-size:10px;color:#4ade80;font-family:monospace;min-height:14px;word-break:break-all;line-height:1.4}
 .qr-close-btn{padding:11px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#94a3b8;font-size:13px;font-weight:600;cursor:pointer;text-align:center;width:100%}
 .modal-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .modal-wrap.show{display:flex}
@@ -241,30 +241,15 @@ body{background:#f0f4ff;min-height:100vh}
       </div>
       <div class="name-hint">* กรุณากรอกชื่อก่อนกดแสตมป์</div>
     </div>
-
-    <!-- JIGSAW — ใช้รูป https://i.imgur.com/NZIscuH.png -->
     <div class="jigsaw-box">
       <div class="jig-grid">
-        <div class="jpiece pos-tl locked" id="jp-customer">
-          <img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/>
-          <div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 15 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span class="l-name">Customer</span></div>
-        </div>
-        <div class="jpiece pos-tr locked" id="jp-result">
-          <img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/>
-          <div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="3" y="14" width="4" height="7" rx="1" fill="#93c5fd"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#93c5fd"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#93c5fd"/></svg><span class="l-name">Result</span></div>
-        </div>
-        <div class="jpiece pos-bl locked" id="jp-excellent">
-          <img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/>
-          <div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#93c5fd" stroke-width="2" stroke-linejoin="round"/></svg><span class="l-name">Excellent</span></div>
-        </div>
-        <div class="jpiece pos-br locked" id="jp-innovation">
-          <img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/>
-          <div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="10" r="5" stroke="#93c5fd" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#93c5fd" stroke-width="1.5"/></svg><span class="l-name">Innovation</span></div>
-        </div>
+        <div class="jpiece pos-tl locked" id="jp-customer"><img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 15 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span class="l-name">Customer</span></div></div>
+        <div class="jpiece pos-tr locked" id="jp-result"><img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><rect x="3" y="14" width="4" height="7" rx="1" fill="#93c5fd"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#93c5fd"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#93c5fd"/></svg><span class="l-name">Result</span></div></div>
+        <div class="jpiece pos-bl locked" id="jp-excellent"><img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#93c5fd" stroke-width="2" stroke-linejoin="round"/></svg><span class="l-name">Excellent</span></div></div>
+        <div class="jpiece pos-br locked" id="jp-innovation"><img class="jimg" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="lock-ov"><svg class="l-icon" viewBox="0 0 24 24" fill="none" width="26" height="26"><circle cx="12" cy="10" r="5" stroke="#93c5fd" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#93c5fd" stroke-width="1.5"/></svg><span class="l-name">Innovation</span></div></div>
       </div>
       <div class="prog-row"><span class="prog-label" id="progLabel">แสตมป์แล้ว 0 / 4 บูท</span><div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div></div>
     </div>
-
     <div class="complete-banner" id="completeBanner"><div class="cb-title">🎉 จิ๊กซอว์สมบูรณ์!</div><div class="cb-sub">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div></div>
     <div class="booth-section">
       <div class="booth-divider">เลือกบูทเพื่อแสตมป์</div>
@@ -273,7 +258,6 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
-<!-- QR SCREEN -->
 <div class="qr-screen" id="qrScreen">
   <div class="qr-topbar">
     <button class="qr-back" onclick="closeQR()">‹</button>
@@ -308,7 +292,6 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
-<!-- MODAL -->
 <div class="modal-wrap" id="modalWrap">
   <div class="modal-sheet">
     <div class="modal-handle"></div>
@@ -325,7 +308,6 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
-<!-- ADMIN LOGIN -->
 <div class="page" id="pageAdminLogin">
   <div class="al-wrap">
     <div class="al-card">
@@ -340,7 +322,6 @@ body{background:#f0f4ff;min-height:100vh}
   </div>
 </div>
 
-<!-- ADMIN DASHBOARD -->
 <div class="page" id="pageAdmin">
   <div class="ad-wrap">
     <div class="ad-topbar">
@@ -382,29 +363,42 @@ body{background:#f0f4ff;min-height:100vh}
 <script>
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 
-/* ══════════════════════════════════════════════════════
-   matchQR — รับทุกรูปแบบ: URL, text, keyword
-   ══════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════
+   🔑 matchQR — รองรับ URL จริงของ sakorn564 ครบทุก format
+   QR ที่ใช้งาน:
+   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=customer
+   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=result
+   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=excellent
+   https://sakorn564.github.io/E-Stamp-Community-Day-July-26/?booth=innovation
+   ══════════════════════════════════════════════════════════════ */
 function matchQR(raw) {
   if (!raw) return null;
   var s = raw.trim();
-  var up = s.toUpperCase();
-  /* URL */
-  if (s.indexOf('http') === 0 || s.indexOf('booth=') !== -1) {
-    try {
-      var url = new URL(s.indexOf('http')===0 ? s : 'https://x.com/?'+s);
-      var b = url.searchParams.get('booth');
-      if (b) return b.toLowerCase();
-    } catch(e) {
-      var m = s.match(/[?&]booth=([a-zA-Z]+)/i);
-      if (m) return m[1].toLowerCase();
+
+  /* ── วิธีที่ 1: URL parse ── */
+  try {
+    var u = new URL(s);
+    var b = u.searchParams.get('booth');
+    if (b) {
+      b = b.toLowerCase().trim();
+      if (b === 'customer' || b === 'result' || b === 'excellent' || b === 'innovation') return b;
     }
+  } catch(e) {}
+
+  /* ── วิธีที่ 2: regex จาก string ── */
+  var m = s.match(/[?&]booth=([a-zA-Z]+)/i);
+  if (m) {
+    var b2 = m[1].toLowerCase();
+    if (b2 === 'customer' || b2 === 'result' || b2 === 'excellent' || b2 === 'innovation') return b2;
   }
-  /* keyword */
+
+  /* ── วิธีที่ 3: keyword ใน string (fallback) ── */
+  var up = s.toUpperCase();
   if (up.indexOf('CUSTOMER')   !== -1) return 'customer';
   if (up.indexOf('RESULT')     !== -1) return 'result';
   if (up.indexOf('EXCELLENT')  !== -1) return 'excellent';
   if (up.indexOf('INNOVATION') !== -1) return 'innovation';
+
   return null;
 }
 
@@ -497,27 +491,22 @@ function onStream(stream){
   },100);
 }
 
-/* ════ DECODE — ลอง 12 preprocessing variants ════ */
+/* ════ DECODE — 12 variants + 5 crop sizes ════ */
 function tryDecode(imgData,W,H){
   var d=imgData.data, N=W*H;
   var lum=new Uint8Array(N);
   for(var i=0;i<N;i++) lum[i]=Math.round(0.299*d[i*4]+0.587*d[i*4+1]+0.114*d[i*4+2]);
-
-  function mk(thresh,inv,sharpen){
+  function mk(thresh,inv,boost){
     var out=new Uint8ClampedArray(N*4);
     for(var i=0;i<N;i++){
       var v=lum[i];
-      if(sharpen){
-        /* increase contrast */
-        v=Math.min(255,Math.max(0,((v-128)*1.8)+128));
-      }
-      if(thresh>0) v=v<thresh?0:255;
+      if(boost) v=Math.min(255,Math.max(0,((v-128)*1.8)+128));
+      if(thresh>0) v=(v<thresh)?0:255;
       if(inv) v=255-v;
       out[i*4]=out[i*4+1]=out[i*4+2]=v; out[i*4+3]=255;
     }
     return new ImageData(out,W,H);
   }
-
   var sets=[
     [mk(0,false,false),'attemptBoth'],
     [mk(0,false,true),'attemptBoth'],
@@ -525,14 +514,13 @@ function tryDecode(imgData,W,H){
     [mk(128,false,true),'dontInvert'],
     [mk(128,true,false),'dontInvert'],
     [mk(100,false,false),'dontInvert'],
+    [mk(100,false,true),'dontInvert'],
     [mk(160,false,false),'dontInvert'],
     [mk(80,false,false),'dontInvert'],
-    [mk(200,false,false),'dontInvert'],
     [mk(60,false,false),'dontInvert'],
-    [mk(100,false,true),'dontInvert'],
+    [mk(200,false,false),'dontInvert'],
     [imgData,'attemptBoth']
   ];
-
   for(var i=0;i<sets.length;i++){
     try{var r=jsQR(sets[i][0].data,W,H,{inversionAttempts:sets[i][1]});if(r&&r.data)return r.data;}catch(e){}
   }
@@ -544,30 +532,20 @@ function startScanLoop(){
   var video=document.getElementById('qrVideo');
   var canvas=document.getElementById('qrCanvas');
   var ctx=canvas.getContext('2d',{willReadFrequently:true});
-  var fc=0;
-
   scanInterval=setInterval(function(){
     if(scanLocked||!video||video.readyState<2||video.videoWidth===0) return;
-    fc++;
     var W=video.videoWidth, H=video.videoHeight;
     canvas.width=W; canvas.height=H;
     ctx.drawImage(video,0,0,W,H);
-
     var res=null;
-    var crops=[
-      [0.1,0.1,0.8,0.8],
-      [0.15,0.15,0.7,0.7],
-      [0.2,0.2,0.6,0.6],
-      [0.05,0.05,0.9,0.9],
-      [0,0,1,1]
-    ];
+    var crops=[[0.1,0.1,0.8,0.8],[0.15,0.15,0.7,0.7],[0.2,0.2,0.6,0.6],[0.05,0.05,0.9,0.9],[0,0,1,1]];
     for(var c=0;c<crops.length&&!res;c++){
       var cx=Math.floor(W*crops[c][0]),cy=Math.floor(H*crops[c][1]);
       var cw=Math.floor(W*crops[c][2]),ch=Math.floor(H*crops[c][3]);
       if(cw>20&&ch>20){try{res=tryDecode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(e){}}
     }
     if(res){
-      document.getElementById('qrDebug').textContent='อ่านได้: '+res.substring(0,50);
+      document.getElementById('qrDebug').textContent='อ่านได้: '+res.substring(0,60);
       handleResult(res);
     }
   },100);
@@ -577,7 +555,7 @@ function stopScanLoop(){if(scanInterval){clearInterval(scanInterval);scanInterva
 function handleResult(data){
   if(scanLocked) return;
   var scannedBooth=matchQR(data);
-  document.getElementById('qrDebug').textContent='QR: '+data.substring(0,40)+' → '+(scannedBooth||'ไม่รู้จัก');
+  document.getElementById('qrDebug').textContent='QR='+data.substring(0,50)+' → '+(scannedBooth||'?');
   if(scannedBooth===currentBooth){
     scanLocked=true; stopScanLoop();
     setStatus('success','สแกนสำเร็จ! ✅');
