@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>E-Stamp — WD Journey</title>
+<title>WD Journey Stamp Collection</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -19,8 +19,6 @@ body{background:#f0f4ff;min-height:100vh}
 .hdr-title span{color:#93c5fd}
 .hdr-sub{font-size:11px;color:#93c5fd;margin-top:3px;font-weight:600;position:relative}
 .admin-btn{position:absolute;top:14px;right:12px;font-size:11px;color:#93c5fd;cursor:pointer;padding:4px 10px;border-radius:20px;border:1px solid rgba(147,197,253,.4);background:rgba(255,255,255,.08);font-weight:600;z-index:2}
-
-/* form */
 .form-box{margin:12px 12px 0;background:#fff;border-radius:14px;padding:14px;box-shadow:0 2px 12px rgba(28,78,180,.09);border:1.5px solid #e0eaff}
 .form-lbl{font-size:11px;font-weight:800;color:#1c4eb4;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
 .form-row{display:flex;gap:8px}
@@ -29,8 +27,6 @@ body{background:#f0f4ff;min-height:100vh}
 .fi-sm{width:110px;padding:10px 12px;border-radius:9px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:13px;outline:none;font-family:inherit}
 .fi-sm:focus{border-color:#2563eb}
 .form-hint{font-size:10px;color:#93c5fd;margin-top:4px}
-
-/* jigsaw */
 .jig-box{margin:10px 12px 0;background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 12px rgba(28,78,180,.09);border:1.5px solid #e0eaff}
 .jig-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;margin-bottom:10px;box-shadow:0 4px 16px rgba(28,78,180,.15)}
 .jp{position:relative;overflow:hidden;transition:all .5s}
@@ -50,16 +46,12 @@ body{background:#f0f4ff;min-height:100vh}
 .prog-lbl{font-size:12px;font-weight:800;color:#1c4eb4;white-space:nowrap}
 .prog-track{flex:1;height:7px;background:#dbeafe;border-radius:10px;overflow:hidden}
 .prog-fill{height:100%;background:linear-gradient(90deg,#1c4eb4,#60a5fa);border-radius:10px;transition:width .7s}
-
-/* complete */
 .done-banner{margin:10px 12px 0;background:linear-gradient(135deg,#1c4eb4,#7c3aed);border-radius:14px;padding:14px;text-align:center;display:none;animation:banIn .5s ease}
 @keyframes banIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
 .done-banner.show{display:block}
 .done-t{font-size:17px;font-weight:900;color:#fff;margin-bottom:2px}
 .done-s{font-size:11px;color:#bfdbfe}
 .reset-lnk{font-size:10px;color:#93c5fd;text-decoration:underline;cursor:pointer;margin-top:4px;display:inline-block}
-
-/* booths */
 .booth-sec{margin:10px 12px 0}
 .booth-div{font-size:11px;font-weight:700;color:#9ca3af;text-align:center;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .booth-div::before,.booth-div::after{content:'';flex:1;height:1px;background:#e0eaff}
@@ -81,7 +73,12 @@ body{background:#f0f4ff;min-height:100vh}
 .bbtn.ok{background:#f0fdf4;color:#059669;cursor:default;border:1.5px solid #bbf7d0}
 .dbadge{position:absolute;top:5px;right:5px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:7px;font-weight:800;border-radius:20px;padding:2px 6px}
 
-/* QR screen */
+/* Smartsheet link row inside booth card */
+.blink{font-size:9px;margin-top:3px;display:flex;align-items:center;gap:4px;overflow:hidden}
+.blink a{color:#2563eb;text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:180px;font-weight:600}
+.blink a:hover{text-decoration:underline}
+.blink-ico{flex-shrink:0;width:11px;height:11px;opacity:.6}
+
 .qrs{display:none;position:fixed;inset:0;z-index:200;background:#000;flex-direction:column}
 .qrs.show{display:flex}
 .qr-top{background:#0f1f3d;padding:10px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
@@ -130,8 +127,6 @@ body{background:#f0f4ff;min-height:100vh}
 .qr-stxt{font-size:10px;color:#90cdf4;flex:1}
 .qr-dbg{font-size:9px;color:#4ade80;font-family:monospace;min-height:12px;word-break:break-all}
 .qr-cls{padding:9px;border-radius:9px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:#94a3b8;font-size:12px;font-weight:600;cursor:pointer;text-align:center;width:100%}
-
-/* modals */
 .mwrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:300;align-items:flex-end;justify-content:center}
 .mwrap.show{display:flex}
 .msheet{background:#fff;border-radius:22px 22px 0 0;width:100%;max-width:480px;padding:22px 18px 34px;animation:mup .4s ease;text-align:center}
@@ -145,8 +140,6 @@ body{background:#f0f4ff;min-height:100vh}
 .msub{font-size:12px;color:#6b7280;margin-top:4px;line-height:1.5}
 .meco{font-size:11px;color:#059669;margin-top:5px;font-weight:600}
 .mbtn{margin-top:14px;width:100%;padding:13px;background:linear-gradient(135deg,#1c4eb4,#7c3aed);color:#fff;border:none;border-radius:11px;font-size:14px;font-weight:800;cursor:pointer}
-
-/* admin */
 .alw{max-width:400px;margin:0 auto;padding:60px 16px}
 .alc{background:#fff;border-radius:18px;padding:28px 22px;box-shadow:0 8px 36px rgba(28,78,180,.12);text-align:center;border:1.5px solid #e0eaff}
 .all{width:50px;height:50px;border-radius:50%;object-fit:contain;margin-bottom:8px}
@@ -368,46 +361,33 @@ body{background:#f0f4ff;min-height:100vh}
 var GS="https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
 var LS="wd_es_v2";
 
-/* ════════════════════════════════════════════════════════
-   🔑 matchQR — รองรับทุก format:
-   
-   QR สั้น (แนะนำ !) — ทำที่ qr-code-generator.com → Free Text:
-     CUST / RESU / EXCE / INNO
-   
-   QR URL (ที่มีอยู่แล้ว):
-     https://sakorn564.github.io/WD-Journey-Stamp-Collection/?booth=customer
-   
-   QR text รหัส:
-     WD-CUSTOMER / WD-JOURNEY-BOOTH-CUSTOMER
-   ════════════════════════════════════════════════════════ */
+/* ── Smartsheet form URLs per booth ── */
+var SS_LINKS={
+  c:'https://app.smartsheet.com/b/form/019e5ca730d8763fa0d4f065bec45209',
+  r:'https://app.smartsheet.com/b/form/019e5cae940a7ea98063e3d8c4ab02e7',
+  e:'https://app.smartsheet.com/b/form/019e5cab0ea07e49b8ddd44a065064b7',
+  i:'https://app.smartsheet.com/b/form/019e5cb0006a750581e77cbf2eb672a7'
+};
+
 function matchQR(raw){
   if(!raw)return null;
   var s=raw.trim();
   var u=s.toUpperCase();
-
-  /* รหัสสั้น — สแกนง่ายที่สุด */
   if(u==='CUST'||u==='CUSTOMER-BOOTH'||u==='BOOTH-CUSTOMER')return 'c';
   if(u==='RESU'||u==='RESULT-BOOTH'||u==='BOOTH-RESULT')return 'r';
   if(u==='EXCE'||u==='EXCELLENT-BOOTH'||u==='BOOTH-EXCELLENT')return 'e';
   if(u==='INNO'||u==='INNOVATION-BOOTH'||u==='BOOTH-INNOVATION')return 'i';
-
-  /* WD-xxx */
   if(u==='WD-CUSTOMER'||u==='WD-JOURNEY-BOOTH-CUSTOMER')return 'c';
   if(u==='WD-RESULT'||u==='WD-JOURNEY-BOOTH-RESULT')return 'r';
   if(u==='WD-EXCELLENT'||u==='WD-JOURNEY-BOOTH-EXCELLENT')return 'e';
   if(u==='WD-INNOVATION'||u==='WD-JOURNEY-BOOTH-INNOVATION')return 'i';
-
-  /* URL — ?booth=xxx */
   try{var p=new URL(s);var b=p.searchParams.get('booth');if(b){b=b.toLowerCase();if(b==='customer')return 'c';if(b==='result')return 'r';if(b==='excellent')return 'e';if(b==='innovation')return 'i';}}catch(x){}
   var m=s.match(/[?&]booth=([a-zA-Z]+)/i);
   if(m){var bv=m[1].toLowerCase();if(bv==='customer')return 'c';if(bv==='result')return 'r';if(bv==='excellent')return 'e';if(bv==='innovation')return 'i';}
-
-  /* keyword fallback */
   if(u.indexOf('CUSTOMER')!==-1)return 'c';
   if(u.indexOf('RESULT')!==-1)return 'r';
   if(u.indexOf('EXCELLENT')!==-1)return 'e';
   if(u.indexOf('INNOVATION')!==-1)return 'i';
-
   return null;
 }
 
@@ -432,33 +412,24 @@ if(window.BarcodeDetector){try{BD=new window.BarcodeDetector({formats:['qr_code'
 function lsLoad(){try{return JSON.parse(localStorage.getItem(LS)||'{}');}catch(e){return {};}}
 function lsSave(d){try{localStorage.setItem(LS,JSON.stringify(d));}catch(e){}}
 function lsClear(){try{localStorage.removeItem(LS);}catch(e){}}
-
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
-
-function loadLS(){
-  var d=lsLoad();
-  if(d.name)document.getElementById('empName').value=d.name;
-  if(d.dept)document.getElementById('empDept').value=d.dept;
-  if(d.stamped)stamped=d.stamped;
-}
-function saveName(){
-  var d=lsLoad();
-  d.name=document.getElementById('empName').value.trim();
-  d.dept=document.getElementById('empDept').value.trim();
-  lsSave(d);
-}
+function loadLS(){var d=lsLoad();if(d.name)document.getElementById('empName').value=d.name;if(d.dept)document.getElementById('empDept').value=d.dept;if(d.stamped)stamped=d.stamped;}
+function saveName(){var d=lsLoad();d.name=document.getElementById('empName').value.trim();d.dept=document.getElementById('empDept').value.trim();lsSave(d);}
 function saveStamp(){var d=lsLoad();d.stamped=stamped;lsSave(d);}
 
 function buildBooths(){
   document.getElementById('boothList').innerHTML=BOOTHS.map(function(b){
     var done=stamped[b.k];
+    var link=SS_LINKS[b.k];
+    var shortUrl='smartsheet.com/.../'+link.slice(-8);
+    var linkHtml='<div class="blink"><svg class="blink-ico" viewBox="0 0 24 24" fill="none"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="'+link+'" target="_blank" rel="noopener" title="'+link+'">'+shortUrl+'</a></div>';
     var btn=done
       ?'<button class="bbtn ok" disabled>✓ แสตมป์แล้ว</button>'
       :'<button class="bbtn" onclick="openQR(\''+b.k+'\')"><svg viewBox="0 0 24 24" fill="none" width="12" height="12"><rect x="1" y="5" width="22" height="14" rx="2.5" stroke="white" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" stroke="white" stroke-width="1.8"/><path d="M8 5V4a2 2 0 012-2h4a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg> แสตมป์!</button>';
     return '<div class="br '+b.cls+(done?' done':'')+'">'+
       (done?'<div class="dbadge">✓</div>':'')+
       '<div class="bico" style="background:'+b.bg+'">'+b.ico+'</div>'+
-      '<div class="binfo"><div class="bname">'+b.lbl+'</div><div class="bsub">'+b.sub+' — '+b.lbl+'</div></div>'+
+      '<div class="binfo"><div class="bname">'+b.lbl+'</div><div class="bsub">'+b.sub+' — '+b.lbl+'</div>'+linkHtml+'</div>'+
       btn+'</div>';
   }).join('');
 }
@@ -472,7 +443,6 @@ function updateJig(){
   else document.getElementById('doneBanner').classList.remove('show');
 }
 
-/* ── open QR scanner ── */
 function openQR(k){
   if(stamped[k])return;
   if(!document.getElementById('empName').value.trim()){showToast('⚠️ กรุณากรอกชื่อก่อน','err');document.getElementById('empName').focus();return;}
@@ -492,11 +462,7 @@ function openQR(k){
   document.body.style.overflow='hidden';
 }
 
-function startCam(){
-  document.getElementById('qrStart').classList.add('h');
-  setSt('l','กำลังเปิดกล้อง...');
-  openCamWith(false);
-}
+function startCam(){document.getElementById('qrStart').classList.add('h');setSt('l','กำลังเปิดกล้อง...');openCamWith(false);}
 function flipCam(){if(!vStream)return;openCamWith(!frontCam);}
 function stopStream(){if(vStream){vStream.getTracks().forEach(function(t){t.stop();});vStream=null;}}
 
@@ -533,24 +499,18 @@ function gotStream(stream){
   },100);
 }
 
-/* ════ DECODE ════ */
 function decode(imgData,W,H){
   var d=imgData.data,N=W*H;
   var lum=new Uint8Array(N),R=new Uint8Array(N),G=new Uint8Array(N),B=new Uint8Array(N);
   for(var i=0;i<N;i++){R[i]=d[i*4];G[i]=d[i*4+1];B[i]=d[i*4+2];lum[i]=Math.round(.299*R[i]+.587*G[i]+.114*B[i]);}
   function mk(fn){var o=new Uint8ClampedArray(N*4);for(var i=0;i<N;i++){var v=fn(i);o[i*4]=o[i*4+1]=o[i*4+2]=v;o[i*4+3]=255;}return new ImageData(o,W,H);}
   var sets=[
-    [imgData,'attemptBoth'],
-    [mk(function(i){return lum[i];}),'attemptBoth'],
-    [mk(function(i){return lum[i]<128?0:255;}),'dontInvert'],
-    [mk(function(i){return lum[i]<128?255:0;}),'dontInvert'],
-    [mk(function(i){return 255-lum[i];}),'dontInvert'],
-    [mk(function(i){return lum[i]<100?0:255;}),'dontInvert'],
-    [mk(function(i){return lum[i]<150?0:255;}),'dontInvert'],
-    [mk(function(i){return lum[i]<80?0:255;}),'dontInvert'],
+    [imgData,'attemptBoth'],[mk(function(i){return lum[i];}),'attemptBoth'],
+    [mk(function(i){return lum[i]<128?0:255;}),'dontInvert'],[mk(function(i){return lum[i]<128?255:0;}),'dontInvert'],
+    [mk(function(i){return 255-lum[i];}),'dontInvert'],[mk(function(i){return lum[i]<100?0:255;}),'dontInvert'],
+    [mk(function(i){return lum[i]<150?0:255;}),'dontInvert'],[mk(function(i){return lum[i]<80?0:255;}),'dontInvert'],
     [mk(function(i){var v=Math.min(255,Math.max(0,(lum[i]-128)*2+128));return v<128?0:255;}),'dontInvert'],
-    [mk(function(i){return R[i]<128?0:255;}),'dontInvert'],
-    [mk(function(i){return G[i]<128?0:255;}),'dontInvert'],
+    [mk(function(i){return R[i]<128?0:255;}),'dontInvert'],[mk(function(i){return G[i]<128?0:255;}),'dontInvert'],
     [mk(function(i){return B[i]<128?0:255;}),'dontInvert']
   ];
   for(var i=0;i<sets.length;i++){try{var r=jsQR(sets[i][0].data,W,H,{inversionAttempts:sets[i][1]});if(r&&r.data)return r.data;}catch(x){}}
@@ -568,19 +528,10 @@ function startScan(){
     var W=vid.videoWidth,H=vid.videoHeight;
     can.width=W;can.height=H;
     ctx.drawImage(vid,0,0,W,H);
-    /* BarcodeDetector native */
-    if(BD&&fc%2===0){
-      BD.detect(vid).then(function(cs){
-        if(cs&&cs.length>0&&!sLock){document.getElementById('qrDbg').textContent='Native:'+cs[0].rawValue.substring(0,40);onResult(cs[0].rawValue);}
-      }).catch(function(){});
-    }
-    /* jsQR */
+    if(BD&&fc%2===0){BD.detect(vid).then(function(cs){if(cs&&cs.length>0&&!sLock){document.getElementById('qrDbg').textContent='Native:'+cs[0].rawValue.substring(0,40);onResult(cs[0].rawValue);}}).catch(function(){});}
     var res=null;
     var cr=[[0,0,1,1],[.05,.05,.9,.9],[.1,.1,.8,.8],[.15,.15,.7,.7],[.2,.2,.6,.6]];
-    for(var c=0;c<cr.length&&!res;c++){
-      var cx=Math.floor(W*cr[c][0]),cy=Math.floor(H*cr[c][1]),cw=Math.floor(W*cr[c][2]),ch=Math.floor(H*cr[c][3]);
-      if(cw>10&&ch>10){try{res=decode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(x){}}
-    }
+    for(var c=0;c<cr.length&&!res;c++){var cx=Math.floor(W*cr[c][0]),cy=Math.floor(H*cr[c][1]),cw=Math.floor(W*cr[c][2]),ch=Math.floor(H*cr[c][3]);if(cw>10&&ch>10){try{res=decode(ctx.getImageData(cx,cy,cw,ch),cw,ch);}catch(x){}}}
     if(res){document.getElementById('qrDbg').textContent='jsQR:'+res.substring(0,40);onResult(res);}
   },80);
 }
