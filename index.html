@@ -13,33 +13,69 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 /* ══ HEADER ══ */
 .hdr{background:linear-gradient(135deg,#1a2e6e 0%,#1c4eb4 50%,#2563eb 100%);padding:18px 20px 22px;text-align:center;position:relative;overflow:hidden;border-radius:0 0 28px 28px;box-shadow:0 8px 32px rgba(28,78,180,.3)}
 .hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 10%,rgba(96,165,250,.3) 0%,transparent 55%)}
-.hdr::after{content:'';position:absolute;top:-30px;left:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.05)}
 .hdr-stars{position:absolute;inset:0;pointer-events:none}
 .star{position:absolute;color:#93c5fd;font-size:10px;animation:twinkle 3s infinite}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
 .hdr-inner{position:relative;z-index:2}
 .hdr-logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
 .hdr-logo-wrap{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
-.hdr-logo{width:34px;height:34px;border-radius:50%;object-fit:contain}
+.hdr-logo-txt{color:#93c5fd;font-weight:900;font-size:15px;letter-spacing:1px}
 .hdr-brand{text-align:left}
-.hdr-title{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.3px}
-.hdr-title .dash{color:#93c5fd}
+.hdr-title{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.3px}
 .hdr-tagline{font-size:11px;color:#bfdbfe;font-weight:600;margin-top:1px}
-.hdr-sub{font-size:12px;color:#dbeafe;margin-top:4px;font-weight:500;letter-spacing:.2px}
+.hdr-sub{font-size:12px;color:#dbeafe;margin-top:4px;font-weight:500}
 .admin-btn{position:absolute;top:16px;right:14px;font-size:11px;color:#93c5fd;cursor:pointer;padding:5px 12px;border-radius:20px;border:1px solid rgba(147,197,253,.4);background:rgba(255,255,255,.1);font-weight:700;z-index:3;backdrop-filter:blur(4px);display:flex;align-items:center;gap:4px}
 
-/* ══ WRAP ══ */
 .wrap{max-width:440px;margin:0 auto;padding:0 14px 50px}
 
-/* ══ NAME CARD ══ */
-.name-card{margin:16px 0 0;background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 20px rgba(28,78,180,.08);border:1.5px solid #e0eaff}
-.nc-lbl{font-size:10px;font-weight:800;color:#1c4eb4;margin-bottom:10px;text-transform:uppercase;letter-spacing:.8px;display:flex;align-items:center;gap:5px}
-.nc-row{display:flex;gap:8px}
-.fi{flex:1;padding:11px 14px;border-radius:12px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:14px;outline:none;font-family:inherit;transition:border-color .2s}
-.fi:focus{border-color:#2563eb;background:#fff}
-.fi-sm{width:100px;padding:11px 12px;border-radius:12px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:13px;outline:none;font-family:inherit;transition:border-color .2s;flex-shrink:0}
-.fi-sm:focus{border-color:#2563eb;background:#fff}
-.nc-hint{font-size:10px;color:#93c5fd;margin-top:6px;display:flex;align-items:center;gap:4px}
+/* ══ LOGIN CARD ══ */
+.login-wrap{min-height:calc(100vh - 120px);display:flex;align-items:center;justify-content:center;padding:20px 0 60px}
+.login-card{background:#fff;border-radius:24px;padding:32px 24px;width:100%;max-width:400px;box-shadow:0 8px 40px rgba(28,78,180,.13);border:1.5px solid #e0eaff;position:relative;overflow:hidden}
+.login-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#1c4eb4,#2563eb,#60a5fa)}
+.login-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#eff6ff,#dbeafe);border:1.5px solid #bfdbfe;border-radius:30px;padding:5px 14px;font-size:11px;font-weight:800;color:#1c4eb4;margin-bottom:18px;letter-spacing:.3px}
+.login-illo{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb,#60a5fa);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 8px 24px rgba(28,78,180,.25)}
+.login-title{font-size:22px;font-weight:900;color:#1e293b;text-align:center;margin-bottom:4px}
+.login-sub{font-size:13px;color:#6b7280;text-align:center;line-height:1.6;margin-bottom:22px}
+
+.field-grp{margin-bottom:14px}
+.field-lbl{font-size:11px;font-weight:800;color:#1c4eb4;margin-bottom:6px;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.5px}
+.field-lbl .req{color:#ef4444}
+.field-row{display:flex;gap:8px}
+.fi{width:100%;padding:13px 16px;border-radius:13px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:14px;outline:none;font-family:inherit;transition:all .2s}
+.fi:focus{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.fi.err-field{border-color:#ef4444;background:#fff5f5}
+.fi-sm{width:130px;flex-shrink:0;padding:13px 14px;border-radius:13px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:13px;outline:none;font-family:inherit;transition:all .2s}
+.fi-sm:focus{border-color:#2563eb;background:#fff;box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+.fi-hint{font-size:10px;color:#9ca3af;margin-top:5px;display:flex;align-items:center;gap:4px}
+.fi-err{font-size:11px;color:#ef4444;margin-top:5px;display:none;align-items:center;gap:4px;font-weight:600}
+.fi-err.show{display:flex}
+
+.login-btn{width:100%;padding:14px;border-radius:14px;border:none;background:linear-gradient(135deg,#1c4eb4,#2563eb);color:#fff;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(28,78,180,.28);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;font-family:inherit}
+.login-btn:hover{transform:translateY(-1px);box-shadow:0 8px 26px rgba(28,78,180,.35)}
+.login-btn:active{transform:translateY(1px)}
+.login-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+.login-divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.login-divider::before,.login-divider::after{content:'';flex:1;height:1px;background:#e0eaff}
+.login-divider span{font-size:10px;color:#9ca3af;font-weight:600}
+
+.id-format{background:#f8fbff;border:1.5px solid #e0eaff;border-radius:12px;padding:12px 14px}
+.id-format-t{font-size:10px;font-weight:800;color:#374151;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.id-examples{display:flex;flex-wrap:wrap;gap:5px}
+.id-ex{background:#eff6ff;color:#1c4eb4;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;border:1px solid #bfdbfe;font-family:monospace}
+
+/* spinner inside btn */
+.btn-spin{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ══ USER CHIP (after login) ══ */
+.user-chip{margin:16px 0 0;background:#fff;border-radius:16px;padding:12px 16px;box-shadow:0 3px 14px rgba(28,78,180,.08);border:1.5px solid #e0eaff;display:flex;align-items:center;gap:12px}
+.uc-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:900;font-size:16px;box-shadow:0 4px 12px rgba(28,78,180,.25)}
+.uc-info{flex:1;min-width:0}
+.uc-name{font-size:15px;font-weight:900;color:#1e293b;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.uc-meta{font-size:11px;color:#6b7280;margin-top:2px;display:flex;align-items:center;gap:6px}
+.uc-id{font-family:monospace;background:#eff6ff;color:#1c4eb4;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;border:1px solid #bfdbfe}
+.uc-logout{font-size:11px;color:#ef4444;cursor:pointer;padding:6px 12px;border-radius:20px;border:1.5px solid #fecaca;background:#fff5f5;font-weight:700;white-space:nowrap;flex-shrink:0}
 
 /* ══ JIGSAW ══ */
 .jig-card{margin:12px 0 0;background:#fff;border-radius:18px;padding:14px;box-shadow:0 4px 20px rgba(28,78,180,.08);border:1.5px solid #e0eaff}
@@ -57,8 +93,6 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .jp-ov .jpn{font-size:9px;font-weight:800;color:#93c5fd;letter-spacing:.5px}
 .jp.unlocked::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(255,255,255,.6) 50%,transparent 75%);animation:shine .9s ease;pointer-events:none}
 @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-
-/* progress */
 .prog-wrap{background:#f0f4ff;border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px}
 .prog-ico{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:900;color:#fff;font-size:13px}
 .prog-info{flex:1}
@@ -68,24 +102,18 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 
 /* ══ DONE BANNER ══ */
 .done-banner{margin:12px 0 0;background:linear-gradient(135deg,#1c4eb4,#7c3aed,#6366f1);border-radius:18px;padding:16px;text-align:center;display:none;animation:banIn .5s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden}
-.done-banner::before{content:'🎊';position:absolute;top:-10px;left:10px;font-size:40px;opacity:.3}
-.done-banner::after{content:'🎊';position:absolute;top:-10px;right:10px;font-size:40px;opacity:.3;transform:scaleX(-1)}
 @keyframes banIn{from{transform:scale(.85) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 .done-banner.show{display:block}
-.done-t{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px;position:relative}
-.done-s{font-size:12px;color:#bfdbfe;position:relative}
-.reset-lnk{font-size:10px;color:#93c5fd;text-decoration:underline;cursor:pointer;margin-top:6px;display:inline-block;position:relative}
+.done-t{font-size:18px;font-weight:900;color:#fff;margin-bottom:3px}
+.done-s{font-size:12px;color:#bfdbfe}
+.reset-lnk{font-size:10px;color:#93c5fd;text-decoration:underline;cursor:pointer;margin-top:6px;display:inline-block}
 
-/* ══ BOOTH SECTION ══ */
+/* ══ BOOTH ══ */
 .booth-sec{margin:12px 0 0}
 .booth-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px}
 .booth-hdr-lbl{font-size:12px;font-weight:800;color:#64748b;display:flex;align-items:center;gap:6px}
-.booth-hdr-lbl::before,.booth-hdr-lbl::after{content:'';width:30px;height:1.5px;background:linear-gradient(90deg,#e0eaff,transparent)}
-.booth-hdr-lbl::before{background:linear-gradient(90deg,transparent,#e0eaff)}
 .booth-count{font-size:10px;font-weight:700;color:#1c4eb4;background:#eff6ff;padding:3px 10px;border-radius:20px;border:1px solid #bfdbfe}
 .booth-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
-/* booth card */
 .bcard{border-radius:16px;padding:14px;border:2px solid transparent;position:relative;background:#fff;box-shadow:0 3px 12px rgba(28,78,180,.08);transition:all .3s;overflow:hidden}
 .bcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:16px 16px 0 0}
 .bcard:active{transform:scale(.97)}
@@ -97,7 +125,7 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .br2.done{border-color:#059669;background:linear-gradient(135deg,#f0fdf4,#fff);box-shadow:0 0 0 3px rgba(5,150,105,.12),0 4px 16px rgba(5,150,105,.1)}
 .be.done{border-color:#d97706;background:linear-gradient(135deg,#fffbeb,#fff);box-shadow:0 0 0 3px rgba(217,119,6,.12),0 4px 16px rgba(217,119,6,.1)}
 .bi.done{border-color:#7c3aed;background:linear-gradient(135deg,#f5f3ff,#fff);box-shadow:0 0 0 3px rgba(124,58,237,.12),0 4px 16px rgba(124,58,237,.1)}
-.dbadge{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:7px;font-weight:800;border-radius:20px;padding:2px 7px;letter-spacing:.3px}
+.dbadge{position:absolute;top:8px;right:8px;background:linear-gradient(135deg,#059669,#10b981);color:#fff;font-size:7px;font-weight:800;border-radius:20px;padding:2px 7px}
 .bcard-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .bico{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .bc .bico{background:linear-gradient(135deg,#dbeafe,#eff6ff)}
@@ -116,10 +144,9 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .bi .bbtn{background:linear-gradient(135deg,#7c3aed,#8b5cf6);color:#fff;box-shadow:0 4px 12px rgba(124,58,237,.3)}
 .bbtn.ok{background:#f0fdf4!important;color:#059669!important;cursor:default;border:1.5px solid #bbf7d0;box-shadow:none!important}
 
-/* ══ BENEFIT BOX ══ */
+/* ══ BENEFIT ══ */
 .benefit-card{margin:12px 0 0;background:#fff;border-radius:18px;padding:16px;box-shadow:0 4px 20px rgba(28,78,180,.08);border:1.5px solid #e0eaff}
 .benefit-title{font-size:11px;font-weight:800;color:#1c4eb4;margin-bottom:12px;display:flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:.5px}
-.benefit-tag{display:inline-flex;align-items:center;background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1c4eb4;font-size:11px;font-weight:800;padding:4px 14px;border-radius:20px;border:1.5px solid #bfdbfe;margin-bottom:12px}
 .benefit-list{display:flex;flex-direction:column;gap:9px}
 .bitem{display:flex;align-items:flex-start;gap:10px}
 .bitem-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -130,7 +157,7 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 /* ══ REDIRECT OVERLAY ══ */
 .rd-ov{display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#e8f0fe,#f0f4ff);align-items:center;justify-content:center;padding:24px}
 .rd-ov.show{display:flex}
-.rd-card{background:#fff;border-radius:24px;padding:32px 26px;max-width:360px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(28,78,180,.2),0 4px 16px rgba(28,78,180,.1)}
+.rd-card{background:#fff;border-radius:24px;padding:32px 26px;max-width:360px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(28,78,180,.2)}
 .rd-icon{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;animation:rdpulse 1.5s infinite}
 @keyframes rdpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(28,78,180,.3)}50%{transform:scale(1.06);box-shadow:0 0 0 16px rgba(28,78,180,0)}}
 .rd-tag{font-size:12px;font-weight:800;padding:5px 16px;border-radius:30px;display:inline-block;margin-bottom:12px}
@@ -158,15 +185,14 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .meco{font-size:12px;color:#059669;margin-top:8px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:5px}
 .mbtn{margin-top:18px;width:100%;padding:14px;background:linear-gradient(135deg,#1c4eb4,#7c3aed);color:#fff;border:none;border-radius:14px;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(28,78,180,.3)}
 
-/* ══ ADMIN LOGIN ══ */
+/* ══ ADMIN ══ */
 .alw{max-width:400px;margin:0 auto;padding:60px 16px}
 .alc{background:#fff;border-radius:20px;padding:30px 24px;box-shadow:0 8px 40px rgba(28,78,180,.12);text-align:center;border:1.5px solid #e0eaff}
-.all{width:54px;height:54px;border-radius:50%;object-fit:contain;margin-bottom:10px}
 .alt{font-size:20px;font-weight:900;color:#1c4eb4;margin-bottom:3px}
 .als{font-size:12px;color:#6b7280;margin-bottom:20px}
 .ali{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid #dbeafe;background:#f8fbff;color:#1e293b;font-size:14px;margin-bottom:10px;outline:none;font-family:inherit}
 .ali:focus{border-color:#2563eb}
-.alb{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#1c4eb4,#2563eb);color:#fff;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(28,78,180,.25)}
+.alb{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#1c4eb4,#2563eb);color:#fff;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(28,78,180,.25);font-family:inherit}
 .ale{font-size:12px;color:#ef4444;margin-top:6px;display:none}
 .alback{font-size:13px;color:#2563eb;cursor:pointer;margin-top:14px;font-weight:600}
 
@@ -174,10 +200,11 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .adw{max-width:980px;margin:0 auto;padding:16px 16px 60px}
 .adt{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:8px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:0 2px 12px rgba(28,78,180,.07);border:1.5px solid #e0eaff}
 .adl{display:flex;align-items:center;gap:12px}
-.adav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(28,78,180,.3)}
+.adav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .adtt{font-size:18px;font-weight:900;color:#1c4eb4}
 .adss{font-size:10px;color:#6b7280;margin-top:2px;display:flex;align-items:center;gap:5px}
 .syncd{width:7px;height:7px;border-radius:50%;background:#10b981;display:inline-block;animation:bl 2s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
 .adlo{font-size:11px;color:#ef4444;cursor:pointer;padding:6px 14px;border-radius:20px;border:1.5px solid #fecaca;background:#fff5f5;font-weight:700}
 .adref{font-size:11px;color:#1c4eb4;cursor:pointer;padding:6px 14px;border-radius:20px;border:1.5px solid #bfdbfe;background:#eff6ff;font-weight:700}
 .str{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:14px}
@@ -208,6 +235,7 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .dtbl tr:last-child td{border-bottom:none}
 .dtbl tr:hover td{background:#f8fbff}
 .tn{font-weight:700;color:#1c4eb4;font-size:12px}
+.tid{font-family:monospace;font-size:9px;color:#6b7280;background:#eff6ff;padding:1px 6px;border-radius:10px;margin-top:2px;display:inline-block}
 .tdep{font-size:9px;color:#6b7280;margin-top:1px}
 .dot{display:inline-block;width:22px;height:22px;border-radius:50%;font-size:9px;font-weight:700;text-align:center;line-height:22px;margin:0 1px}
 .don{background:linear-gradient(135deg,#059669,#10b981);color:#fff}.doff{background:#f0f4ff;color:#93c5fd}
@@ -222,7 +250,6 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .pb{padding:4px 10px;border-radius:7px;border:1.5px solid #dbeafe;background:#fff;color:#6b7280;font-size:9px;cursor:pointer;font-weight:600}
 .pb.ac{background:linear-gradient(135deg,#1c4eb4,#2563eb);color:#fff;border-color:transparent}
 
-/* confirm */
 .cwrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .cwrap.show{display:flex}
 .cbox{background:#fff;border-radius:20px;padding:28px 24px;max-width:320px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
@@ -233,22 +260,19 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 .cca{flex:1;padding:11px;border-radius:11px;border:1.5px solid #e5e7eb;background:#f8fafc;color:#374151;font-size:13px;font-weight:700;cursor:pointer}
 .cok{flex:1;padding:11px;border-radius:11px;border:none;background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;font-size:13px;font-weight:800;cursor:pointer}
 
-/* toast */
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(70px);background:#1c4eb4;color:#fff;padding:11px 22px;border-radius:12px;font-size:13px;font-weight:600;z-index:999;transition:transform .35s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;max-width:92vw;box-shadow:0 8px 24px rgba(28,78,180,.3)}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.toast.err{background:#dc2626;box-shadow:0 8px 24px rgba(220,38,38,.3)}
-.toast.suc{background:#059669;box-shadow:0 8px 24px rgba(5,150,105,.3)}
+.toast.err{background:#dc2626}.toast.suc{background:#059669}
 
-/* confetti */
 .conf{position:fixed;pointer-events:none;border-radius:3px;animation:cf 3s ease forwards;z-index:400}
 @keyframes cf{0%{opacity:1;transform:translateY(-10px) rotate(0) scale(1)}100%{opacity:0;transform:translateY(100vh) rotate(720deg) scale(.5)}}
-@keyframes bl{0%,100%{opacity:1}50%{opacity:.2}}
+
 @media(max-width:480px){.str{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
-<!-- ══ REDIRECT OVERLAY ══ -->
+<!-- REDIRECT OVERLAY -->
 <div class="rd-ov" id="rdOv">
   <div class="rd-card">
     <div class="rd-icon" id="rdIcon"></div>
@@ -262,106 +286,174 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
   </div>
 </div>
 
-<!-- ══ MAIN PAGE ══ -->
-<div class="page active" id="pgMain">
-<div class="wrap">
-
-  <!-- Header -->
+<!-- ══ PAGE: LOGIN ══ -->
+<div class="page active" id="pgEmpLogin">
   <div class="hdr">
     <div class="hdr-stars" id="hdrStars"></div>
     <div class="hdr-inner">
       <div class="hdr-logo-row">
-        <div class="hdr-logo-wrap">
-          <img class="hdr-logo" src="https://i.imgur.com/7lE2Rcx.png" alt="WD" onerror="this.parentElement.innerHTML='<span style=\'color:#93c5fd;font-weight:900;font-size:16px\'>WD</span>'"/>
-        </div>
+        <div class="hdr-logo-wrap"><span class="hdr-logo-txt">WD</span></div>
         <div class="hdr-brand">
-          <div class="hdr-title">WD Journey Stamp Collection <span class="dash">Stamp</span> Collection</div>
+          <div class="hdr-title">WD Journey Stamp</div>
           <div class="hdr-tagline">แสตมป์ครบ 4 บูท รับจิ๊กซอว์สมบูรณ์</div>
         </div>
       </div>
-      <div class="hdr-sub">สะสมแสตมป์ครบ 4 บูท เพื่อรับจิ๊กซอว์ชิ้นเต็ม!</div>
     </div>
     <div class="admin-btn" onclick="showPage('pgLogin')">
       <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/></svg>
       Admin
     </div>
   </div>
+  <div class="wrap">
+    <div class="login-wrap">
+      <div class="login-card">
+        <div style="text-align:center">
+          <div class="login-badge">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1c4eb4" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>
+            Employee Login
+          </div>
+          <div class="login-illo">
+            <svg viewBox="0 0 24 24" fill="none" width="38" height="38"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="2.2"/><path d="M4 20 Q12 14 20 20" stroke="white" stroke-width="2.2" stroke-linecap="round" fill="none"/><rect x="14" y="14" width="8" height="8" rx="2" fill="rgba(255,255,255,.2)" stroke="white" stroke-width="1.5"/><path d="M16 18h4M18 16v4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="login-title">เข้าสู่ระบบ</div>
+          <div class="login-sub">กรอกรหัสพนักงานและชื่อของคุณ<br>เพื่อเริ่มสะสมแสตมป์</div>
+        </div>
 
-  <!-- Name Card -->
-  <div class="name-card">
-    <div class="nc-lbl">
-      <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>
-      ข้อมูลของคุณ
-    </div>
-    <div class="nc-row">
-      <input class="fi" id="empName" type="text" placeholder="ชื่อ-นามสกุล *" oninput="saveName()"/>
-      <input class="fi-sm" id="empDept" type="text" placeholder="แผนก" oninput="saveName()"/>
-    </div>
-    <div class="nc-hint">
-      <svg viewBox="0 0 24 24" fill="none" width="11" height="11"><circle cx="12" cy="12" r="9" stroke="#93c5fd" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/></svg>
-      กรอกชื่อก่อนทำการแสตมป์
-    </div>
-  </div>
+        <div class="field-grp">
+          <div class="field-lbl">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#1c4eb4" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>
+            รหัสพนักงาน <span class="req">*</span>
+          </div>
+          <input class="fi" id="empId" type="text" placeholder="เช่น 7XXXXXX หรือ EMP-001" maxlength="20" oninput="clearErr('empIdErr')" onkeydown="if(event.key==='Enter')doEmpLogin()"/>
+          <div class="fi-err" id="empIdErr">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><circle cx="12" cy="12" r="9" stroke="#ef4444" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+            <span id="empIdErrMsg">กรุณากรอกรหัสพนักงาน</span>
+          </div>
+          <div class="fi-hint">
+            <svg viewBox="0 0 24 24" fill="none" width="11" height="11"><circle cx="12" cy="12" r="9" stroke="#9ca3af" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"/></svg>
+            รหัส 7 หลัก หรือรูปแบบที่บริษัทกำหนด
+          </div>
+        </div>
 
-  <!-- Jigsaw -->
-  <div class="jig-card">
-    <div class="jig-grid">
-      <div class="jp tl locked" id="jp-c"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 15 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span class="jpn">CUSTOMER</span></div></div>
-      <div class="jp tr locked" id="jp-r"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><rect x="3" y="14" width="4" height="7" rx="1" fill="#93c5fd"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#93c5fd"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#93c5fd"/></svg><span class="jpn">RESULT</span></div></div>
-      <div class="jp bl locked" id="jp-e"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#93c5fd" stroke-width="2" stroke-linejoin="round"/></svg><span class="jpn">EXCELLENT</span></div></div>
-      <div class="jp br locked" id="jp-i"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="10" r="5" stroke="#93c5fd" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#93c5fd" stroke-width="1.5"/></svg><span class="jpn">INNOVATION</span></div></div>
-    </div>
-    <div class="prog-wrap">
-      <div class="prog-ico" id="progIco">0</div>
-      <div class="prog-info">
-        <div class="prog-lbl" id="progLbl">แสตมป์แล้ว 0 / 4 บูท</div>
-        <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+        <div class="field-grp">
+          <div class="field-lbl">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round"/></svg>
+            ชื่อ-นามสกุล <span class="req">*</span>
+          </div>
+          <div class="field-row">
+            <input class="fi" id="empName" type="text" placeholder="ชื่อ-นามสกุล" oninput="clearErr('empNameErr')" onkeydown="if(event.key==='Enter')doEmpLogin()"/>
+            <input class="fi-sm" id="empDept" type="text" placeholder="แผนก" onkeydown="if(event.key==='Enter')doEmpLogin()"/>
+          </div>
+          <div class="fi-err" id="empNameErr">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><circle cx="12" cy="12" r="9" stroke="#ef4444" stroke-width="2"/><path d="M12 8v4M12 16h.01" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+            กรุณากรอกชื่อ-นามสกุล
+          </div>
+        </div>
+
+        <button class="login-btn" id="loginBtn" onclick="doEmpLogin()">
+          <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 17 15 12 10 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="15" y1="12" x2="3" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+          เข้าสู่ระบบ
+        </button>
+
+        <div class="login-divider"><span>รูปแบบรหัสพนักงาน</span></div>
+        <div class="id-format">
+          <div class="id-format-t">
+            <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#374151" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#374151" stroke-width="2" stroke-linecap="round"/></svg>
+            ตัวอย่างรหัสที่ใช้ได้
+          </div>
+          <div class="id-examples">
+            <span class="id-ex">7126911</span>
+            <span class="id-ex">EMP-001</span>
+            <span class="id-ex">WD12345</span>
+            <span class="id-ex">MFG-099</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- Done Banner -->
-  <div class="done-banner" id="doneBanner">
-    <div class="done-t">🎉 จิ๊กซอว์สมบูรณ์!</div>
-    <div class="done-s">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div>
-    <span class="reset-lnk" onclick="resetAll()">เริ่มใหม่ (คนถัดไป)</span>
-  </div>
-
-  <!-- Booth Section -->
-  <div class="booth-sec">
-    <div class="booth-hdr">
-      <div class="booth-hdr-lbl">เลือกบูทที่ต้องการแสตมป์</div>
-      <div class="booth-count" id="boothCount">0 / 4 บูท</div>
-    </div>
-    <div class="booth-grid" id="boothGrid"></div>
-  </div>
-
-  <!-- Benefit -->
-  <div class="benefit-card">
-    <div class="benefit-title">
-      <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" fill="#1c4eb4"/></svg>
-      ประโยชน์
-    </div>
-    <div class="benefit-list">
-      <div class="bitem">
-        <div class="bitem-ico" style="background:#eff6ff"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#1c4eb4" stroke-width="2" stroke-linejoin="round"/></svg></div>
-        <div class="bitem-text"><div class="bitem-t">ลดการใช้กระดาษ</div><div class="bitem-s">รักษ์โลกมากขึ้น</div></div>
-      </div>
-      <div class="bitem">
-        <div class="bitem-ico" style="background:#f0fdf4"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#059669" stroke-width="2" stroke-linejoin="round"/></svg></div>
-        <div class="bitem-text"><div class="bitem-t">สะดวก รวดเร็ว</div><div class="bitem-s">แสตมป์ผ่านมือถือได้เลย</div></div>
-      </div>
-      <div class="bitem">
-        <div class="bitem-ico" style="background:#fffbeb"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg></div>
-        <div class="bitem-text"><div class="bitem-t">สนุกและท้าทาย</div><div class="bitem-s">สะสมให้ครบ รับรางวัล!</div></div>
-      </div>
-    </div>
-  </div>
-
-</div>
 </div>
 
-<!-- ══ COMPLETE MODAL ══ -->
+<!-- ══ PAGE: MAIN (after login) ══ -->
+<div class="page" id="pgMain">
+  <div class="hdr">
+    <div class="hdr-stars" id="hdrStars2"></div>
+    <div class="hdr-inner">
+      <div class="hdr-logo-row">
+        <div class="hdr-logo-wrap"><span class="hdr-logo-txt">WD</span></div>
+        <div class="hdr-brand">
+          <div class="hdr-title">WD Journey Stamp</div>
+          <div class="hdr-tagline">แสตมป์ครบ 4 บูท รับจิ๊กซอว์สมบูรณ์</div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-btn" onclick="showPage('pgLogin')">
+      <svg viewBox="0 0 24 24" fill="none" width="12" height="12"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/></svg>
+      Admin
+    </div>
+  </div>
+  <div class="wrap">
+    <!-- User Chip -->
+    <div class="user-chip" id="userChip">
+      <div class="uc-av" id="ucAv">?</div>
+      <div class="uc-info">
+        <div class="uc-name" id="ucName">-</div>
+        <div class="uc-meta">
+          <span class="uc-id" id="ucId">-</span>
+          <span id="ucDept" style="font-size:10px;color:#9ca3af">-</span>
+        </div>
+      </div>
+      <div class="uc-logout" onclick="doEmpLogout()">ออก</div>
+    </div>
+
+    <!-- Jigsaw -->
+    <div class="jig-card">
+      <div class="jig-grid">
+        <div class="jp tl locked" id="jp-c"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="8" r="4" stroke="#93c5fd" stroke-width="2"/><path d="M4 20 Q12 15 20 20" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" fill="none"/></svg><span class="jpn">CUSTOMER</span></div></div>
+        <div class="jp tr locked" id="jp-r"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><rect x="3" y="14" width="4" height="7" rx="1" fill="#93c5fd"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#93c5fd"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#93c5fd"/></svg><span class="jpn">RESULT</span></div></div>
+        <div class="jp bl locked" id="jp-e"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#93c5fd" stroke-width="2" stroke-linejoin="round"/></svg><span class="jpn">EXCELLENT</span></div></div>
+        <div class="jp br locked" id="jp-i"><img class="ji" src="https://i.imgur.com/NZIscuH.png" alt=""/><div class="jp-ov"><svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="10" r="5" stroke="#93c5fd" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#93c5fd" stroke-width="1.5"/></svg><span class="jpn">INNOVATION</span></div></div>
+      </div>
+      <div class="prog-wrap">
+        <div class="prog-ico" id="progIco">0</div>
+        <div class="prog-info">
+          <div class="prog-lbl" id="progLbl">แสตมป์แล้ว 0 / 4 บูท</div>
+          <div class="prog-track"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done Banner -->
+    <div class="done-banner" id="doneBanner">
+      <div class="done-t">🎉 จิ๊กซอว์สมบูรณ์!</div>
+      <div class="done-s">ขอบคุณที่ร่วมกิจกรรมครบทั้ง 4 บูท 🌿</div>
+      <span class="reset-lnk" onclick="doEmpLogout()">ออกจากระบบ (คนถัดไป)</span>
+    </div>
+
+    <!-- Booth -->
+    <div class="booth-sec">
+      <div class="booth-hdr">
+        <div class="booth-hdr-lbl">เลือกบูทที่ต้องการแสตมป์</div>
+        <div class="booth-count" id="boothCount">0 / 4 บูท</div>
+      </div>
+      <div class="booth-grid" id="boothGrid"></div>
+    </div>
+
+    <!-- Benefit -->
+    <div class="benefit-card">
+      <div class="benefit-title">
+        <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" fill="#1c4eb4"/></svg>
+        ประโยชน์
+      </div>
+      <div class="benefit-list">
+        <div class="bitem"><div class="bitem-ico" style="background:#eff6ff"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#1c4eb4" stroke-width="2" stroke-linejoin="round"/></svg></div><div class="bitem-text"><div class="bitem-t">ลดการใช้กระดาษ</div><div class="bitem-s">รักษ์โลกมากขึ้น</div></div></div>
+        <div class="bitem"><div class="bitem-ico" style="background:#f0fdf4"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#059669" stroke-width="2" stroke-linejoin="round"/></svg></div><div class="bitem-text"><div class="bitem-t">สะดวก รวดเร็ว</div><div class="bitem-s">แสตมป์ผ่านมือถือได้เลย</div></div></div>
+        <div class="bitem"><div class="bitem-ico" style="background:#fffbeb"><svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg></div><div class="bitem-text"><div class="bitem-t">สนุกและท้าทาย</div><div class="bitem-s">สะสมให้ครบ รับรางวัล!</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPLETE MODAL -->
 <div class="mwrap" id="mWrap">
   <div class="msheet">
     <div class="mhdl"></div>
@@ -372,30 +464,27 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
       <div class="mj br"><img src="https://i.imgur.com/NZIscuH.png"/></div>
     </div>
     <div class="mtit">🏆 จิ๊กซอว์สมบูรณ์!</div>
-    <div class="msub">ครบทั้ง 4 บูทแล้ว!<br>ข้อมูลของคุณถูกบันทึกเรียบร้อย 🎉</div>
-    <div class="meco">
-      <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#059669"/></svg>
-      ลดการใช้กระดาษ รักษ์โลกมากขึ้น
-    </div>
-    <button class="mbtn" onclick="resetAll()">เริ่มใหม่ (คนถัดไป)</button>
+    <div class="msub" id="mSubTxt">ครบทั้ง 4 บูทแล้ว! ข้อมูลของคุณถูกบันทึกเรียบร้อย 🎉</div>
+    <div class="meco"><svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="#059669"/></svg>ลดการใช้กระดาษ รักษ์โลกมากขึ้น</div>
+    <button class="mbtn" onclick="doEmpLogout()">ออกจากระบบ (คนถัดไป)</button>
   </div>
 </div>
 
-<!-- ══ ADMIN LOGIN ══ -->
+<!-- ADMIN LOGIN -->
 <div class="page" id="pgLogin">
   <div class="alw"><div class="alc">
-    <img class="all" src="https://i.imgur.com/7lE2Rcx.png" onerror="this.style.display='none'"/>
+    <div style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1c4eb4,#2563eb);display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" width="28" height="28"><circle cx="12" cy="8" r="4" stroke="white" stroke-width="2"/><path d="M4 20 Q12 14 20 20" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div>
     <div class="alt">Admin Login</div>
     <div class="als">เข้าสู่ระบบดูข้อมูลการแสตมป์</div>
     <input class="ali" type="text" id="au" placeholder="Username"/>
     <input class="ali" type="password" id="ap" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()"/>
     <button class="alb" onclick="doLogin()">เข้าสู่ระบบ</button>
     <div class="ale" id="aerr">Username หรือ Password ไม่ถูกต้อง</div>
-    <div class="alback" onclick="showPage('pgMain')">← กลับหน้าหลัก</div>
+    <div class="alback" onclick="goBackFromAdmin()">← กลับหน้าหลัก</div>
   </div></div>
 </div>
 
-<!-- ══ ADMIN DASHBOARD ══ -->
+<!-- ADMIN DASHBOARD -->
 <div class="page" id="pgAdmin">
 <div class="adw">
   <div class="adt">
@@ -421,15 +510,15 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
   <div class="secc">
     <div class="sect"><svg viewBox="0 0 24 24" fill="none" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#1c4eb4" stroke-width="2"/><path d="M3 9h18M9 9v12" stroke="#1c4eb4" stroke-width="2"/></svg>รายชื่อผู้เข้าร่วม</div>
     <div class="tact">
-      <input class="tsr" type="text" placeholder="ค้นหาชื่อ / แผนก..." id="tSearch" oninput="filterT()"/>
+      <input class="tsr" type="text" placeholder="ค้นหาชื่อ / รหัส / แผนก..." id="tSearch" oninput="filterT()"/>
       <select class="tfl" id="tFilt" onchange="filterT()"><option value="all">ทั้งหมด</option><option value="complete">ครบ 4</option><option value="partial">ยังไม่ครบ</option></select>
       <button class="teb" onclick="exportCSV()"><svg viewBox="0 0 24 24" fill="none" width="12" height="12"><path d="M12 3v13M7 11l5 5 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20h16" stroke="white" stroke-width="2" stroke-linecap="round"/></svg> Export CSV</button>
-      <button class="tdb" onclick="addDemo()">+ เพิ่มข้อมูลทดสอบ</button>
+      <button class="tdb" onclick="addDemo()">+ ทดสอบ</button>
       <button class="tdel" onclick="delAll()">🗑 ลบทั้งหมด</button>
     </div>
     <div class="tsc">
       <table class="dtbl">
-        <thead><tr><th>#</th><th>ชื่อ-นามสกุล</th><th>แผนก</th><th>Customer</th><th>Result</th><th>Excellent</th><th>Innovation</th><th>สถานะ</th><th>เวลา</th><th>ลบ</th></tr></thead>
+        <thead><tr><th>#</th><th>ชื่อ-นามสกุล / รหัส</th><th>แผนก</th><th>C</th><th>R</th><th>E</th><th>I</th><th>สถานะ</th><th>เวลา</th><th>ลบ</th></tr></thead>
         <tbody id="tBody"></tbody>
       </table>
     </div>
@@ -438,7 +527,7 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 </div>
 </div>
 
-<!-- ══ CONFIRM ══ -->
+<!-- CONFIRM -->
 <div class="cwrap" id="cWrap">
   <div class="cbox">
     <div class="cico"><svg viewBox="0 0 24 24" fill="none" width="28" height="28"><polyline points="3 6 5 6 21 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -450,54 +539,108 @@ body{background:linear-gradient(160deg,#e8f0fe 0%,#f0f4ff 40%,#e8f4fd 100%);min-
 <div class="toast" id="toast"></div>
 
 <script>
-var GS  = "https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
-var LS  = "wd_es_v2";
-var SS  = {
-  c:'https://app.smartsheet.com/b/form/019e5ca730d8763fa0d4f065bec45209',
-  r:'https://app.smartsheet.com/b/form/019e5cae940a7ea98063e3d8c4ab02e7',
-  e:'https://app.smartsheet.com/b/form/019e5cab0ea07e49b8ddd44a065064b7',
-  i:'https://app.smartsheet.com/b/form/019e5cb0006a750581e77cbf2eb672a7'
-};
+var GS = "https://script.google.com/macros/s/AKfycbxVVGyO_5JcK1wQQbkYWVWUN0g50JB65XiNuv7wxAf1bHkhe_jXOdTG5MMHwrbEKen9/exec";
+var LS = "wd_es_v3";
+var SS = {c:'https://app.smartsheet.com/b/form/019e5ca730d8763fa0d4f065bec45209',r:'https://app.smartsheet.com/b/form/019e5cae940a7ea98063e3d8c4ab02e7',e:'https://app.smartsheet.com/b/form/019e5cab0ea07e49b8ddd44a065064b7',i:'https://app.smartsheet.com/b/form/019e5cb0006a750581e77cbf2eb672a7'};
 var BOOTHS=[
-  {k:'c',id:'jp-c',lbl:'Customer',   desc:'บูทเกี่ยวกับลูกค้า', sub:'BOOTH 1',cls:'bc', color:'#1c4eb4',bg:'#eff6ff',
-   ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'},
-  {k:'r',id:'jp-r',lbl:'Result',     desc:'บูทเกี่ยวกับผลลัพธ์', sub:'BOOTH 2',cls:'br2',color:'#059669',bg:'#f0fdf4',
-   ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>'},
-  {k:'e',id:'jp-e',lbl:'Excellent',  desc:'บูทความเป็นเลิศ', sub:'BOOTH 3',cls:'be', color:'#d97706',bg:'#fffbeb',
-   ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>'},
-  {k:'i',id:'jp-i',lbl:'Innovation', desc:'บูทนวัตกรรม', sub:'BOOTH 4',cls:'bi', color:'#7c3aed',bg:'#f5f3ff',
-   ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
+  {k:'c',id:'jp-c',lbl:'Customer',   desc:'บูทเกี่ยวกับลูกค้า',   sub:'BOOTH 1',cls:'bc', color:'#1c4eb4',bg:'#eff6ff',ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="#1c4eb4" stroke-width="2"/><circle cx="7" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><circle cx="17" cy="10.5" r="2.5" stroke="#1c4eb4" stroke-width="1.5"/><path d="M2 20 Q7 16 12 16 Q17 16 22 20" stroke="#1c4eb4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>'},
+  {k:'r',id:'jp-r',lbl:'Result',     desc:'บูทเกี่ยวกับผลลัพธ์', sub:'BOOTH 2',cls:'br2',color:'#059669',bg:'#f0fdf4',ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><rect x="3" y="14" width="4" height="7" rx="1" fill="#059669"/><rect x="10" y="10" width="4" height="11" rx="1" fill="#059669"/><rect x="17" y="6" width="4" height="15" rx="1" fill="#059669"/></svg>'},
+  {k:'e',id:'jp-e',lbl:'Excellent',  desc:'บูทความเป็นเลิศ',      sub:'BOOTH 3',cls:'be', color:'#d97706',bg:'#fffbeb',ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M12 2l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#d97706" stroke-width="2" stroke-linejoin="round" fill="#fde68a"/></svg>'},
+  {k:'i',id:'jp-i',lbl:'Innovation', desc:'บูทนวัตกรรม',           sub:'BOOTH 4',cls:'bi', color:'#7c3aed',bg:'#f5f3ff',ico:'<svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="10" r="5" stroke="#7c3aed" stroke-width="2"/><path d="M9.5 14.5Q10 16 10 17h4q0-1 .5-2.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/><rect x="10" y="17" width="4" height="2" rx=".5" stroke="#7c3aed" stroke-width="1.5"/></svg>'}
 ];
 var DN=[['สมชาย ใจดี','ฝ่ายผลิต'],['สุดา รักษ์ไทย','ฝ่ายขาย'],['วิชัย มั่นคง','ฝ่าย HR'],['นภา สดใส','ฝ่าย IT'],['ประสิทธิ์ เก่งงาน','ฝ่ายบัญชี'],['มาลี วงศ์งาม','ฝ่ายการตลาด']];
+var DID=['7126911','7234501','7345678','WD00123','EMP-042','MFG-099'];
 var stamped={c:false,r:false,e:false,i:false};
+var currentUser=null;
 var pDB=[],pg=1,PPG=8,pAct=null,rdInt=null,rdTgt=null;
 
 /* stars */
-(function(){var s=document.getElementById('hdrStars');var pos=[[15,20],[30,40],[70,15],[85,35],[50,10],[90,60],[10,65],[40,55],[60,30],[78,70]];pos.forEach(function(p,i){var el=document.createElement('span');el.className='star';el.textContent='✦';el.style.cssText='left:'+p[0]+'%;top:'+p[1]+'%;animation-delay:'+(i*.3)+'s';s.appendChild(el);});})();
+['hdrStars','hdrStars2'].forEach(function(sid){var s=document.getElementById(sid);if(!s)return;var pos=[[15,20],[30,40],[70,15],[85,35],[50,10],[90,60],[10,65],[40,55],[60,30],[78,70]];pos.forEach(function(p,i){var el=document.createElement('span');el.className='star';el.textContent='✦';el.style.cssText='left:'+p[0]+'%;top:'+p[1]+'%;animation-delay:'+(i*.3)+'s';s.appendChild(el);});});
 
 function lsLoad(){try{return JSON.parse(localStorage.getItem(LS)||'{}');}catch(e){return {};}}
 function lsSave(d){try{localStorage.setItem(LS,JSON.stringify(d));}catch(e){}}
 function lsClear(){try{localStorage.removeItem(LS);}catch(e){}}
 function showPage(id){document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.getElementById(id).classList.add('active');window.scrollTo(0,0);}
-function loadLS(){var d=lsLoad();if(d.name)document.getElementById('empName').value=d.name;if(d.dept)document.getElementById('empDept').value=d.dept;if(d.stamped)stamped=d.stamped;}
-function saveName(){var d=lsLoad();d.name=document.getElementById('empName').value.trim();d.dept=document.getElementById('empDept').value.trim();lsSave(d);}
-function saveStamp(){var d=lsLoad();d.stamped=stamped;lsSave(d);}
+
+/* ── Employee Login/Logout ── */
+function clearErr(id){var el=document.getElementById(id);if(el)el.classList.remove('show');}
+function showErr(id,msg){var el=document.getElementById(id);if(!el)return;el.classList.add('show');if(msg){var ms=el.querySelector('span');if(ms)ms.textContent=msg;}}
+
+function doEmpLogin(){
+  var eid=(document.getElementById('empId').value||'').trim();
+  var nm=(document.getElementById('empName').value||'').trim();
+  var dept=(document.getElementById('empDept').value||'').trim();
+  var ok=true;
+  if(!eid){showErr('empIdErr','กรุณากรอกรหัสพนักงาน');document.getElementById('empId').classList.add('err-field');ok=false;}
+  else{document.getElementById('empId').classList.remove('err-field');}
+  if(!nm){showErr('empNameErr','กรุณากรอกชื่อ-นามสกุล');document.getElementById('empName').classList.add('err-field');ok=false;}
+  else{document.getElementById('empName').classList.remove('err-field');}
+  if(!ok)return;
+
+  var btn=document.getElementById('loginBtn');
+  btn.disabled=true;
+  btn.innerHTML='<div class="btn-spin"></div> กำลังเข้าระบบ...';
+
+  setTimeout(function(){
+    btn.disabled=false;
+    btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10 17 15 12 10 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="15" y1="12" x2="3" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>เข้าสู่ระบบ';
+
+    currentUser={id:eid,name:nm,dept:dept||'ไม่ระบุแผนก'};
+    var saved=lsLoad();
+    var userKey='user_'+eid;
+    if(saved[userKey]){stamped=saved[userKey];}
+    else{stamped={c:false,r:false,e:false,i:false};}
+    lsSave(Object.assign(saved,{currentUser:currentUser}));
+
+    renderUserChip();
+    buildBooths();
+    updateJig();
+    showPage('pgMain');
+    showToast('ยินดีต้อนรับ '+nm+' !','suc');
+    handleBoothParam();
+  },800);
+}
+
+function doEmpLogout(){
+  stamped={c:false,r:false,e:false,i:false};
+  currentUser=null;
+  document.getElementById('empId').value='';
+  document.getElementById('empName').value='';
+  document.getElementById('empDept').value='';
+  document.getElementById('doneBanner').classList.remove('show');
+  document.getElementById('mWrap').classList.remove('show');
+  var saved=lsLoad();delete saved.currentUser;lsSave(saved);
+  showPage('pgEmpLogin');
+}
+
+function renderUserChip(){
+  if(!currentUser)return;
+  var initials=currentUser.name.split(' ').map(function(w){return w.charAt(0);}).join('').substring(0,2).toUpperCase();
+  document.getElementById('ucAv').textContent=initials||'?';
+  document.getElementById('ucName').textContent=currentUser.name;
+  document.getElementById('ucId').textContent=currentUser.id;
+  document.getElementById('ucDept').textContent=currentUser.dept;
+}
+
+function saveStamp(){
+  if(!currentUser)return;
+  var saved=lsLoad();
+  saved['user_'+currentUser.id]=stamped;
+  lsSave(saved);
+}
 
 /* ── booth param ── */
-function parseBoothParam(){
-  try{var p=new URLSearchParams(window.location.search);var b=(p.get('booth')||'').toLowerCase().trim();if(b==='customer'||b==='c')return 'c';if(b==='result'||b==='r')return 'r';if(b==='excellent'||b==='e')return 'e';if(b==='innovation'||b==='i')return 'i';}catch(x){}
-  return null;
-}
+function parseBoothParam(){try{var p=new URLSearchParams(window.location.search);var b=(p.get('booth')||'').toLowerCase().trim();if(b==='customer'||b==='c')return 'c';if(b==='result'||b==='r')return 'r';if(b==='excellent'||b==='e')return 'e';if(b==='innovation'||b==='i')return 'i';}catch(x){}return null;}
 
 function handleBoothParam(){
   var k=parseBoothParam();
   if(!k)return;
+  if(!currentUser){showToast('กรุณา Login ก่อนแสตมป์','err');return;}
   window.history.replaceState({},document.title,window.location.pathname);
   var b=BOOTHS.find(function(x){return x.k===k;});
   var already=stamped[k];
   var ov=document.getElementById('rdOv');ov.classList.add('show');
-  var icon=document.getElementById('rdIcon');icon.style.background=b.bg;
-  icon.innerHTML=b.ico.replace(/width="22"/g,'width="36"').replace(/height="22"/g,'height="36"');
+  var icon=document.getElementById('rdIcon');icon.style.background=b.bg;icon.innerHTML=b.ico.replace(/width="22"/g,'width="36"').replace(/height="22"/g,'height="36"');
   var tag=document.getElementById('rdTag');tag.textContent=b.lbl+' — '+b.sub;tag.style.background=b.bg;tag.style.color=b.color;tag.style.border='1.5px solid '+b.color+'44';
   if(already){
     document.getElementById('rdTitle').textContent='แสตมป์แล้ว!';
@@ -510,7 +653,7 @@ function handleBoothParam(){
   stamped[k]=true;saveStamp();rdTgt=k;
   var n=Object.values(stamped).filter(Boolean).length;
   document.getElementById('rdTitle').textContent='✅ แสตมป์บูท '+b.lbl+' สำเร็จ!';
-  document.getElementById('rdSub').textContent='กำลังพาคุณไปกรอกแบบฟอร์ม Smartsheet\nของบูทนี้ กรุณารอสักครู่...';
+  document.getElementById('rdSub').textContent='กำลังพาคุณไปกรอกแบบฟอร์ม Smartsheet ของบูทนี้ กรุณารอสักครู่...';
   document.getElementById('rdCount').textContent='แสตมป์แล้ว '+n+' / 4 บูท';
   document.getElementById('rdSkip').style.display='inline-block';
   var fill=document.getElementById('rdProg');fill.style.background=b.color;
@@ -522,7 +665,6 @@ function doSkip(){if(rdInt)clearInterval(rdInt);if(rdTgt)goSmartsheet(rdTgt);}
 function goSmartsheet(k){closeRd();buildBooths();updateJig();var allDone=Object.values(stamped).filter(Boolean).length===4;if(allDone){doConf();saveSheet();}setTimeout(function(){window.location.href=SS[k];},allDone?1000:0);}
 function closeRd(){if(rdInt)clearInterval(rdInt);document.getElementById('rdOv').classList.remove('show');buildBooths();updateJig();}
 
-/* ── booth grid ── */
 function buildBooths(){
   var base=window.location.origin+window.location.pathname;
   var n=Object.values(stamped).filter(Boolean).length;
@@ -530,19 +672,10 @@ function buildBooths(){
   document.getElementById('boothGrid').innerHTML=BOOTHS.map(function(b){
     var done=stamped[b.k];
     var qrUrl=base+'?booth='+b.lbl.toLowerCase();
-    var btn=done
-      ?'<button class="bbtn ok" disabled><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><path d="M20 6L9 17l-5-5" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> แสตมป์แล้ว!</button>'
-      :'<a class="bbtn" href="'+qrUrl+'"><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><rect x="2" y="7" width="20" height="12" rx="2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="13" r="3" stroke="white" stroke-width="1.8"/><path d="M9 7V6a2 2 0 012-2h2a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg> แสตมป์!</a>';
+    var btn=done?'<button class="bbtn ok" disabled><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><path d="M20 6L9 17l-5-5" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> แสตมป์แล้ว!</button>':'<a class="bbtn" href="'+qrUrl+'"><svg viewBox="0 0 24 24" fill="none" width="13" height="13"><rect x="2" y="7" width="20" height="12" rx="2" stroke="white" stroke-width="1.8"/><circle cx="12" cy="13" r="3" stroke="white" stroke-width="1.8"/><path d="M9 7V6a2 2 0 012-2h2a2 2 0 012 2v1" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg> แสตมป์!</a>';
     return '<div class="bcard '+b.cls+(done?' done':'')+'">'+
       (done?'<div class="dbadge">✓ Done</div>':'')+
-      '<div class="bcard-top">'+
-        '<div class="bico">'+b.ico+'</div>'+
-        '<div class="binfo">'+
-          '<div class="bname">'+b.lbl+'</div>'+
-          '<div class="bsub">'+b.desc+'</div>'+
-        '</div>'+
-      '</div>'+
-      btn+'</div>';
+      '<div class="bcard-top"><div class="bico">'+b.ico+'</div><div class="binfo"><div class="bname">'+b.lbl+'</div><div class="bsub">'+b.desc+'</div></div></div>'+btn+'</div>';
   }).join('');
 }
 
@@ -559,46 +692,59 @@ function updateJig(){
 function doConf(){
   var c=['#1c4eb4','#2563eb','#059669','#d97706','#7c3aed','#60a5fa','#34d399','#fbbf24','#f472b6','#fb923c'];
   for(var i=0;i<80;i++){(function(d){setTimeout(function(){var el=document.createElement('div');el.className='conf';var sz=6+Math.random()*10;el.style.cssText='left:'+Math.random()*100+'vw;top:-12px;background:'+c[Math.floor(Math.random()*c.length)]+';width:'+sz+'px;height:'+sz+'px;animation-duration:'+(2.5+Math.random()*2)+'s;animation-delay:'+Math.random()*.5+'s';document.body.appendChild(el);setTimeout(function(){el.remove();},5000);},d);})(i*40);}
+  var nm=currentUser?currentUser.name:'พนักงาน';
+  document.getElementById('mSubTxt').textContent=nm+' ครบทั้ง 4 บูทแล้ว! ข้อมูลถูกบันทึกเรียบร้อย 🎉';
   setTimeout(function(){document.getElementById('mWrap').classList.add('show');},600);
 }
 
 function saveSheet(){
-  var name=document.getElementById('empName').value.trim()||'ไม่ระบุชื่อ';
-  var dept=document.getElementById('empDept').value.trim()||'ไม่ระบุแผนก';
+  if(!currentUser)return;
   var now=new Date();
-  pDB.push({id:Date.now(),name:name,dept:dept,c:true,r:true,e:true,i:true,done:true,total:4,time:now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})});
-  fetch(GS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeId:'EMP-'+Date.now(),name:name,department:dept,customer:stamped.c,result:stamped.r,excellent:stamped.e,innovation:stamped.i})}).catch(function(){});
+  pDB.push({id:Date.now(),empId:currentUser.id,name:currentUser.name,dept:currentUser.dept,c:true,r:true,e:true,i:true,done:true,total:4,time:now.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'})});
+  fetch(GS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({employeeId:currentUser.id,name:currentUser.name,department:currentUser.dept,customer:stamped.c,result:stamped.r,excellent:stamped.e,innovation:stamped.i})}).catch(function(){});
 }
-
-function resetAll(){stamped={c:false,r:false,e:false,i:false};lsClear();document.getElementById('empName').value='';document.getElementById('empDept').value='';buildBooths();updateJig();document.getElementById('doneBanner').classList.remove('show');document.getElementById('mWrap').classList.remove('show');}
 
 var _tt=null;
 function showToast(m,t){var el=document.getElementById('toast');el.textContent=m;el.className='toast '+(t||'')+' show';if(_tt)clearTimeout(_tt);_tt=setTimeout(function(){el.classList.remove('show');},3200);}
 function doLogin(){var u=document.getElementById('au').value.trim(),p=document.getElementById('ap').value.trim();if(u==='admin'&&p==='1234'){document.getElementById('aerr').style.display='none';showPage('pgAdmin');fetchData();}else document.getElementById('aerr').style.display='block';}
-function doLogout(){document.getElementById('au').value='';document.getElementById('ap').value='';showPage('pgMain');}
+function doLogout(){document.getElementById('au').value='';document.getElementById('ap').value='';showPage(currentUser?'pgMain':'pgEmpLogin');}
+function goBackFromAdmin(){showPage(currentUser?'pgMain':'pgEmpLogin');}
+
 function fetchData(){
   document.getElementById('adStat').textContent='กำลังโหลด...';
   fetch(GS+'?action=getAll&t='+Date.now()).then(function(r){return r.json();}).then(function(j){
-    if(j.rows&&j.rows.length>1){pDB=j.rows.slice(1).map(function(r,i){return{id:i+1,time:r[0]?new Date(r[0]).toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}):'-',name:r[2]||'ไม่ระบุ',dept:r[3]||'-',c:r[4]==='TRUE'||r[4]===true||r[4]==='✓',r:r[5]==='TRUE'||r[5]===true||r[5]==='✓',e:r[6]==='TRUE'||r[6]===true||r[6]==='✓',i:r[7]==='TRUE'||r[7]===true||r[7]==='✓',total:Number(r[8])||0,done:r[9]==='ครบ'||r[9]===true};});}
+    if(j.rows&&j.rows.length>1){pDB=j.rows.slice(1).map(function(r,i){return{id:i+1,empId:r[1]||'-',name:r[2]||'ไม่ระบุ',dept:r[3]||'-',c:r[4]==='TRUE'||r[4]===true||r[4]==='✓',r:r[5]==='TRUE'||r[5]===true||r[5]==='✓',e:r[6]==='TRUE'||r[6]===true||r[6]==='✓',i:r[7]==='TRUE'||r[7]===true||r[7]==='✓',total:Number(r[8])||0,done:r[9]==='ครบ'||r[9]===true,time:r[0]?new Date(r[0]).toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'}):'-'};});}
     document.getElementById('adStat').textContent='อัปเดต '+new Date().toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit'});
     showToast('โหลดข้อมูลจาก Sheets ✅','suc');updStats();rendBars();pg=1;rendT();
   }).catch(function(){document.getElementById('adStat').textContent='ใช้ข้อมูล Local';updStats();rendBars();pg=1;rendT();});
 }
 function updStats(){var tot=pDB.length,done=pDB.filter(function(r){return r.done;}).length;document.getElementById('sT').textContent=tot;document.getElementById('sC').textContent=done;document.getElementById('sP').textContent=tot-done;document.getElementById('sR').textContent=tot>0?Math.round(done/tot*100)+'%':'0%';}
 function rendBars(){var tot=pDB.length||1;document.getElementById('bbBars').innerHTML=BOOTHS.map(function(b){var cnt=pDB.filter(function(r){return r[b.k];}).length;var pct=Math.round(cnt/tot*100);return'<div class="bbar"><span class="bbl" style="color:'+b.color+'">'+b.lbl+'</span><div class="bbt"><div class="bbf" style="width:'+pct+'%;background:'+b.color+'"></div></div><span class="bbc">'+cnt+'</span></div>';}).join('');}
-function getFlt(){var q=(document.getElementById('tSearch').value||'').toLowerCase();var f=document.getElementById('tFilt').value;return pDB.filter(function(r){var mq=!q||r.name.toLowerCase().includes(q)||(r.dept||'').toLowerCase().includes(q);var mf=f==='all'||(f==='complete'&&r.done)||(f==='partial'&&!r.done);return mq&&mf;});}
+function getFlt(){var q=(document.getElementById('tSearch').value||'').toLowerCase();var f=document.getElementById('tFilt').value;return pDB.filter(function(r){var mq=!q||r.name.toLowerCase().includes(q)||(r.dept||'').toLowerCase().includes(q)||(r.empId||'').toLowerCase().includes(q);var mf=f==='all'||(f==='complete'&&r.done)||(f==='partial'&&!r.done);return mq&&mf;});}
 function filterT(){pg=1;rendT();}
 function goPg(p){pg=p;rendT();}
-function rendT(){var fl=getFlt(),tot=fl.length,pgs=Math.max(1,Math.ceil(tot/PPG)),st=(pg-1)*PPG,rows=fl.slice(st,st+PPG);var dot=function(v){return v?'<span class="dot don">✓</span>':'<span class="dot doff">–</span>';};document.getElementById('tBody').innerHTML=rows.length===0?'<tr><td colspan="10" style="text-align:center;color:#93c5fd;padding:28px;font-size:13px">ไม่มีข้อมูล</td></tr>':rows.map(function(r,idx){var badge=r.done?'<span class="bok">ครบ 4</span>':r.total===0?'<span class="bno">ยังไม่เริ่ม</span>':'<span class="bpt">'+r.total+'/4</span>';return'<tr><td style="color:#9ca3af">'+(st+idx+1)+'</td><td><div class="tn">'+r.name+'</div><div class="tdep">'+(r.dept||'-')+'</div></td><td style="color:#6b7280;font-size:10px">'+(r.dept||'-')+'</td><td>'+dot(r.c)+'</td><td>'+dot(r.r)+'</td><td>'+dot(r.e)+'</td><td>'+dot(r.i)+'</td><td>'+badge+'</td><td style="color:#6b7280;font-size:9px">'+(r.time||'-')+'</td><td><button class="delb" onclick="delRow('+r.id+')">✕</button></td></tr>';}).join('');document.getElementById('pgI').textContent='แสดง '+Math.min(st+1,tot)+'–'+Math.min(st+PPG,tot)+' / '+tot+' รายการ';var btns='';for(var p=1;p<=pgs;p++)btns+='<button class="pb'+(p===pg?' ac':'')+'" onclick="goPg('+p+')">'+p+'</button>';document.getElementById('pgB').innerHTML=btns;}
+function rendT(){var fl=getFlt(),tot=fl.length,pgs=Math.max(1,Math.ceil(tot/PPG)),st=(pg-1)*PPG,rows=fl.slice(st,st+PPG);var dot=function(v){return v?'<span class="dot don">✓</span>':'<span class="dot doff">–</span>';};document.getElementById('tBody').innerHTML=rows.length===0?'<tr><td colspan="10" style="text-align:center;color:#93c5fd;padding:28px;font-size:13px">ไม่มีข้อมูล</td></tr>':rows.map(function(r,idx){var badge=r.done?'<span class="bok">ครบ 4</span>':r.total===0?'<span class="bno">ยังไม่เริ่ม</span>':'<span class="bpt">'+r.total+'/4</span>';return'<tr><td style="color:#9ca3af">'+(st+idx+1)+'</td><td><div class="tn">'+r.name+'</div><div class="tid">'+r.empId+'</div></td><td style="color:#6b7280;font-size:10px">'+(r.dept||'-')+'</td><td>'+dot(r.c)+'</td><td>'+dot(r.r)+'</td><td>'+dot(r.e)+'</td><td>'+dot(r.i)+'</td><td>'+badge+'</td><td style="color:#6b7280;font-size:9px">'+(r.time||'-')+'</td><td><button class="delb" onclick="delRow('+r.id+')">✕</button></td></tr>';}).join('');document.getElementById('pgI').textContent='แสดง '+Math.min(st+1,tot)+'–'+Math.min(st+PPG,tot)+' / '+tot+' รายการ';var btns='';for(var p=1;p<=pgs;p++)btns+='<button class="pb'+(p===pg?' ac':'')+'" onclick="goPg('+p+')">'+p+'</button>';document.getElementById('pgB').innerHTML=btns;}
 function delRow(id){pAct=function(){pDB=pDB.filter(function(r){return r.id!==id;});updStats();rendBars();rendT();showToast('ลบรายการเรียบร้อย','suc');};var rec=pDB.find(function(r){return r.id===id;});document.getElementById('cT').textContent='ลบรายการนี้?';document.getElementById('cS').textContent='ลบข้อมูลของ "'+(rec?rec.name:'รายการนี้')+'" ไม่สามารถกู้คืนได้';document.getElementById('cOK').textContent='ลบเลย';document.getElementById('cWrap').classList.add('show');}
 function delAll(){if(pDB.length===0){showToast('ไม่มีข้อมูลให้ลบ','err');return;}pAct=function(){pDB=[];updStats();rendBars();pg=1;rendT();showToast('ลบทั้งหมดเรียบร้อย','suc');};document.getElementById('cT').textContent='ลบข้อมูลทั้งหมด?';document.getElementById('cS').textContent='จะลบข้อมูล '+pDB.length+' รายการ ไม่สามารถกู้คืนได้';document.getElementById('cOK').textContent='ลบทั้งหมดเลย';document.getElementById('cWrap').classList.add('show');}
 function closeCon(){document.getElementById('cWrap').classList.remove('show');pAct=null;}
 document.getElementById('cOK').addEventListener('click',function(){if(pAct){pAct();pAct=null;}closeCon();});
 document.getElementById('cWrap').addEventListener('click',function(e){if(e.target===this)closeCon();});
-function addDemo(){var hours=['08:30','09:15','10:00','10:45','11:20','13:00','13:45','14:30'];for(var i=0;i<5;i++){var nm=DN[Math.floor(Math.random()*DN.length)];var s=Math.random()>.35?{c:true,r:true,e:true,i:true}:{c:Math.random()>.3,r:Math.random()>.4,e:Math.random()>.5,i:Math.random()>.5};var tot=['c','r','e','i'].filter(function(k){return s[k];}).length;pDB.push({id:Date.now()+i,name:nm[0],dept:nm[1],c:s.c,r:s.r,e:s.e,i:s.i,total:tot,done:s.c&&s.r&&s.e&&s.i,time:hours[Math.floor(Math.random()*hours.length)]});}updStats();rendBars();pg=1;rendT();showToast('เพิ่มข้อมูลทดสอบ 5 รายการ ✅','suc');}
-function exportCSV(){var fl=getFlt();if(!fl.length){showToast('ไม่มีข้อมูล','err');return;}var h=['#','ชื่อ-นามสกุล','แผนก','Customer','Result','Excellent','Innovation','สถานะ','เวลา'];var rows=fl.map(function(r,i){return[i+1,r.name,r.dept||'',r.c?'✓':'✗',r.r?'✓':'✗',r.e?'✓':'✗',r.i?'✓':'✗',r.done?'ครบ 4 บูท':(r.total||0)+'/4',r.time||''];});var csv=[h].concat(rows).map(function(r){return r.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='wd-estamp.csv';a.click();URL.revokeObjectURL(url);showToast('Export CSV สำเร็จ ✅','suc');}
-document.getElementById('mWrap').addEventListener('click',function(e){if(e.target===this)resetAll();});
-loadLS();buildBooths();updateJig();handleBoothParam();
+function addDemo(){for(var i=0;i<5;i++){var nm=DN[Math.floor(Math.random()*DN.length)];var did=DID[Math.floor(Math.random()*DID.length)];var s=Math.random()>.35?{c:true,r:true,e:true,i:true}:{c:Math.random()>.3,r:Math.random()>.4,e:Math.random()>.5,i:Math.random()>.5};var tot=['c','r','e','i'].filter(function(k){return s[k];}).length;pDB.push({id:Date.now()+i,empId:did,name:nm[0],dept:nm[1],c:s.c,r:s.r,e:s.e,i:s.i,total:tot,done:s.c&&s.r&&s.e&&s.i,time:['08:30','09:15','10:00','10:45','13:00','14:30'][Math.floor(Math.random()*6)]});}updStats();rendBars();pg=1;rendT();showToast('เพิ่มข้อมูลทดสอบ 5 รายการ ✅','suc');}
+function exportCSV(){var fl=getFlt();if(!fl.length){showToast('ไม่มีข้อมูล','err');return;}var h=['#','รหัสพนักงาน','ชื่อ-นามสกุล','แผนก','Customer','Result','Excellent','Innovation','สถานะ','เวลา'];var rows=fl.map(function(r,i){return[i+1,r.empId||'-',r.name,r.dept||'',r.c?'✓':'✗',r.r?'✓':'✗',r.e?'✓':'✗',r.i?'✓':'✗',r.done?'ครบ 4 บูท':(r.total||0)+'/4',r.time||''];});var csv=[h].concat(rows).map(function(r){return r.map(function(c){return'"'+String(c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');var blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='wd-estamp.csv';a.click();URL.revokeObjectURL(url);showToast('Export CSV สำเร็จ ✅','suc');}
+document.getElementById('mWrap').addEventListener('click',function(e){if(e.target===this)doEmpLogout();});
+
+/* init — auto-restore session */
+(function(){
+  var saved=lsLoad();
+  if(saved.currentUser){
+    currentUser=saved.currentUser;
+    var userKey='user_'+currentUser.id;
+    if(saved[userKey])stamped=saved[userKey];
+    renderUserChip();buildBooths();updateJig();
+    showPage('pgMain');
+    handleBoothParam();
+  }
+})();
 </script>
 </body>
 </html>
